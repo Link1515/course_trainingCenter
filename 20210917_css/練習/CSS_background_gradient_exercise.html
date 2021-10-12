@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      table {
+        margin: 1rem;
+        display: inline-block;
+      }
+      table,
+      tr,
+      td {
+        border: 1px solid #000;
+      }
+
+      table td {
+        width: 200px;
+        height: 200px;
+      }
+
+      .topLeft {
+        background-color: #dc143c;
+      }
+
+      .topCenter {
+        background-image: url('https://picsum.photos/200/200/?random=1');
+      }
+
+      .topRight {
+        background-image: url('https://picsum.photos/50/50/?random=1');
+        background-repeat: repeat-x;
+      }
+
+      .centerLeft {
+        background-image: url('https://picsum.photos/50/50/?random=2');
+        background-repeat: repeat-y;
+      }
+
+      .centerCenter {
+        background-image: url('https://picsum.photos/50/50/?random=3');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .centerRight {
+        background-color: #ffa;
+        background-image: url('https://picsum.photos/50/50/?random=4');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .bottomLeft {
+        background: url('https://picsum.photos/200/50/?random=1') no-repeat top,
+          url('https://picsum.photos/200/100/?random=1') no-repeat center,
+          url('https://picsum.photos/200/50/?random=1') no-repeat bottom;
+      }
+
+      .bottomCenter {
+        background-image: linear-gradient(to right, #000, #00f);
+      }
+
+      .bottomRight {
+        background-image: radial-gradient(#000, #fff);
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td class="topLeft"></td>
+        <td class="topCenter"></td>
+        <td class="topRight"></td>
+      </tr>
+      <tr>
+        <td class="centerLeft"></td>
+        <td class="centerCenter"></td>
+        <td class="centerRight"></td>
+      </tr>
+      <tr>
+        <td class="bottomLeft"></td>
+        <td class="bottomCenter"></td>
+        <td class="bottomRight"></td>
+      </tr>
+    </table>
+  </body>
+</html>

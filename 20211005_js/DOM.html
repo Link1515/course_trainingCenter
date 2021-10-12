@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bg-gray {
+        background-color: gray;
+      }
+
+      .border {
+        border: 3px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">標題</h1>
+    <div></div>
+    <div></div>
+    <p class="text-red text-center">紅色置中</p>
+    <p class="text-blue text-right">藍色靠右</p>
+    <p class="text-blue text-right">藍色靠右</p>
+    <ul>
+      <li id="ul1-li1">第一個ul的第一個li</li>
+    </ul>
+    <div id="links">
+      <a href="https://fb.com">FB</a>
+      <a href="https://google.com">Google</a>
+    </div>
+    <ul id="ul2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul id="ul3">
+      <li>1</li>
+      <li id="ul3-li2">2</li>
+      <li>3</li>
+    </ul>
+    <p id="p"></p>
+
+    <script>
+      const title = document.getElementById('title');
+      console.log(`title 的文字是是 ${title.innerText}`);
+      title.innerText = '嘿嘿，見鬼啦';
+
+      // const divs = document.getElementsByTagName('div');
+      // for (const div of divs) {
+      //   div.innerHTML = `<h1>嘿嘿 bingo <br> 答對了</h1>`;
+      // }
+
+      const reds = document.getElementsByClassName('text-red');
+      for (const red of reds) {
+        red.style.color = 'red';
+      }
+
+      const centers = document.getElementsByClassName('text-center');
+      for (const center of centers) {
+        center.style.textAlign = 'center';
+      }
+
+      const blue = document.querySelector('.text-blue');
+      blue.style.color = 'blue';
+      const rights = document.querySelectorAll('.text-right');
+      for (const right of rights) {
+        right.style.textAlign = 'right';
+      }
+
+      const ul1li1 = document.getElementById('ul1-li1');
+      ul1li1.parentElement.style.backgroundColor = '#576692';
+
+      const ul2li = document.getElementById('links').children;
+
+      for (const li of ul2li) {
+        li.href = 'https://github.com';
+      }
+
+      const ul2 = document.getElementById('ul2');
+      ul2.firstElementChild.classList.add('bg-gray');
+      ul2.firstElementChild.classList.add('border');
+
+      ul2.lastElementChild.classList.add('bg-gray');
+      ul2.lastElementChild.classList.add('border');
+
+      const ul3li2 = document.getElementById('ul3-li2');
+      ul3li2.previousElementSibling.style.color = 'red';
+      ul3li2.nextElementSibling.style.color = 'blue';
+
+      const p = document.getElementById('p');
+      p.insertAdjacentElement('beforebegin', '<p>beforebegin</p>');
+      p.insertAdjacentElement('beforeend', '<p>beforeend</p>');
+      p.insertAdjacentElement('afterbegin', '<p>afterbegin</p>');
+      p.insertAdjacentElement('afterend', '<p>afterend</p>');
+    </script>
+  </body>
+</html>

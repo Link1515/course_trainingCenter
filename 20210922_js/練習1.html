@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numbers = [33, 75, 69, 41, 50, 19];
+
+      // 印出陣列 第 x 個數字為 y
+      for (const index in numbers) {
+        document.write(`第${index}個數字是${numbers[index]}<br>`);
+      }
+
+      document.write('<br>');
+
+      // 求 41 是第幾個數字
+      for (const index in numbers) {
+        if (numbers[index] === 41) {
+          document.write(`41是第${index}個數字<br>`);
+        }
+      }
+
+      document.write('<br>');
+
+      // 有幾個奇數和幾個偶數
+      let countEven = 0;
+      for (const index in numbers) {
+        if (numbers[index] % 2 == 0) {
+          countEven++;
+        }
+      }
+      document.write(
+        `一共有${numbers.length - countEven}個奇數、${countEven}個偶數<br>`
+      );
+
+      document.write('<br>');
+
+      // 最大數字和最小數字
+      let max = numbers[0];
+      let min = numbers[0];
+      for (const index in numbers) {
+        let test = numbers[index];
+
+        if (test > max) {
+          max = test;
+        }
+        if (test < min) {
+          min = test;
+        }
+      }
+
+      document.write(`最大值為${max}，最小值為${min}`);
+    </script>
+  </body>
+</html>

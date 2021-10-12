@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const isFat = confirm('你是肥宅嗎?');
+      const isGoodAtCoding = confirm('你會寫code?');
+      const isRich = confirm('你有錢錢嗎?');
+
+      // if(isFat == false) 可以寫成 if(!isFat)
+      if ((isGoodAtCoding && !isFat) || isRich) {
+        document.write('人生勝利');
+      } else {
+        document.write('加油好嗎!');
+      }
+    </script>
+  </body>
+</html>

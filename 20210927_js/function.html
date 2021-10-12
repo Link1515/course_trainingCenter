@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function logHello() {
+        console.log('hello world');
+      }
+
+      const DWHello = function () {
+        document.write('hello world');
+      };
+
+      function Hello(name) {
+        document.write('Hello ' + name + '<br>');
+      }
+
+      function Hello2(time, name) {
+        document.write('Hello ' + name + '<br>');
+      }
+
+      function Hello3(time = '早安', name) {
+        document.write('Hello ' + name + '<br>');
+      }
+
+      function Hello4(time, name = 'John') {
+        document.write('Hello ' + name + '<br>');
+      }
+
+      function Hello5(name) {
+        return 'Hello ' + name;
+        console.log('你看不見我');
+      }
+
+      function Hello6(name) {
+        if (name === 'John') {
+          return;
+        }
+        console.log(name);
+      }
+
+      const arrowHello = (name) => {
+        console.log(name);
+      };
+
+      // logHello();
+      // DWHello();
+      // Hello('John');
+      // Hello('Cena');
+      // Hello2('早安', 'John');
+      // Hello3(undefined, 'John');
+      // Hello4('早安');
+      // const text = Hello5('John');
+      // console.log(text);
+      // Hello6('John');
+      // Hello6('Cena');
+      // arrowHello('John');
+
+      let number = 3;
+      // function 盡量不要去改外面的變數
+      // function changeNumber() {
+      //   number = 4;
+      // }
+
+      function changeNumber(num) {
+        num = 4;
+        return num;
+      }
+
+      number = changeNumber(number);
+      console.log(number);
+
+      // -------------------
+
+      var a = 1;
+      var a = 2;
+      console.log(a); // 2
+
+      var b = 1;
+      function test() {
+        var b = 2;
+        console.log(`test ${b}`); // 2
+      }
+      test();
+      console.log(`outside ${b}`); // 1
+    </script>
+  </body>
+</html>

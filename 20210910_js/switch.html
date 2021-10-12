@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const lang = prompt('輸入國家');
+
+      switch (lang) {
+        case 'tw':
+          document.write('台灣');
+          break;
+        case 'jp':
+          document.write('日本');
+          break;
+        case 'kr':
+          document.write('韓國');
+          break;
+        case 'us':
+        case 'usa':
+          document.write('美國');
+          break;
+        default:
+          document.write('跨謀');
+          break;
+      }
+    </script>
+  </body>
+</html>

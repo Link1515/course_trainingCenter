@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const isClose = (text) => {
+        let left = {
+          amount: 0,
+          firstIndex: '',
+          lastIndex: '',
+        };
+        let right = {
+          amount: 0,
+          firstIndex: '',
+          lastIndex: '',
+        };
+
+        for (let i = 0; i < text.length; i++) {
+          if (text[i] === '(') {
+            if (left.firstIndex === '') {
+              left.firstIndex = i;
+            }
+            left.lastIndex = i;
+            left.amount++;
+          }
+          if (text[i] === ')') {
+            if (right.firstIndex === '') {
+              right.firstIndex = i;
+            }
+            right.lastIndex = i;
+            right.amount++;
+          }
+        }
+
+        console.log(left, right);
+
+        if (left.amount === right.amount && left.firstIndex < right.firstIndex && left.lastIndex < right.lastIndex) {
+          return true;
+        }
+
+        return false;
+      };
+      const result = isClose(prompt('輸入文字'));
+      console.log(result);
+    </script>
+  </body>
+</html>

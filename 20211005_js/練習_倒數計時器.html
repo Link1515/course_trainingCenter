@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="restTime"></h1>
+
+    <script>
+      const restTime = document.getElementById('restTime');
+      let time = prompt('請輸入倒數秒數:');
+
+      restTime.style.color = 'blue';
+      restTime.innerText = `剩餘 ${time} 秒`;
+
+      const timer = setInterval(() => {
+        time--;
+        restTime.innerText = `剩餘 ${time} 秒`;
+        if (time === 0) {
+          restTime.innerText = `時間到`;
+          restTime.style.color = '#f00';
+          clearInterval(timer);
+        }
+      }, 1000);
+
+      console.log(timer);
+    </script>
+  </body>
+</html>

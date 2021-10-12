@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #clock {
+        background-color: #00f;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      #hour {
+        background-color: #f00;
+        width: 20%;
+        height: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: calc(50% - 5px);
+        left: 50%;
+        transform: rotate(270deg);
+        transform-origin: left;
+      }
+
+      #minute {
+        background-color: #0f0;
+        width: 30%;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        top: calc(50% - 5px);
+        left: 50%;
+        transform: rotate(90deg);
+        transform-origin: left;
+      }
+
+      #second {
+        background-color: #0ff;
+        width: 40%;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        top: calc(50% - 5px);
+        left: 50%;
+        transform: rotate(270deg);
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <div id="hour"></div>
+      <div id="minute"></div>
+      <div id="second"></div>
+    </div>
+
+    <script>
+      const hour = document.getElementById('hour');
+      const minute = document.getElementById('minute');
+      const second = document.getElementById('second');
+
+      const updateClock = () => {
+        const now = new Date();
+        hour.style.transform = `rotate(${30 * now.getHours() - 90}deg)`;
+        minute.style.transform = `rotate(${6 * now.getMinutes() - 90}deg)`;
+        second.style.transform = `rotate(${6 * now.getSeconds() - 90}deg)`;
+      };
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>

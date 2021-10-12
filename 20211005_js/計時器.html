@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 設定一段時間後執行一次
+      // setTimeout(function, 毫秒)
+      // 1000ms = 1s
+      // setTimeout(() => {
+      //   document.write('過了5秒鐘<br>');
+      // }, 5000);
+
+      // const time = (second) => {
+      //   document.write(`過了 ${second} 秒`);
+      // };
+
+      // let timer = setTimeout(time, 5000, 5);
+      // clearTimeout(timer);
+
+      let timer = setInterval(() => {
+        document.write('過了一秒<br>');
+      }, 1000);
+      clearTimeout(timer);
+
+      for (var i = 0; i < 5; i++) {
+        setTimeout(() => {
+          console.log(i);
+        });
+      }
+
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          console.log(i);
+        });
+      }
+    </script>
+  </body>
+</html>

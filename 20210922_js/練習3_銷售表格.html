@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const productPrice = [
+        {
+          id: 'A',
+          price: 12,
+        },
+        {
+          id: 'B',
+          price: 16,
+        },
+        {
+          id: 'C',
+          price: 10,
+        },
+        {
+          id: 'D',
+          price: 14,
+        },
+        {
+          id: 'E',
+          price: 15,
+        },
+      ];
+
+      const saleTable = [
+        {
+          name: '銷售員1',
+          saleAmount: [
+            {
+              id: 'A',
+              amount: 33,
+            },
+            {
+              id: 'B',
+              amount: 32,
+            },
+            {
+              id: 'C',
+              amount: 56,
+            },
+            {
+              id: 'D',
+              amount: 45,
+            },
+            {
+              id: 'E',
+              amount: 33,
+            },
+          ],
+        },
+        {
+          name: '銷售員2',
+          saleAmount: [
+            {
+              id: 'A',
+              amount: 77,
+            },
+            {
+              id: 'B',
+              amount: 33,
+            },
+            {
+              id: 'C',
+              amount: 68,
+            },
+            {
+              id: 'D',
+              amount: 45,
+            },
+            {
+              id: 'E',
+              amount: 23,
+            },
+          ],
+        },
+        {
+          name: '銷售員3',
+          saleAmount: [
+            {
+              id: 'A',
+              amount: 43,
+            },
+            {
+              id: 'B',
+              amount: 55,
+            },
+            {
+              id: 'C',
+              amount: 43,
+            },
+            {
+              id: 'D',
+              amount: 67,
+            },
+            {
+              id: 'E',
+              amount: 65,
+            },
+          ],
+        },
+      ];
+
+      for (const i in saleTable) {
+        let saleSum = 0;
+        for (const j in productPrice) {
+          saleSum += saleTable[i].saleAmount[j].amount * productPrice[j].price;
+        }
+        document.write(
+          `${saleTable[i].name} 的總銷售經額為 ${saleSum} 元 <br>`
+        );
+      }
+
+      document.write('<br>');
+
+      for (const i in productPrice) {
+        let prodTotal = 0;
+        for (const j in saleTable) {
+          prodTotal += saleTable[j].saleAmount[i].amount;
+        }
+        document.write(
+          `產品${productPrice[i].id} 總銷售金額為 ${
+            productPrice[i].price * prodTotal
+          } 元 <br>`
+        );
+      }
+    </script>
+  </body>
+</html>

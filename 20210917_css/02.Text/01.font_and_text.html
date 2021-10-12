@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 也可以 :root 選擇到 html，:root 是偽類選擇器的一種 */
+      html {
+        font-size: 16px;
+      }
+
+      :root {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .font-sytle {
+        /* 設定字體大小 px、em、rem */
+        font-size: 20px;
+        /* 設定斜體 */
+        font-style: italic;
+        /* 設定粗體 */
+        font-weight: bold;
+        /* 設定字體都變成大寫，句子第一個字母較大 */
+        font-variant: small-caps;
+        /* 行距，可用數字或加單位 px、em、rem */
+        line-height: 2;
+        /* 縮寫 */
+      }
+
+      @font-face {
+        font-family: 'myfont';
+        src: url('RosewoodStd-Regular.otf'), url('BRADHITC.TTF');
+      }
+
+      .font-set {
+        font-family: 'myfont';
+        font-size: 30px;
+      }
+
+      .google-font {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+
+      .text-style {
+        /* 設定文字inline(包含 inline-block)的位置，left、center、right */
+        text-align: center;
+        /* none、underline、overline、line-through */
+        text-decoration: underline;
+        /* 縮排 */
+        text-indent: 32px;
+        /* 
+          capitalize(每個單字第一個英文字大寫)
+          lowercase(全小寫)
+          uppercase(全大寫)
+        */
+        text-decoration: capitalize;
+        /* 英文字母或中文字的間隔 */
+        letter-spacing: 1rem;
+        /* 單字間的間格，適用英文 */
+        word-spacing: 1rem;
+        /* 水平偏移量、垂直偏移量、陰影模糊半徑，顏色 */
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+      }
+
+      .mulit-text-shadow {
+        font-size: 4rem;
+        text-shadow: 3px 3px 0 rgba(255, 0, 0, 1), 5px 5px 0 rgba(0, 255, 0, 1),
+          7px 7px 0 rgba(0, 0, 255, 1);
+      }
+
+      .box {
+        width: 300px;
+        background-color: #fa0;
+      }
+
+      /* word-wrap */
+      /* 英文為主 */
+      /* break-word 過長單字會自動換到下一行 */
+      .word-wrap {
+        word-wrap: break-word;
+      }
+
+      /* word-break */
+      /* normal 預設，以每個瀏覽器為主，不一定相同，通常會保留單字全部 */
+      /* break-all 允許在單字的字母換行，也就是不一定要完整的單字 */
+      /* keep-all 只能在半形空格或連字符換行 */
+      .break-all {
+        word-break: break-all;
+      }
+
+      .keep-all {
+        word-break: keep-all;
+      }
+
+      .normal {
+        white-space: normal;
+      }
+
+      /* pre 像 pre 標籤，保留空白顯示畫面 */
+      .pre {
+        white-space: pre;
+      }
+
+      /* nowrap 內容不強制換行 */
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      /* pre-wrap 保留空白並換行 */
+      .pre-wrap {
+        white-space: pre-wrap;
+      }
+
+      /* 設定連結狀態，狀態須按照順序，LoVe-HAte */
+      /* : 為偽類，::為偽元素 */
+      /* 初始顏色 */
+      a:link {
+        color: crimson;
+      }
+
+      /* 拜訪過後顏色 */
+      a:visited {
+        color: grey;
+      }
+
+      /* 滑鼠移入顏色 */
+      a:hover {
+        color: darkgoldenrod;
+      }
+
+      /* 點擊時顏色 */
+      a:active {
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>設定font</h1>
+    <p class="font-style">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque assumenda
+      nisi id nihil beatae iste necessitatibus magni? Nemo quibusdam porro enim
+      placeat ipsum aliquam! Asperiores perferendis voluptate porro natus
+      doloremque!
+    </p>
+
+    <hr />
+
+    <h1>自訂字型</h1>
+    <p class="font-set">Lorem ipsum dolor sit amet.</p>
+
+    <hr />
+
+    <h1>Google Fonts</h1>
+    <p class="google-font">Lorem ipsum dolor sit amet.</p>
+
+    <hr />
+
+    <h1>設定 text</h1>
+    <p class="text-style">Lorem ipsum dolor sit amet.</p>
+
+    <h1>文字多重陰影</h1>
+    <p class="mulit-text-shadow">Lorem.</p>
+
+    <h1>word-wrap: break-word</h1>
+    <div class="box word-wrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+
+    <h1>word-break: break-all、word-break: keep-all</h1>
+    <p class="box break-all">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, vitae
+      nulla eius excepturi itaque soluta.
+    </p>
+    <p class="box keep-all">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, vitae
+      nulla eius excepturi itaque soluta.
+    </p>
+
+    <h1>white-space</h1>
+    <p class="box noraml">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit inventore
+      quos illum non quia odio?
+    </p>
+    <p class="box pre">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit inventore
+      quos illum non quia odio?
+    </p>
+    <p class="box nowrap">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit inventore
+      quos illum non quia odio?
+    </p>
+    <p class="box pre-wrap">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit inventore
+      quos illum non quia odio?
+    </p>
+
+    <hr />
+
+    <h1>連結顏色變化</h1>
+    <a href="#">Google</a>
+
+    <hr />
+
+    <h1>rem 與 em 差異</h1>
+    <h2>rem 為 root 預設 font-size 的倍數，預設為 16px</h2>
+    <!-- 16px -->
+    <div style="font-size: 1rem">
+      font
+      <!-- 32px -->
+      <div style="font-size: 2rem">
+        <!-- 48px -->
+        <div style="font-size: 3rem">font</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>em 為父層 font-size 的倍數，父層若沒有設定文字尺寸會往外尋找，若都沒有會以root為依據</h2>
+    <!-- 16px -->
+    <div style="font-size: 1em">
+      font
+      <!-- 32px -->
+      <div style="font-size: 2em">
+        <!-- 96px -->
+        <div style="font-size: 3em">font</div>
+      </div>
+    </div>
+  </body>
+</html>

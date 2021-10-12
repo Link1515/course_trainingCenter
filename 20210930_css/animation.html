@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 75%;
+        margin: 0 auto;
+        padding: 1rem;
+        border: 1px solid #333;
+      }
+
+      .wrap {
+        border: 5px dashed #333;
+        margin: 50px;
+        padding: 50px 0;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+        color: #fff;
+        line-height: 100px;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      @keyframes animation {
+        from {
+          transform: translate(0, 0);
+          background-color: pink;
+        }
+
+        10% {
+          background-color: yellow;
+        }
+
+        50% {
+          background-color: red;
+        }
+
+        to {
+          transform: translate(50vw, 0);
+          background-color: blue;
+        }
+      }
+
+      .animation {
+        animation-name: animation;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-direction: normal;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+        animation-play-state: running;
+
+        animation: animation 2s 1s 2 alternate linear both;
+      }
+
+      .multiple {
+        animation: rotateIt 3s, moveIt 6s;
+      }
+
+      @keyframes rotateIt {
+        50% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes moveIt {
+        50% {
+          margin-left: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>動畫 (animation)</h1>
+
+      <div class="wrap">
+        <div class="box animation"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>可套用多個動畫</h2>
+      <div class="wrap">
+        <div class="box multiple"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #999;
+      }
+
+      input[type='button'] {
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="button" value="點我" onclick="this.value = '點下囉'" />
+
+    <input type="button" value="也點我" onclick="clickbtn(this, 'HELLO')" />
+
+    <input type="button" value="點我看看" onclick="clickbtn2()" />
+    <script>
+      const clickbtn = (element, value) => {
+        alert(element.value);
+        console.log(value);
+      };
+
+      const clickbtn2 = () => {
+        alert('hello');
+        console.log(this);
+      };
+    </script>
+  </body>
+</html>

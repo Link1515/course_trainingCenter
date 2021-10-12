@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const fruits = [
+        { name: '蘋果', price: 0 },
+        { name: '香蕉', price: 80 },
+        { name: '哈密瓜', price: 120 },
+      ];
+
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(
+          `第${i}種水果是${fruits[i].name}，價格是${fruits[i].price}<br>`
+        );
+      }
+
+      document.write('<hr>');
+
+      const steam = {
+        name: 'Steam',
+        url: 'http://srore.steampowered.com/',
+        games: [
+          { name: 'Team Fortress 2', price: 200 },
+          { name: 'Left 4 Dead 2', price: 186 },
+          { name: 'DJMAX RESPECT V', price: 698 },
+        ],
+      };
+
+      document.write(`<a href="${steam.url}">${steam.name}</a> <br>`);
+      document.write('<ul>');
+      for (let i = 0; i < steam.games.length; i++) {
+        document.write(
+          `<li>${steam.games[i].name} / 價格:${steam.games[i].price}</li>`
+        );
+      }
+      document.write('</ul>');
+    </script>
+  </body>
+</html>

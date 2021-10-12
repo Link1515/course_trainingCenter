@@ -1,0 +1,76 @@
+<!-- 
+  !DOCTYPE html 告訴瀏覽器這是 HTML5 文件
+  沒有設定瀏覽器會進入自行解讀的相容模式(或稱怪異模式)，很可能會造成網頁在每個瀏覽器環境下有不同的顯示
+ -->
+<!DOCTYPE html>
+<!-- lang語系 -->
+<html lang="en">
+
+<head>
+  <!-- UTF-8 字元編碼，確保瀏覽網頁正常，我們使用繁體中文，他國人士的環境瀏覽時才會正常顯示 -->
+  <meta charset="UTF-8">
+  <!-- 屬性名稱="屬性值" name/value 關係，這種表達方式可以在css、JS或其他程式看到 -->
+  <meta name="description" content="這是我的第一個網頁">
+  <!-- 
+    viewport 視埠
+    width=device-width 自動符合不同裝置螢幕的預設最佳解析度
+    initial-scale 設定裝置螢幕畫面初始的縮放比例，1.0為100%
+   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的第一個網頁</title>
+  <!-- 連結到外部 CSS 檔案 -->
+  <link rel="stylesheet" href="./css/example.css">
+  <style>
+    /* 本文件使用的樣式 */
+    
+    body {
+      background-color: #ffa;
+    }
+    
+    h1 {
+      color: #00f;
+    }
+    
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>HTML</h1>
+  <p>用標籤(tag)標記內容，產生語意及結構。</p>
+
+  <hr>
+
+  <h1>CSS</h1>
+  <p>網頁化妝師，文字、背景上色、版型布局、動畫製作...</p>
+
+  <hr>
+
+  <h1>JavaScript</h1>
+  <p>使用者介面互動設計、DOM控制、API 串接...</p>
+
+  <button id="btn">顯示現在時間</button>
+  <div id="showTime"></div>
+
+  <!-- 連結外部 JS 檔案 -->
+  <script src="./js/example.js"></script>
+  <script>
+    // 本文件使用的JS
+    // DOM(Document Object Model 文件物件模型) 元素 => 演員
+    // script => 劇本
+    // 選擇一個 id 叫 btn 的演員
+    const btn = document.getElementById('btn');
+    // 選擇一個 id 叫 showTime 的演員
+    const showTime = document.getElementById('showTime');
+    // 當 btn 演員被按下時，叫 showTime 演員顯示時間
+    btn.onclick = function() {
+      showTime.innerHTML = new Date().toLocaleString();
+    }
+  </script>
+</body>
+
+
+
+</html>

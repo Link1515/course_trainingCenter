@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const table = [
+        {
+          timeNum: '時段一',
+          data: [
+            {
+              week: '星期一',
+              temperature: 18.2,
+            },
+            {
+              week: '星期二',
+              temperature: 17.3,
+            },
+            {
+              week: '星期三',
+              temperature: 15.0,
+            },
+            {
+              week: '星期四',
+              temperature: 13.4,
+            },
+          ],
+        },
+        {
+          timeNum: '時段二',
+          data: [
+            {
+              week: '星期一',
+              temperature: 23.8,
+            },
+            {
+              week: '星期二',
+              temperature: 25.1,
+            },
+            {
+              week: '星期三',
+              temperature: 26.6,
+            },
+            {
+              week: '星期四',
+              temperature: 17.8,
+            },
+          ],
+        },
+        {
+          timeNum: '時段三',
+          data: [
+            {
+              week: '星期一',
+              temperature: 20.6,
+            },
+            {
+              week: '星期二',
+              temperature: 21.5,
+            },
+            {
+              week: '星期三',
+              temperature: 18.4,
+            },
+            {
+              week: '星期四',
+              temperature: 15.7,
+            },
+          ],
+        },
+      ];
+
+      // 將陣列內容印出成表格
+      document.write('<table border=1>');
+      document.write('<tr>');
+      for (let i = 0; i < table[0].data.length + 1; i++) {
+        if (i === 0) {
+          document.write('<td></td>');
+        } else {
+          document.write(`<td>${table[0].data[i - 1].week}</td>`);
+        }
+      }
+      document.write('</tr>');
+      for (let i = 0; i < table.length; i++) {
+        document.write('<tr>');
+        document.write(`<td>${table[i].timeNum}</td>`);
+        for (let j = 0; j < table[0].data.length; j++) {
+          document.write(`<td>${table[i].data[j].temperature}</td>`);
+        }
+        document.write('</tr>');
+      }
+      document.write('</table>');
+
+      document.write('<br>');
+
+      // 每日的平均溫度
+      for (let i = 0; i < table[0].data.length; i++) {
+        let sumTemp = 0;
+        for (let j = 0; j < table.length; j++) {
+          sumTemp += table[j].data[i].temperature;
+        }
+        document.write(
+          `${table[0].data[i].week} 平均溫度為 ${sumTemp / 3}<br>`
+        );
+      }
+
+      document.write('<br>');
+
+      // 時段一、時段二、時段三的平均氣溫
+      for (let i = 0; i < table.length; i++) {
+        let sumTemp = 0;
+        for (let j = 0; j < table[0].data.length; j++) {
+          sumTemp += table[i].data[j].temperature;
+        }
+        document.write(`${table[i].timeNum} 平均溫度為 ${sumTemp / 4} <br>`);
+      }
+
+      document.write('<br>');
+
+      // 溫度最高、最低的日子與時段
+      let max = table[0].data[0].temperature;
+      let min = table[0].data[0].temperature;
+
+      for (let i = 0; i < table.length; i++) {
+        for (let j = 0; j < table[0].data.length; j++) {
+          if (table[i].data[j].temperature > max) {
+            max = table[i].data[j].temperature;
+          }
+          if (table[i].data[j].temperature < min) {
+            min = table[i].data[j].temperature;
+          }
+        }
+      }
+      document.write(`溫度的最大值為 ${max}<br>溫度的最小值為 ${min}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: '微軟正黑體';
+      }
+
+      body {
+        background: #999;
+      }
+
+      #loading {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        transition: opacity 1s;
+        color: #fff;
+        font-size: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">
+      <img src="./loading.svg" />
+      Loading...
+      <span id="progress">0</span>
+      %
+      <img src="./loading.svg" />
+    </div>
+    <img width="400" src="https://unsplash.com/photos/35FOEuLIAiw/download?force=true" alt="" />
+    <img width="400" src="https://unsplash.com/photos/hzad7o11p5I/download?force=true" alt="" />
+    <img width="400" src="https://unsplash.com/photos/mAwE-fqgDXc/download?force=true" alt="" />
+    <img width="400" src="https://unsplash.com/photos/zsXvRKtsf6Q/download?force=true" alt="" />
+    <img width="400" src="https://unsplash.com/photos/UrtxBX5i5SE/download?force=true" alt="" />
+
+    <script>
+      const loading = document.getElementById('loading');
+      const progress = document.getElementById('progress');
+      const imgs = document.getElementsByTagName('img');
+      let loaded = 0;
+      for (const img of imgs) {
+        img.onload = () => {
+          console.log(loaded);
+          loaded++;
+          progress.innerText = Math.round((loaded / imgs.length) * 100);
+        };
+      }
+
+      window.onload = () => {
+        console.log('window onload');
+        loading.style.opacity = 0;
+      };
+
+      document.onreadystatechange = () => {
+        console.log(document.readyState);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let score = 0;
+      const ans1 = confirm('請問你一天有睡8小時嗎?');
+      if (ans1) {
+        alert('很好，很健康!\n提示: +100分');
+        score += 100;
+      } else {
+        alert('辛苦了!');
+      }
+
+      const ans2 = confirm('請問你老闆願意給你加班費嗎?');
+      if (ans2) {
+        alert('佛心公司!\n提示: +100分');
+        score += 100;
+      } else {
+        alert('請撥打勞工局電話，讓老闆下去XD');
+      }
+
+      const ans3 = confirm('請問你有固定運動嗎?');
+      if (ans3) {
+        alert('厲害!\n提示: +100分');
+        score += 100;
+      } else {
+        alert('多運動有益身體健康呀!');
+      }
+
+      const ans4 = confirm('下班後需要on call嗎?');
+      if (ans4) {
+        alert('好累...');
+      } else {
+        alert('耶，下班後可以做其他想做的事情\n提示: +100分');
+        score += 100;
+      }
+
+      const ans5 = confirm('你覺得自己開心嗎?');
+      if (ans5) {
+        alert('自己保持正向非常重要，給你1000分\n提示: +1000分');
+        score += 1000;
+      } else {
+        alert('沒事，要保持樂觀，來，我給你1000分\n提示: +1000分');
+        score += 1000;
+      }
+
+      document.write(`<h2>你的開心指數是 ${score} 分</h2>`);
+    </script>
+  </body>
+</html>

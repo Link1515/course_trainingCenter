@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const year = prompt('西元年');
+      const month = prompt('月');
+      const day = prompt('日');
+
+      let sum = 0;
+
+      for (i = 1; i <= month - 1; i++) {
+        sum += 30;
+
+        if ((i <= 7 && i % 2 == 1) || (i > 7 && i % 2 == 0)) {
+          sum++;
+        }
+
+        if (i == 2) {
+          if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            sum--;
+            console.log('閏年，366天');
+          } else {
+            sum -= 2;
+            console.log('非閏年，365天');
+          }
+        }
+      }
+
+      sum += parseInt(day);
+
+      document.write(`${year}/${month}/${day}<br>是 西元${year} 的 第${sum}天`);
+    </script>
+  </body>
+</html>

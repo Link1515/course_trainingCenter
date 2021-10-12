@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const offset = parseInt(prompt('密鑰: '));
+      const lightWord = prompt('明文: ');
+      let darkWord = '';
+
+      for (let i = 0; i < lightWord.length; i++) {
+        if (lightWord[i].charCodeAt() === 32) {
+          darkWord += ' ';
+          continue;
+        }
+
+        let codeTransfer = ((lightWord[i].charCodeAt() - 97 + offset) % 26) + 65;
+
+        darkWord += String.fromCharCode(codeTransfer);
+      }
+
+      console.log(darkWord);
+    </script>
+  </body>
+</html>

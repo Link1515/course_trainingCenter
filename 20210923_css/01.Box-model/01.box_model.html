@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding-bottom: 100px;
+      }
+
+      hr {
+        margin: 20px 0;
+      }
+
+      .box1 {
+        width: 300px;
+        height: 300px;
+        background-color: lightpink;
+      }
+
+      .box2 {
+        width: 300px;
+        background-color: lightcoral;
+      }
+
+      .box3 {
+        background-color: lightseagreen;
+        width: 300px;
+        height: 200px;
+        /* 
+        auto => 內容會被修剪，自動由瀏覽器判斷，當超出範圍時，自動變成卷軸方式呈現
+        scroll => 內容會被修顯，當超出範圍時，自動變成卷軸方式呈現
+        hidden => 內容會被修剪，不會顯示卷軸，超出元素範圍時會隱藏
+         */
+        overflow: auto;
+      }
+
+      .box4 {
+        width: 300px;
+        background-color: lightgoldenrodyellow;
+        /* 外距，可為正值+，可為負值- */
+        /* 各別指定 */
+        margin-top: 50px;
+        margin-right: 50px;
+        margin-bottom: 50px;
+        margin-left: 50px;
+
+        /* 縮寫 */
+        /* 四值，順時針 top right bottom left */
+        margin: 50px 50px 50px 50px;
+
+        /* 雙值，第一個數值為上、下，第二個數值為左、右 */
+        margin: 50px 50px;
+
+        /* 單值，四個方向設定相同一值 */
+        margin: 50px;
+
+        /* padding 內距 */
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+
+        /* 縮寫 */
+        /* 四值 */
+        padding: 20px 20px 20px 20px;
+        /* 雙值 */
+        padding: 20px 20px;
+        /* 單值 */
+        padding: 20px;
+
+        /* 設定每一邊邊框的各屬性 */
+        border-top-width: 5px;
+        border-top-style: soild;
+        border-top-color: #333;
+
+        border-right-width: 5px;
+        border-right-style: soild;
+        border-right-color: #333;
+
+        border-bottom-width: 5px;
+        border-bottom-style: soild;
+        border-bottom-color: #333;
+
+        border-left-width: 5px;
+        border-left-style: soild;
+        border-left-color: #333;
+
+        /* 直接對四邊設定各種屬性 */
+        border-width: 5px;
+        border-style: solid;
+        border-color: #22a;
+
+        /* 設定每一邊的縮寫，常使用方法 */
+        border-top: 5px solid #333;
+        border-right: 5px solid #333;
+        border-bottom: 5px solid #333;
+        border-left: 5px solid #333;
+
+        /* 邊框縮寫，四邊都依楊，常使用的寫法 */
+        border: 5px solid #333;
+
+        /* 外框 */
+        /* 外框與邊框差異在於，外框不會影響布局，純粹是作為外觀裝飾使用 */
+        outline: 10px dashed rgb(220, 245, 0);
+      }
+
+      .box5 {
+        width: 300px;
+        height: 300px;
+        background-color: mediumorchid;
+        margin-bottom: 30px;
+      }
+
+      .box6 {
+        width: 300px;
+        height: 300px;
+        background-color: mediumseagreen;
+        margin-top: 20px;
+      }
+
+      .box7 {
+        background-color: orange;
+        width: 300px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-left: 5px solid lawngreen;
+        border-right: 5px solid lawngreen;
+        /* 計算總寬度 */
+        /* 300 + 20 +20 +10 = 350 */
+      }
+
+      .box8 {
+        width: 300px;
+        height: 300px;
+        border: 10px solid #333;
+        /* 各別圓角 */
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        /* 單值，四個圓角同一個數值 */
+        border-radius: 30px;
+        /* 雙值，第一個數值為左上、右下，第二個數值為右上、左下 */
+        border-radius: 30px 30px;
+        /* 四值，順序 左上、右上、右下、左下 */
+        border-radius: 30px 30px 30px 30px;
+      }
+
+      .circle {
+        /* 畫圓必須為正方形 */
+        width: 300px;
+        height: 300px;
+        border: 10px solid #aaa;
+        border-radius: 50%;
+        /* border-radius: 100000px; */
+        /* 區塊元素，有寬度，設定 margin: auto 可以水平置中 */
+        margin: auto;
+        /* 
+          盒子陰影
+          水平(+右 -左) 垂直(+下 -上) 模糊半徑(0或+，不能-) 擴散半徑(+擴散 -內縮) 顏色
+          inset 內陰影
+         */
+        box-shadow: inset 0 0 30px 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>box1 畫一個盒子，設定寬、高、背景顏色</h2>
+    <div class="box1"></div>
+
+    <hr />
+
+    <h2>box2 不設定高度，高度會以內容為主</h2>
+    <div class="box2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ea
+      inventore blanditiis accusamus sed numquam! Vitae explicabo veniam
+      dignissimos ratione?
+    </div>
+
+    <hr />
+
+    <h2>
+      box3 設定高度，內容太多超出高度會產生溢出現象，設定overflow可以防止溢出
+    </h2>
+    <div class="box3">
+      <p style="width: 400px">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus iure
+        neque facere cum eligendi vitae molestias laboriosam accusamus
+        consequuntur minus sed nisi exercitationem inventore aliquam, dolor
+        placeat debitis alias. Minus et ipsam a voluptatem. Possimus quaerat,
+        cumque nesciunt odio beatae tempore molestias, aperiam animi
+        reprehenderit perferendis porro est distinctio! Cumque eligendi totam
+        distinctio soluta, accusantium, reiciendis voluptatem earum laborum
+        neque non alias voluptatum, asperiores cum impedit pariatur recusandae
+        dolore ratione.
+      </p>
+    </div>
+
+    <hr />
+
+    <h3>box4 設定盒子的margin、paddin、border</h3>
+    <div class="box4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero at
+      cupiditate quas odit soluta pariatur ad maiores? Animi, odio eaque.
+    </div>
+
+    <hr />
+
+    <h3>
+      box5、box6 說明外距重疊現象(margin
+      collapsing)，會以外距大的為主，重疊只發生在垂直方向，水平方向不會影響
+    </h3>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+    <h2>box7 計算一個盒子的寬度</h2>
+    <p>實際總寬度 = width + padding + border + margin</p>
+    <div class="box7">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi natus,
+      quibusdam atque laborum odit eius autem molestiae qui iusto esse, quos
+      hic. Veniam ab, mollitia facilis quam earum quaerat corporis?
+    </div>
+
+    <hr />
+
+    <h2>border-radius 圓角設定</h2>
+    <div class="box8"></div>
+
+    <hr />
+
+    <h2>畫一個園，水平置中</h2>
+    <div class="circle"></div>
+  </body>
+</html>

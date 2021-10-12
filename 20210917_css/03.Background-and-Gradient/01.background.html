@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        background-image: url('https://picsum.photos/id/15/1920/1080/');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .box {
+        width: 600px;
+        height: 600px;
+        border: 1px solid #fff;
+        margin: 100px auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+        font-size: 3rem;
+        color: yellow;
+        text-shadow: 0 0 3px rgb(0, 0, 0);
+
+        backdrop-filter: blur(10px);
+      }
+
+      .bg-color {
+        background-color: #faa;
+      }
+
+      .bg-image {
+        background-image: url('https://picsum.photos/100/100/?random=1');
+      }
+
+      .bg-repeat-x {
+        background-repeat: repeat-x;
+      }
+
+      .bg-repeat-y {
+        background-repeat: repeat-y;
+      }
+
+      .bg-no-repeat {
+        background-repeat: no-repeat;
+      }
+
+      .bg-size {
+        background-image: url('https://picsum.photos/300/200/?random=1');
+        background-repeat: no-repeat;
+        /* 改變圖片尺寸 */
+        /* cover 背景圖片等比縮放，背景圖片會填滿整個盒子 */
+        /* contain 圖片背景等比縮放，背景圖片碰到盒子一邊時，則會停止縮放 */
+        /* 雙數值，第一個值是寬度，第二個值是高度 */
+        background-size: cover;
+      }
+      .bg-position {
+        /* 設定背景對齊的位置 */
+        /* 第一個為水平，第二個為垂直 */
+        /* background-position: 100% 0; */
+        /* 第一個值: left、center、right => 0% 50% 100% */
+        /* 第二個值: top、center、bottom => 0% 50% 100% */
+        /* 如果只設定一個值，另一個省略會被設定成 center */
+        background-position: right bottom;
+      }
+
+      .pikachu {
+        width: 600px;
+        height: 300px;
+        border: 5px solid #fff;
+        margin: 100px auto;
+
+        font-size: 3rem;
+        color: yellow;
+        text-shadow: 0 0 3px rgb(0, 0, 0);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+        background-image: url('http://220.128.133.15/f2e/%e5%bc%b5%e5%87%b1%e5%af%8c%e8%80%81%e5%b8%ab/20210917/pica.png');
+        /* background-repeat: no-repeat; */
+        background-size: 50px 50px;
+        background-attachment: fixed;
+        background-position: 0 -100px;
+      }
+
+      /* 
+        縮寫，可以任意順序使用各種數值，但是須注意以下規則
+        1. background-size 一定要緊接在 background-position 之後，且必須要用斜線 / 分隔
+        2. 設定 background-position 雙值時，先設定水平，在設定垂直
+       */
+      .bg-abbr {
+        background: red url('https://picsum.photos/300/200/?random=1') no-repeat
+          left top / cover;
+      }
+
+      .bg-three {
+        /* 多層背景，上方背景會蓋過下方背景 */
+        /* 寫分開 */
+        background-image: url('https://picsum.photos/600/100/?random=2'),
+          url('https://picsum.photos/600/400/?random=2'),
+          url('https://picsum.photos/600/600/?random=1');
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: left top, left 100px, left bottom;
+
+        /* 縮寫版 */
+        background: url('https://picsum.photos/600/100/?random=2') no-repeat
+            left top,
+          url('https://picsum.photos/600/400/?random=2') no-repeat left 100px,
+          url('https://picsum.photos/600/600/?random=1') no-repeat left bottom;
+      }
+
+      /* background、background-image 都可以設定漸層 */
+      /* 漸變軸判斷，角度 + 時針由圓心到針頭的方向(為顏色渲染方向) */
+      /* 預設 180deg = to bottom */
+      /* 0deg = 360deg to top */
+      /* 90deg = to right */
+      /* 270deg = to left */
+      .linear-gradient {
+        background: linear-gradient(red, yellow, white);
+        background: linear-gradient(45deg, red, yellow, white);
+      }
+
+      .linear-gradient2 {
+        background-image: linear-gradient(
+          to right top,
+          #fff 0%,
+          lightblue 50%,
+          #fff 50%,
+          lightblue 75%,
+          #fff 100%
+        );
+      }
+
+      .radial-gradient {
+        background-image: radial-gradient(white, #ffa, pink);
+      }
+
+      .opacity {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url('https://picsum.photos/600/600/?random=1');
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box bg-color">background-color</div>
+    <div class="box bg-image">background-imgae</div>
+    <div class="box bg-image bg-repeat-x">bg-repeat-x</div>
+    <div class="box bg-image bg-repeat-y">bg-repeat-y</div>
+    <div class="box bg-image bg-no-repeat">bg-no-repeat</div>
+    <div class="box bg-size">bg-size</div>
+    <div class="box bg-image bg-no-repeat bg-position">bg-position</div>
+    <div class="pikachu">皮卡丘</div>
+    <div class="box bg-abbr">縮寫</div>
+    <div class="box bg-three">多張背景圖</div>
+    <div class="box linear-gradient">線性漸層1</div>
+    <div class="box linear-gradient2">線性漸層2</div>
+    <div class="box radial-gradient">放射漸層</div>
+    <div class="box opacity">
+      半透明顏色背景<br />
+      增加得到報價，觀念小說百度，騎士具有動。
+    </div>
+  </body>
+</html>

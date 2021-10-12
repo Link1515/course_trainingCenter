@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: '微軟正黑體';
+      }
+
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      section:nth-child(odd) {
+        background-color: rgba(160, 230, 255);
+      }
+
+      section:nth-child(even) {
+        background-color: rgba(255, 250, 190);
+      }
+
+      h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .dashed {
+        border: 5px dashed #000;
+        width: 200px;
+        height: 200px;
+        position: relative;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .translate {
+        transform: translate(100%, 100%);
+        transform: translateX(50%) translateY(50%);
+      }
+
+      .scale {
+        transform: scale(-2);
+        transform: scale(2);
+
+        transform-origin: left top;
+      }
+
+      .rotate {
+        transform: rotate(-45deg);
+        transform-origin: left top;
+      }
+
+      .skew {
+        transform: skew(30deg, 0deg);
+      }
+
+      .more {
+        transform: translate(100px) rotate(45deg);
+      }
+
+      .move1 {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        transform: translateX(200px) rotate(45deg);
+      }
+
+      .move2 {
+        width: 200px;
+        height: 200px;
+        background-color: #00f;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        transform: rotate(45deg) translateX(200px);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>translate(位移)</h1>
+      <div class="dashed">
+        <div class="box translate">translate(位移)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>scale(縮放)</h1>
+      <div class="dashed">
+        <div class="box scale">scale(縮放)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>rotate(旋轉)</h1>
+      <div class="dashed">
+        <div class="box rotate">rotate(旋轉)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>skew(傾斜)</h1>
+      <div class="dashed">
+        <div class="box skew">skew(傾斜)</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>設定多屬性</h1>
+      <div class="dashed">
+        <div class="box more">設定多屬性</div>
+      </div>
+    </section>
+
+    <section>
+      <h1>套用順序</h1>
+      <div class="dashed">
+        <div class="move1"></div>
+        <div class="move2"></div>
+      </div>
+    </section>
+  </body>
+</html>

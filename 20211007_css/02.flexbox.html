@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      body {
+        padding: 20px;
+      }
+
+      h1 {
+        border-bottom: 1px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      h2,
+      h3,
+      p {
+        margin: 1rem 0;
+      }
+
+      .row {
+        width: 1200px;
+        height: 300px;
+        border: 1px solid #000;
+        margin: 0 0 3rem 0;
+      }
+
+      .col {
+        background-color: #ffa;
+        margin: 10px;
+      }
+
+      /* 彈性盒可設定的屬性 ------------------- */
+      .d-flex {
+        /* 宣告彈性盒 */
+        display: flex;
+        /* 預設主軸為水平流向排列 */
+        flex-direction: row;
+        /* 主軸對齊 */
+        justify-content: flex-start;
+        /* 次軸對齊 */
+        align-items: stretch;
+        /* 是否換行 */
+        flex-wrap: nowrap;
+      }
+
+      .flex-direction {
+        /* 
+        預設為row，主軸會以水平方向排列，可反轉顯示row-reverse
+        column 主軸會垂直排列，可反轉顯示 column-reverse
+        */
+        flex-direction: row;
+      }
+
+      .justify-content {
+        justify-content: flex-start;
+      }
+
+      .align-items {
+        align-items: stretch;
+      }
+
+      .w1 {
+        width: 380px;
+      }
+
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+
+      .flex-flow {
+        flex-flow: row nowrap;
+      }
+
+      /* 彈性項目可設定的屬性 */
+      .align-self-start {
+        align-self: flex-start;
+      }
+      .align-self-end {
+        align-self: flex-end;
+      }
+      .align-self-center {
+        align-self: center;
+      }
+      .align-self-stretch {
+        align-self: stretch;
+      }
+      .align-self-baseline {
+        align-self: baseline;
+      }
+
+      .flex-grow-1 {
+        flex-grow: 1;
+      }
+      .flex-grow-2 {
+        flex-grow: 2;
+      }
+      .flex-grow-3 {
+        flex-grow: 3;
+      }
+      .w2 {
+        width: 100px;
+      }
+
+      /* flex-shrink */
+      .flex-shrink-1 {
+        flex-shrink: 1;
+      }
+      .w3 {
+        width: 500px;
+      }
+
+      .flex-basis {
+        flex-basis: auto;
+      }
+
+      .flex-1 {
+        flex: 1;
+      }
+
+      .flex-initial {
+        /* flex: 0 1 auto; */
+        flex: initial;
+      }
+
+      .flex-auto {
+        /* flex: 1 1 auto; */
+        flex: auto;
+      }
+
+      .flex-none {
+        flex: none;
+      }
+
+      .order-1 {
+        order: 1;
+      }
+      .order-2 {
+        order: 2;
+      }
+      .order-3 {
+        order: 3;
+      }
+
+      .row2 {
+        width: 1200px;
+        height: 600px;
+        background-color: #000;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .col2 {
+        margin: 10px;
+      }
+
+      .col2 img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FlexBox</h1>
+    <p>FlexBox 設定分為 flex container 與 flex item</p>
+
+    <h1>彈性盒設定</h1>
+    <p>設定 父元素 display: flex 為彈性盒，子元素們會變成彈性項目</p>
+    <h2>1. display: flex</h2>
+    <div class="row d-flex">
+      <div class="col">彈性項目 01</div>
+      <div class="col">彈性項目 02</div>
+      <div class="col">彈性項目 03</div>
+    </div>
+
+    <h2>2. 彈性盒 flex-direction 的軸向，決定主軸水平或者垂直</h2>
+    <div class="row d-flex flex-direction">
+      <div class="col">彈性項目 01</div>
+      <div class="col">彈性項目 02</div>
+      <div class="col">彈性項目 03</div>
+    </div>
+
+    <h2>3. 彈性盒對齊</h2>
+    <p>主軸用 justify-content，次軸用 align-items</p>
+    <div class="row d-flex flex-direction justify-content align-items">
+      <div class="col">彈性項目 01</div>
+      <div class="col">彈性項目 02</div>
+      <div class="col">彈性項目 03</div>
+    </div>
+
+    <h2>4. 彈性項目是否換行</h2>
+    <p>flexwrap</p>
+    <div class="row d-flex flex-direction justify-content align-items flex-wrap">
+      <div class="col w1 h1">彈性項目 01</div>
+      <div class="col w1 h1">彈性項目 02</div>
+      <div class="col w1 h1">彈性項目 03</div>
+      <div class="col w1 h1">彈性項目 04</div>
+      <div class="col w1 h1">彈性項目 05</div>
+      <div class="col w1 h1">彈性項目 06</div>
+    </div>
+
+    <h2>5. 水平垂直置中</h2>
+    <div class="row" style="display: flex; justify-content: center; align-items: center">
+      <div style="width: 100px; height: 100px; background-color: #333"></div>
+    </div>
+
+    <h1>彈性項目設定</h1>
+    <h2>1. align-self 個別設定彈性項目的次軸</h2>
+    <div class="row d-flex">
+      <div class="col align-self-start">彈性項目 01</div>
+      <div class="col align-self-center">彈性項目 02</div>
+      <div class="col align-self-end">彈性項目 03</div>
+      <div class="col align-self-stretch">彈性項目 04</div>
+      <div class="col align-self-baseline" style="font-size: 3rem">彈性項目 05</div>
+      <div class="col align-self-baseline" style="font-size: 1rem">彈性項目 06</div>
+      <div class="col align-self-baseline" style="font-size: 2rem">彈性項目 07</div>
+    </div>
+
+    <h2>2. flew-grow 彈性伸展係數</h2>
+    <div class="row d-flex">
+      <div class="col flex-grow-1 w2">彈性項目 01</div>
+      <div class="col flex-grow-2 w2">彈性項目 02</div>
+      <div class="col flex-grow-3 w2">彈性項目 03</div>
+    </div>
+
+    <h2>3. flex-shrink 彈性收縮係數</h2>
+    <div class="row d-flex">
+      <div class="col flex-shrink-1 w3">彈性項目 01</div>
+      <div class="col flex-shrink-1 w3">彈性項目 02</div>
+      <div class="col flex-shrink-1 w3">彈性項目 03</div>
+    </div>
+
+    <h2>4. flex-basis 彈性尺寸係數</h2>
+    <div class="row d-flex flex-direction">
+      <div class="col flex-basis">彈性項目 01</div>
+      <div class="col flex-basis">彈性項目 02</div>
+      <div class="col flex-basis">彈性項目 03</div>
+    </div>
+
+    <h2>5. flex 三合一屬性，一次設定 grow、shrink、basis</h2>
+    <div class="row d-flex">
+      <div class="col flex-1">彈性項目 01</div>
+      <div class="col flex-1">彈性項目 02</div>
+      <div class="col flex-1">彈性項目 03</div>
+    </div>
+
+    <h3>flex:1 與 flex:auto 差異</h3>
+    <h4>flex:1 => flex: 1 1 0</h4>
+    <div class="row d-flex flex-direction">
+      <div class="col flex-1">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, officiis maiores libero sint veniam esse
+        aliquam fugit ab repellendus ad explicabo, non eius placeat consectetur laborum. Veniam dolorum recusandae sint.
+      </div>
+      <div class="col flex-1">Lorem ipsum dolor sit amet.</div>
+      <div class="col flex-1">Lorem ipsum dolor sit amet.</div>
+    </div>
+    <h4>flex:auto => flex: 1 1 auto</h4>
+    <div class="row d-flex flex-direction">
+      <div class="col flex-auto">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, officiis maiores libero sint veniam esse.
+      </div>
+      <div class="col flex-auto">Lorem ipsum dolor sit amet.</div>
+      <div class="col flex-auto">Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <h2>6. order 彈性項目順序</h2>
+    <div class="row d-flex">
+      <div class="col order-3">彈性項目 01</div>
+      <div class="col order-1">彈性項目 02</div>
+      <div class="col order-2">彈性項目 03</div>
+    </div>
+
+    <h2>7. 彈性項目與 margin 關係</h2>
+    <div class="row d-flex">
+      <div class="col" style="margin-right: auto">彈性項目 01</div>
+      <div class="col">彈性項目 02</div>
+      <div class="col">彈性項目 03</div>
+    </div>
+
+    <h1>align-content 設定</h1>
+    <div class="row2">
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=1" />
+      </div>
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=2" />
+      </div>
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=3" />
+      </div>
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=4" />
+      </div>
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=5" />
+      </div>
+      <div class="col2">
+        <img src="https://picsum.photos/300/200/?random=6" />
+      </div>
+    </div>
+  </body>
+</html>

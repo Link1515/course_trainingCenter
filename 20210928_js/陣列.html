@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      // .forEach(function)
+      // function 有三個東西可以用
+      // item 目前迴圈跑的值
+      // index 目前迴圈跑的索引
+      // array 陣列本身
+      const arr1 = ['a', 'b', 'c', 'd', 'e'];
+      // arr1.forEach(function (item, index, array) {
+      //   console.log(item, index, array);
+      // });
+      arr1.forEach((item, index, array) => {
+        // console.log(item, index, array);
+        array[index] = '1';
+      });
+      console.log(arr1);
+      */
+
+      /*
+      // .join(連接文字) 把陣列值串在一起
+      const arr2 = ['狗', '貓', '馬', '天竺鼠', '勞淑'];
+      const arr2join = arr2.join('-');
+      console.log(arr2join);
+      */
+
+      /*
+      const arr3 = ['1', '2', '3', '4', '5'];
+      // .push(值) 新增一個東西在陣列後面，回傳修改後陣列長度
+      arr3.push(6);
+      console.log(arr3);
+      // .unshift(值) 新增一個東西在陣列前面，回傳修改後陣列長度
+      arr3.unshift(0);
+      console.log(arr3);
+      // .pop() 刪除最後一個東西，會把刪除的東西回傳
+      arr3.pop();
+      console.log(arr3);
+      // shift() 刪除第一個東西，會把刪除的東西回傳
+      arr3.shift();
+      console.log(arr3);
+
+      // .splice(位置, 刪除數量, 新值1, 新值2...)
+      // 可以只刪除不新增
+      arr3.splice(1, 2, 'a', 'b');
+      console.log(arr3);
+      */
+
+      const arr3 = [1, 2, 3];
+      const arr4 = [4, 5, 6];
+      // .concat(陣列) 合併兩陣列，產生新陣列，不會改變原本的陣列
+      const arr5 = arr3.concat(arr4);
+      console.log(arr5);
+      // .reverse() 反轉陣列
+      arr5.reverse();
+      console.log(arr5);
+      // 和 文字.includes 一樣
+      let include = arr5.includes(5);
+      console.log(include);
+      // 和 文字.indexOf 一樣
+      let indexOf = arr5.indexOf(1);
+      console.log(indexOf);
+
+      const arr6 = [
+        { name: '前端班', students: 24 },
+        { name: '後端班', students: 24 },
+        { name: '影音班', students: 20 },
+        { name: '網路工程師班', students: 20 },
+      ];
+      // .some(function)
+      // 跟 foreach 一樣跑回圈，function必須要 return turn 或 false
+      // 如果有一個 true，就會回傳 true
+      // 回傳是否有東西跑 function 時回傳 true
+      const has24student = arr6.some((item, index, array) => {
+        return item.students >= 24;
+      });
+      // .findIndex(function)
+      // 回傳跑 function 時是true的第一個索引值
+      const has24studentIndex = arr6.findIndex((item, index, array) => {
+        return item.students >= 24;
+      });
+      console.log(has24student);
+      console.log(has24studentIndex);
+
+      const arr7 = [1, 2, 3, 4, 5];
+      // .map(function) 重組陣列內容
+      // 跟 foreach 一樣跑回圈，function 必須return新的值
+      const arr8 = arr7.map((item) => {
+        return item * 2;
+      });
+      console.log(arr8);
+
+      const arr11 = [1, 100, 2, 3, 50, 75, 5];
+      const arr12 = arr11.sort((a, b) => {
+        return a - b;
+      });
+      console.log(arr12);
+
+      // localCompare
+    </script>
+  </body>
+</html>

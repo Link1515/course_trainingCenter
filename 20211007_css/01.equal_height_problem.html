@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 75%;
+        margin: 0 auto;
+      }
+
+      hr {
+        margin: 30px 0;
+      }
+
+      .item:nth-child(odd) {
+        background-color: lightskyblue;
+      }
+
+      .item:nth-child(even) {
+        background-color: lightpink;
+      }
+
+      /* inline-block */
+      .inline-block {
+        font-size: 0;
+      }
+
+      .inline-block .item {
+        display: inline-block;
+        width: 50%;
+        font-size: 1rem;
+        vertical-align: top;
+      }
+
+      .wrap1 {
+        background: linear-gradient(to right, lightskyblue 50%, lightpink 50%);
+      }
+
+      /* float */
+      .float {
+        overflow: auto;
+      }
+
+      .float .item {
+        float: left;
+        width: 50%;
+      }
+
+      /* flex */
+      .flex {
+        display: flex;
+      }
+
+      .flex .item {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>排版等高議題</h1>
+      <h2>inline-block</h2>
+      <div class="wrap1">
+        <div class="inline-block">
+          <div class="item">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit laborum error nemo rem dicta
+            asperiores consectetur recusandae nulla ipsa! Recusandae aperiam ad repellat reiciendis amet dolorem illo
+            possimus ipsa.
+          </div>
+          <div class="item">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur officiis rerum, quo itaque, quasi nemo
+            labore voluptates praesentium, placeat totam quisquam assumenda! Quae voluptatum unde doloremque, repellat
+            debitis minus, quisquam et nihil perspiciatis consequatur rem libero natus earum. A ad minus iure similique.
+            Similique quasi rerum quidem quia nam porro assumenda nemo officiis consectetur! Vel recusandae voluptates
+            ullam voluptatibus magni.
+          </div>
+        </div>
+      </div>
+
+      <h3>另外一種方式</h3>
+      <div class="inline-block" style="overflow: hidden">
+        <div class="item" style="padding-bottom: 99999px; margin-bottom: -9999999px">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit laborum error nemo rem dicta
+          asperiores consectetur recusandae nulla ipsa! Recusandae aperiam ad repellat reiciendis amet dolorem illo
+          possimus ipsa.
+        </div>
+        <div class="item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur officiis rerum, quo itaque, quasi nemo
+          labore voluptates praesentium, placeat totam quisquam assumenda! Quae voluptatum unde doloremque, repellat
+          debitis minus, quisquam et nihil perspiciatis consequatur rem libero natus earum. A ad minus iure similique.
+          Similique quasi rerum quidem quia nam porro assumenda nemo officiis consectetur! Vel recusandae voluptates
+          ullam voluptatibus magni.
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>float</h2>
+      <div class="wrap1">
+        <div class="float">
+          <div class="item">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit laborum error nemo rem dicta
+            asperiores consectetur recusandae nulla ipsa! Recusandae aperiam ad repellat reiciendis amet dolorem illo
+            possimus ipsa.
+          </div>
+          <div class="item">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur officiis rerum, quo itaque, quasi nemo
+            labore voluptates praesentium, placeat totam quisquam assumenda! Quae voluptatum unde doloremque, repellat
+            debitis minus, quisquam et nihil perspiciatis consequatur rem libero natus earum. A ad minus iure similique.
+            Similique quasi rerum quidem quia nam porro assumenda nemo officiis consectetur! Vel recusandae voluptates
+            ullam voluptatibus magni.
+          </div>
+        </div>
+      </div>
+
+      <h3>另外一種方式</h3>
+      <div class="inline-block" style="overflow: hidden">
+        <div class="item" style="padding-bottom: 99999px; margin-bottom: -9999999px">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit laborum error nemo rem dicta
+          asperiores consectetur recusandae nulla ipsa! Recusandae aperiam ad repellat reiciendis amet dolorem illo
+          possimus ipsa.
+        </div>
+        <div class="item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur officiis rerum, quo itaque, quasi nemo
+          labore voluptates praesentium, placeat totam quisquam assumenda! Quae voluptatum unde doloremque, repellat
+          debitis minus, quisquam et nihil perspiciatis consequatur rem libero natus earum. A ad minus iure similique.
+          Similique quasi rerum quidem quia nam porro assumenda nemo officiis consectetur! Vel recusandae voluptates
+          ullam voluptatibus magni.
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>flex</h2>
+      <div class="flex">
+        <div class="item">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit laborum error nemo rem dicta
+          asperiores consectetur recusandae nulla ipsa! Recusandae aperiam ad repellat reiciendis amet dolorem illo
+          possimus ipsa.
+        </div>
+        <div class="item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur officiis rerum, quo itaque, quasi nemo
+          labore voluptates praesentium, placeat totam quisquam assumenda! Quae voluptatum unde doloremque, repellat
+          debitis minus, quisquam et nihil perspiciatis consequatur rem libero natus earum. A ad minus iure similique.
+          Similique quasi rerum quidem quia nam porro assumenda nemo officiis consectetur! Vel recusandae voluptates
+          ullam voluptatibus magni.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

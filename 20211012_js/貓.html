@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #game {
+        width: 1000px;
+        height: 500px;
+        border: 1px solid #000;
+        position: relative;
+      }
+
+      #cat {
+        position: absolute;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="開始" id="btn-start" />
+    <div id="game">
+      <img src="./素材/cat.jpg" width="100" id="cat" />
+    </div>
+    <audio src="./素材/meow.mp3" id="meow"></audio>
+
+    <script>
+      const btnStart = document.getElementById('btn-start');
+      const game = document.getElementById('game');
+      const cat = document.getElementById('cat');
+
+      const meow = new Audio();
+      meow.src = './素材/meow.mp3';
+
+      let timer = 0;
+      let time = 0;
+
+      // 貓的位置
+      let catPos = { top: '', left: '' };
+
+      btnStart.onclick = () => {
+        btnStart.disabled = true;
+        // 隨機移動貓咪
+        // 貓咪的top = 遊戲區域高度 - 貓咪圖片高度
+        // 貓咪的left = 遊戲區域寬度 - 貓咪圖片寬度
+        catPos.top = Math.round(Math.random() * (game.offsetHeight - cat.offsetHeight));
+        catPos.left = Math.round(Math.random() * game.offsetWidth - cat.offsetWidth);
+        cat.style.top = catPos.top + 'px';
+        cat.style.left = catPos.left + 'px';
+
+        timer = setInterval(() => {
+          meow.play();
+          time++;
+          if (time % 10) {
+            meow.play();
+          }
+        }, 1000);
+      };
+
+      game.onmousemove = (event) => {
+        // 滑鼠碰到貓時， event.target 會是貓，offsetX 和 offsetY 會變
+        if (event.target !== game) return;
+        // 滑鼠座標
+        const mousePos = { x: event.offsetX, y: event.offsetY };
+        // 滑鼠與貓的水平和垂直距離
+        const diff = { x: Math.abs(mousePos.x - catPos.left), y: Math.abs(mousePos.y - catPos.top) };
+        // 算出距離
+        const distance = Math.round(Math.sqrt(Math.pow(diff.x, 2) + Math.pow(diff.y, 2)));
+
+        meow.volume =
+          1 - distance / Math.round(Math.sqrt(Math.pow(game.offsetHeight, 2) + Math.pow(game.offsetWidth, 2)));
+      };
+
+      cat.onclick = () => {
+        // 檢查是不是遊戲中
+        if (!btnStart.disabled) return;
+
+        clearInterval(timer);
+        alert(`你花了 ${time / 10} 秒`);
+
+        btnStart.disabled = false;
+        time = 0;
+      };
+    </script>
+  </body>
+</html>

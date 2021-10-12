@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const input = prompt('輸入文字');
+
+      const decrypt = (text) => {
+        let output = '';
+        for (let i = 0; i < text.length - 1; i++) {
+          output += Math.abs(text[i].charCodeAt() - text[i + 1].charCodeAt());
+        }
+        return output;
+      };
+
+      console.log(decrypt(input));
+    </script>
+  </body>
+</html>

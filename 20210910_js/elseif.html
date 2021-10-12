@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // prompt 跳出輸入視窗，裡面放視窗顯示的文字
+      // 回傳資料型態是文字
+      // 先由18開始判斷，逐漸往下
+      // 如果由0開始判斷，則是進入0的條件
+      let age = prompt('請輸入年齡');
+      console.log(age);
+      if (age >= 18) {
+        document.write(
+          '<img src="https://www.gamerating.org.tw/Content/img/index_icon_05.jpg">'
+        );
+      } else if (age >= 15) {
+        document.write(
+          '<img src="https://www.gamerating.org.tw/Content/img/index_icon_04.jpg">'
+        );
+      } else if (age >= 12) {
+        document.write(
+          '<img src="https://www.gamerating.org.tw/Content/img/index_icon_03.jpg">'
+        );
+      } else if (age >= 6) {
+        document.write(
+          '<img src="https://www.gamerating.org.tw/Content/img/index_icon_02.jpg">'
+        );
+      } else if (age >= 0) {
+        document.write(
+          '<img src="https://www.gamerating.org.tw/Content/img/index_icon_01.jpg">'
+        );
+      } else {
+        document.write('資料錯誤');
+      }
+    </script>
+  </body>
+</html>

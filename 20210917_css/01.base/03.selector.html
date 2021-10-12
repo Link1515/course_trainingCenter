@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+      類別選擇器 .
+      - 類別名稱以字元開始，不能用數字開頭
+      - 類別名稱只允許英文、數字、連字號 -、底線 _
+      - 類別名稱有區分大小寫
+    */
+      .a {
+        color: blue;
+      }
+
+      li {
+        color: green;
+      }
+
+      .b {
+        color: darkmagenta;
+      }
+
+      .c {
+        font-size: 30px;
+      }
+
+      /* id 選擇器 */
+      /* 以 # 開頭 */
+      #header {
+        color: red;
+      }
+
+      /* 半形空白為後代選擇器，選到兒子與孫子們 */
+      nav p {
+        color: blue;
+      }
+
+      nav > p {
+        color: red;
+      }
+
+      /* 通用選擇器(痊癒選擇器)，全部元素都選(除了偽元素 ::before、::after) */
+      * {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 的選擇器</h1>
+    <p>CSS 有非常多種選擇器，幫助我們撰寫樣式時，選擇到目標。</p>
+
+    <h1 class="a">class 選擇器</h1>
+    <p>
+      class是CSS最常被使用的選擇器，具有重複使用的特性，以及相同元素，不同外觀時也可以使用class
+    </p>
+    <h2>相同元素，不同外觀</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li class="b">Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <h2>可以重複使用</h2>
+    <p>
+      Lorem ipsum dolor <a class="c" href="#">Google</a> sit amet consectetur
+      adipisicing elit. Nulla odit alias sunt ipsum nihil cupiditate, harum
+      saepe labore cumque rerum.
+    </p>
+    <h2>class 屬性裡面可以很多 class</h2>
+    <p class="a b c">Lorem ipsum dolor sit amet.</p>
+
+    <h1>id 選擇器</h1>
+    <ul>
+      <li>
+        一份文件裡面，只允許一個獨一無二的 id
+        名稱(就像身分證)，通常作為網頁邏輯區塊的名稱
+      </li>
+      <li>
+        對程式而言(JavaScript、jQuery)，id必須唯一，如果有兩個相同id，只會選擇到第一次遇到的id最為目標。id
+        選擇器最簡單、最快速、最直接的選擇方式
+      </li>
+      <div id="header">header 邏輯區塊</div>
+      <div id="main">main 邏輯區塊</div>
+      <div id="sidebar">sidebar 邏輯區塊</div>
+      <div id="footer">footer 邏輯區塊</div>
+    </ul>
+
+    <h1>後代選擇器與子代選擇器</h1>
+    <nav>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </nav>
+  </body>
+</html>

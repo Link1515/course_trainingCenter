@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 文件流，正常流向(由左至右，由上而下的排版方式) */
+      .container {
+        width: 75%;
+        margin: 2rem auto;
+        background-color: #ccc;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+
+      p {
+        background-color: #000;
+        color: #fff;
+        padding: 1rem;
+      }
+
+      .float_left {
+        /* float 具有區塊化 block 的特性 */
+        float: left;
+        background-color: red;
+        /* 轉型區塊，因此以下屬性都可以設定 */
+        /* width: 400px;
+        height: 300px; */
+        margin: 1rem;
+        padding: 1rem;
+        border: 10px solid #ffa;
+      }
+
+      .clear-left {
+        clear: left;
+      }
+
+      .float_right {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>浮動(float)</h1>
+      <h3>特性</h3>
+      <ul>
+        <li>浮動元素會從正常流獨立出來，後方元素會在float元素下方，後方元素裡的文字會繞著float元素</li>
+        <li>具有區塊化，轉型成block</li>
+        <li>float 只有 left、right、none</li>
+        <li>浮動是塊狀格式化上下文(BFC)家族成員的一員</li>
+        <li></li>
+      </ul>
+
+      <hr />
+
+      <h2>float-left</h2>
+      <img class="float_left" src="https://picsum.photos/200/200/?random=1" />
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dicta quas sapiente quidem accusantium harum
+        omnis, blanditiis excepturi, nostrum soluta neque adipisci dolorum molestias nisi nulla. Recusandae ipsa et
+        dolorem, eaque ipsam qui quis dicta maxime nam aliquam quam itaque fugiat! Reprehenderit, quasi expedita.
+        Commodi, aperiam! Esse ipsa officiis quae eius id ab numquam? Sunt, molestiae. Harum deserunt cumque aspernatur
+        neque earum temporibus id natus exercitationem alias, nemo perferendis atque repellendus molestias quaerat,
+        corporis aut rem, quibusdam dolorem! Sed nulla dolor culpa fuga. Dolores temporibus repellat ipsum tenetur,
+        totam architecto? Distinctio voluptatibus vero dolorem dicta, odio ratione maiores amet pariatur. Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Architecto sed laborum excepturi totam dolorum, exercitationem
+        harum assumenda mollitia consequuntur voluptate!
+      </p>
+      <p class="clear-left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorum nemo tempore unde modi animi earum minus
+        odio, autem, aut pariatur odit? Eos, consequatur? Consequuntur dolores cumque laboriosam assumenda incidunt
+        obcaecati, nihil officia itaque voluptas molestiae distinctio voluptatum cum corporis culpa repudiandae. Sed
+        obcaecati quaerat est architecto sint non dicta ipsum hic quas numquam laudantium fugiat odio natus, eius
+        eveniet. Sit doloremque quos impedit odio illum sint modi aliquid nihil vitae eum, iste assumenda est error
+        sequi? Pariatur animi, quo voluptatibus ab in inventore iure ipsum voluptatem reprehenderit accusantium magnam
+        quae perspiciatis sint enim, nobis ea praesentium blanditiis quos placeat?
+      </p>
+
+      <hr />
+
+      <h2>float-right</h2>
+      <img class="float_right" src="https://picsum.photos/200/200/?random=1" />
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dicta quas sapiente quidem accusantium harum
+        omnis, blanditiis excepturi, nostrum soluta neque adipisci dolorum molestias nisi nulla. Recusandae ipsa et
+        dolorem, eaque ipsam qui quis dicta maxime nam aliquam quam itaque fugiat! Reprehenderit, quasi expedita.
+        Commodi, aperiam! Esse ipsa officiis quae eius id ab numquam? Sunt, molestiae. Harum deserunt cumque aspernatur
+        neque earum temporibus id natus exercitationem alias, nemo perferendis atque repellendus molestias quaerat,
+        corporis aut rem, quibusdam dolorem! Sed nulla dolor culpa fuga. Dolores temporibus repellat ipsum tenetur,
+        totam architecto? Distinctio voluptatibus vero dolorem dicta, odio ratione maiores amet pariatur. Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Architecto sed laborum excepturi totam dolorum, exercitationem
+        harum assumenda mollitia consequuntur voluptate!
+      </p>
+      <p class="clear-right">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorum nemo tempore unde modi animi earum minus
+        odio, autem, aut pariatur odit? Eos, consequatur? Consequuntur dolores cumque laboriosam assumenda incidunt
+        obcaecati, nihil officia itaque voluptas molestiae distinctio voluptatum cum corporis culpa repudiandae. Sed
+        obcaecati quaerat est architecto sint non dicta ipsum hic quas numquam laudantium fugiat odio natus, eius
+        eveniet. Sit doloremque quos impedit odio illum sint modi aliquid nihil vitae eum, iste assumenda est error
+        sequi? Pariatur animi, quo voluptatibus ab in inventore iure ipsum voluptatem reprehenderit accusantium magnam
+        quae perspiciatis sint enim, nobis ea praesentium blanditiis quos placeat?
+      </p>
+
+      <hr />
+
+      <h2>float-left 和 float-right</h2>
+      <img class="float_left" src="https://picsum.photos/200/200/?random=1" />
+      <img class="float_right" src="https://picsum.photos/200/200/?random=1" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos unde magnam inventore, maiores pariatur porro
+        autem, suscipit in, enim veniam excepturi? Quia, dolore facilis. Temporibus ex ab aspernatur ipsum quis nisi
+        nobis aut inventore quam distinctio, alias doloremque praesentium! Accusamus dignissimos dolore quae explicabo.
+        Rerum alias recusandae quia distinctio vitae nemo ullam hic? Accusantium atque labore, vel officia voluptates
+        aliquid nobis maxime libero mollitia asperiores eius impedit velit voluptatem consequuntur illum rerum!
+        Perferendis, quidem? Animi, quidem aliquid explicabo beatae alias soluta eius a possimus voluptates id molestias
+        omnis neque incidunt. Id maiores at temporibus obcaecati voluptates veritatis sit magnam dolor.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos unde magnam inventore, maiores pariatur porro
+        autem, suscipit in, enim veniam excepturi? Quia, dolore facilis. Temporibus ex ab aspernatur ipsum quis nisi
+        nobis aut inventore quam distinctio, alias doloremque praesentium! Accusamus dignissimos dolore quae explicabo.
+        Rerum alias recusandae quia distinctio vitae nemo ullam hic? Accusantium atque labore, vel officia voluptates
+        aliquid nobis maxime libero mollitia asperiores eius impedit velit voluptatem consequuntur illum rerum!
+        Perferendis, quidem? Animi, quidem aliquid explicabo beatae alias soluta eius a possimus voluptates id molestias
+        omnis neque incidunt. Id maiores at temporibus obcaecati voluptates veritatis sit magnam dolor.
+      </p>
+    </div>
+  </body>
+</html>

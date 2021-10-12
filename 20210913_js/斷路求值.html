@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Boolean() 會回傳false的狀況
+      // false、0、""、null、undefined、NAN
+      let x = undefined;
+      let y = 123;
+      // || 回傳第一個true的值，全部都是false則會回傳最後一個值
+      // let z;
+      // if(x){
+      //   z = x;
+      // } else if (y){
+      //   z = y;
+      // } else {
+      //   z = 'abc';
+      // }
+      let z = x || y || 'abc';
+      console.log(z);
+
+      // && 回傳第一個是false 的值，如果全都是true則回傳最後一個值
+      let a = 123;
+      let b = undefined;
+      let c = 789;
+      // let d;
+      // if(!(a)){
+      //   d = a;
+      // } else if (!(b)){
+      //   d = b;
+      // } else {
+      //   d = 789;
+      // }
+      let d = a && b && c;
+      console.log(d);
+
+      // ?? 回傳第一個非null和undefined的值，如果沒有則回傳最後一個值
+      let i = 0;
+      let j = 100;
+      let k = null;
+      let l = k ?? i ?? j;
+      console.log(l);
+    </script>
+  </body>
+</html>

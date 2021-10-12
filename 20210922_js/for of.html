@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = ['a', 'b', 'c', 'd', 'e'];
+
+      // for of 是使用屬性值(只能用在array)
+      for (const char of arr) {
+        console.log(char);
+      }
+
+      // for in 是使用索引(可以用array跟object)
+      for (const index in arr) {
+        console.log(index);
+      }
+
+      let obj = {
+        word: 'hello',
+        lan: 'js',
+      };
+
+      for (const key in obj) {
+        console.log(key);
+        console.log(obj[key]);
+      }
+    </script>
+  </body>
+</html>

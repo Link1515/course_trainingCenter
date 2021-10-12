@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var 變數可以重複宣告，新的會蓋過舊的
+      var x = 2;
+      console.log(x);
+      var x = 3;
+      console.log(x);
+
+      // let 變數不能重複宣告
+      let y = 2;
+      console.log(y);
+      // 這行會錯誤
+      // let y = 3;
+      // 只能這樣改值
+      y = 3;
+      console.log(y);
+
+      const z = 2;
+      // 這行會錯誤，因為不能重複宣告
+      // const z = 3;
+      console.log(z);
+      // 這行會錯誤，const 宣告後就不能改值
+      // z = 5;
+
+      console.log('pi is ' + Math.PI);
+    </script>
+  </body>
+</html>

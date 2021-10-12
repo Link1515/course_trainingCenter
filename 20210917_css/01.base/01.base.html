@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 
+      第二種方式使用<link> 連結外部樣式表
+      1. 優點可以減少CSS 原始碼，不需要在每份HTML文件重寫CSS，HTML檔案也小
+      2. 做專題或工作時，使用外部樣式表
+     -->
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- 
+      第一種方法style 標籤樣式: 寫在<style></style>為該份網頁文件專屬的樣式
+     -->
+    <style>
+      /*
+        基礎語法
+        選擇器 {
+          屬性: 值;
+          屬性: 值;
+          屬性: 值;
+        }
+      */
+
+      h1 {
+        color: red;
+        background-color: yellow;
+        font-size: 40px;
+      }
+
+      /* 群組選擇器，以逗點分開 */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: green;
+      }
+
+      p {
+        color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      第三種方式: style 屬性樣式，常被稱為行內樣式
+      行內樣式優先權最高， 因為style 是元素屬性，屬於該元素的專屬樣式，不被內崁<style>，外部樣式表影響
+     -->
+    <h1 style="color: brown">第一堂課</h1>
+    <p style="color: green">學習控制元素的樣式及基礎選擇器</p>
+    <h1>CSS 第二堂課</h1>
+    <p>學習盒模型、定位、浮動</p>
+    <h1>CSS 第三堂課</h1>
+    <p>學習轉場、動畫</p>
+    <h1>CSS 第四堂課</h1>
+    <p>學習切版</p>
+    <hr />
+
+    <h1>hello world!</h1>
+    <h2>hello world!</h2>
+    <h3>hello world!</h3>
+    <h4>hello world!</h4>
+    <h5>hello world!</h5>
+    <h6>hello world!</h6>
+
+    <hr />
+
+    <h1>由上而下的解析方式</h1>
+    <p>
+      瀏覽器由上而下解析文件，對於樣式而言，如果選擇器一樣，後者會蓋掉前者(這部分之後討論)
+    </p>
+  </body>
+</html>

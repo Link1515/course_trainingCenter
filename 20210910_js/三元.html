@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // confirm 確認視窗，裡面放要顯示的文字
+      // 回傳 true 或 false
+      const isGood = confirm('今天天氣好嗎?');
+      const msg = isGood ? '水喔' : 'GG';
+      /* 
+        如果是判斷布林值，不需要寫 == ture 或 == false
+        if(isGood == ture)可以寫成 if(isGood)
+
+        if (isGood) {
+          msg = '水喔'
+        } else {
+          msg = 'GG'
+        }
+      */
+      document.write(msg);
+    </script>
+  </body>
+</html>

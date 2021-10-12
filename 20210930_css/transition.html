@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+      }
+
+      .hover {
+        width: 100px;
+        height: 100px;
+        color: white;
+        line-height: 100px;
+        font-size: 2rem;
+        background-color: black;
+        text-align: center;
+
+        transition-property: all;
+        transition-duration: 2s;
+        transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+        transition-delay: 0.5s;
+
+        transition: width 1s, background-color 5s 1s, font-size 10s 5s;
+
+        transition: 0.5s;
+      }
+
+      /* .hover:hover {
+        width: 50vw;
+        background-color: dodgerblue;
+        font-size: 5rem;
+        transform: translate(100%, 100%);
+      } */
+
+      h1:nth-child(2):hover ~ .hover {
+        width: 50vw;
+        background-color: dodgerblue;
+        font-size: 5rem;
+        transform: translate(100%, 100%);
+      }
+
+      .hover span {
+        /* margin-left: 0; */
+        transition: 1s;
+      }
+
+      .hover:hover span {
+        margin-left: 1000px;
+      }
+
+      .link {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        background-color: #f00;
+        color: #fff;
+        transform: scale(1);
+        transition: 0.5s;
+      }
+
+      .link:hover {
+        background-color: #00f;
+        color: #fa0;
+        transform: scale(1.5);
+      }
+
+      label[for='check-me'] {
+        display: inline-block;
+        background-color: dodgerblue;
+        color: white;
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+      }
+
+      #check-me:checked ~ .sidebar {
+        margin-left: 0;
+      }
+
+      #check-me {
+        display: none;
+      }
+
+      .sidebar {
+        width: 100px;
+        color: white;
+        background-color: #aaa;
+        padding: 1rem;
+        margin-left: -200px;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>transition</h1>
+    <h1>hover 狀態</h1>
+    <div class="hover">
+      <span>hover</span>
+    </div>
+
+    <h2>練習: 試做一個按鈕，滑鼠hover時，背景顏色、文字顏色、按鈕放大的轉場效果</h2>
+    <a class="link" href="#">按鈕連結</a>
+  </body>
+
+  <hr />
+
+  <h1>checked 狀態</h1>
+  <label for="check-me">Check ME</label>
+  <input type="checkbox" id="check-me" />
+  <div class="sidebar">連結接着地上民眾怪物典型休息新型屏幕群眾一種更為，贏得妹妹穩定一定會驚訝，一個。</div>
+</html>

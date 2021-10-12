@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let text1 = '    Hello World    ';
+      // // .trim() 移除文字前後空白
+      // text1 = text1.trim();
+      // console.log(text1);
+      // // .toUpperCase() 轉大寫
+      // text1 = text1.toUpperCase();
+      // console.log(text1);
+      // // .toLowerCase() 轉小寫
+      // text1 = text1.toLowerCase();
+      // console.log(text1);
+
+      // let text2 = '外賣 咖哩拌飯';
+      // // .includes() 是否包含完全一致的指定文字，會回傳true / false
+      // const include = text2.includes('咖哩');
+      // console.log(include);
+      // // .indexOf() 是否包含完全一致的指定文字，會回傳索引值，找不到則回傳-1
+      // const idx = text2.indexOf('咖哩');
+      // console.log(idx);
+
+      // let text3 = 'abc@abcd.com';
+      // // .match(正則表達式) 符合就回傳陣列，不符合就回傳null
+      // const match = text3.match(/[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+/g);
+      // console.log(match);
+      // // .matchAll(正則表達式) 符合就回傳只能用 for of 看的RegExpStringIterator，不符合就回傳null
+      // const matchAll = text3.matchAll(/[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+/g);
+      // console.log(matchAll);
+      // for (const m of matchAll) {
+      //   console.log(m);
+      // }
+
+      // let text4 = '太無情了史丹利，無情單殺，無情雙殺，哭阿';
+      // // .replace(查詢,取代);
+      // // 查詢放文字的話只會取代第一個
+      // let text4replace = text4.replace('無情', '爆笑');
+      // // 放全域正則表達式的話會取代所有
+      // let text4replace2 = text4.replace(/無情/g, '爆笑');
+      // // 正則表達式的()可以取出該區的字，取代時可以用 $1 $2 $3 代表
+      // let text4replace3 = text4.replace(/無情(\S)殺/g, '$1');
+      // console.log(text4replace);
+      // console.log(text4replace2);
+      // console.log(text4replace3);
+
+      let text5 = 'ABCDEFGH';
+      // .substr(開始, 長度)
+      let text5substr = text5.substr(1, 3);
+      // .substring(開始位置, 結尾位置)
+      let text5substring = text5.substring(5, 3);
+      // .slice(開始位置, 結尾位置)
+      // 可以放負數，代表倒數第幾個
+      let text5slice = text5.slice(1, -1);
+      console.log(text5substr);
+      console.log(text5substring);
+      console.log(text5slice);
+
+      let text6 = '123456.789';
+      let text7 = 'abcd';
+      // 對小數 parseInt 只會取整數
+      let number1 = parseInt(text6);
+      let number2 = parseFloat(text6);
+      let number3 = parseInt(text7);
+      console.log(number1);
+      console.log(number2);
+      console.log(number3);
+      console.log(number3 === NaN, isNaN(number3));
+
+      let text8 = '1,2,3,4,5,6';
+      // .split(分隔符號)
+      let arr = text8.split(',');
+      console.log(arr);
+    </script>
+  </body>
+</html>

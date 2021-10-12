@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let h = 100;
+      // 初始高度為100，sum初始值為100
+      let sum = 100;
+
+      document.write(`這是第1次接觸地面，累積距離100<br><hr>`);
+
+      for (let i = 2; i <= 11; i++) {
+        h *= 0.5;
+        sum += h * 2;
+        document.write(`第${i}次接觸地面，累積距離${sum}<br>`);
+        document.write(`第${i - 1}次反彈，高度為${h}<br><hr>`);
+      }
+    </script>
+  </body>
+</html>

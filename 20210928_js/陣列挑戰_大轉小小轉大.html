@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const input = prompt('幫你大轉小小轉大');
+
+      let output = input.split('');
+
+      output.forEach((item, index, arr) => {
+        if (item === item.toUpperCase()) {
+          arr[index] = item.toLowerCase();
+        } else if (item === item.toLowerCase()) {
+          arr[index] = item.toUpperCase();
+        }
+      });
+
+      output = output.join('');
+
+      document.write(`原值: ${input} <br>`);
+      document.write(`新值: ${output}`);
+    </script>
+  </body>
+</html>

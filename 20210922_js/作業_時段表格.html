@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        [' ', '星期一', '星期二', '星期三', '星期四'],
+        ['時段一', 18.2, 17.3, 15.0, 13.4],
+        ['時段二', 23.8, 25.1, 20.6, 17.8],
+        ['時段三', 20.6, 21.5, 18.4, 15.7],
+      ];
+
+      // 將陣列內容印出成表格
+      document.write('<table border=1>');
+      for (let i = 0; i < data.length; i++) {
+        document.write('<tr>');
+        for (let j = 0; j < data[i].length; j++) {
+          document.write(`<td>${data[i][j]}</td>`);
+        }
+        document.write('</tr>');
+      }
+      document.write('</table>');
+
+      document.write('<br>');
+      // 每日的平均溫度
+      // 時段一、時段二、時段三的平均氣溫
+      // 溫度最高的日子與時段
+      // 溫度最低的日子與時段
+      let dailySum = [0, 0, 0, 0];
+      let timeSum = [0, 0, 0];
+      let max = {
+        temp: data[1][1],
+        day: '',
+        time: '',
+      };
+      let min = {
+        temp: data[1][1],
+        day: '',
+        time: '',
+      };
+
+      for (let i = 1; i < data.length; i++) {
+        for (let j = 1; j < data[i].length; j++) {
+          dailySum[j - 1] += data[i][j];
+          timeSum[i - 1] += data[i][j];
+
+          if (data[i][j] > max.temp) {
+            max.temp = data[i][j];
+            max.day = data[0][j];
+            max.time = data[i][0];
+          }
+
+          if (data[i][j] < min.temp) {
+            min.temp = data[i][j];
+            min.day = data[0][j];
+            min.time = data[i][0];
+          }
+        }
+      }
+
+      for (const i in dailySum) {
+        document.write(
+          `${data[0][+i + 1]} 的平均溫度為 ${dailySum[i] / 3} <br>`
+        );
+      }
+
+      document.write('<br>');
+
+      for (const i in timeSum) {
+        document.write(
+          `${data[+i + 1][0]} 的平均溫度為 ${timeSum[i] / 4} <br>`
+        );
+      }
+
+      document.write('<br>');
+
+      document.write(
+        `最高溫度為 ${max.temp}，在 ${max.day} 的 ${max.time} <br>`
+      );
+      document.write(
+        `最高溫度為 ${min.temp}，在 ${min.day} 的 ${min.time} <br>`
+      );
+    </script>
+  </body>
+</html>

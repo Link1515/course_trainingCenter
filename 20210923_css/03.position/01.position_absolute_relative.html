@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 75%;
+        margin: auto;
+        border: 1px solid #000;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .box1,
+      .box2,
+      .box3,
+      .box4 {
+        padding: 1rem;
+      }
+
+      .box1 {
+        background-color: pink;
+      }
+
+      .box2 {
+        background-color: palegreen;
+      }
+
+      .box3 {
+        background-color: paleturquoise;
+      }
+
+      .box4 {
+        background-color: blanchedalmond;
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
+      .top {
+        top: 200px;
+      }
+
+      .bottom {
+        bottom: 0;
+      }
+
+      .left {
+        left: 100px;
+      }
+
+      .right {
+        right: 0;
+      }
+
+      .container2 {
+        width: 75%;
+        margin: 0 auto;
+        border: 1px solid #000;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      span {
+        background-color: lawngreen;
+        /* 使用 absolute 轉型為block */
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>position: relative</h1>
+      <h2>當元素為相對定位時...</h2>
+      <ul>
+        <li>使用位移屬性會以自己原來的位置位移，並保留本身員來的空間，relative 會說進入定位層</li>
+        <li>沒有任何位移屬性，會留在原地不動。這種relative元素通常做為absolute 子元素位移目標的依據</li>
+      </ul>
+      <div class="box1">
+        <h2>box1</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box2 relative top left">
+        <h2>box2</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box3">
+        <h2>box3</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box4">
+        <h2>box4</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+    </div>
+
+    <div class="container relative">
+      <h1>position: absolute</h1>
+      <h2>當元素為絕對定位時...</h2>
+      <ul>
+        <li>當沒有設定位移屬性，改元素會脫離正常流向，升到定位層</li>
+        <li>若元素都找不到 absolute、relative、fixed，最後會以最初容器根元素(html)作為位移目標</li>
+      </ul>
+      <div class="box1">
+        <h2>box1</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box2 absolute top left">
+        <h2>box2</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box3">
+        <h2>box3</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+      <div class="box4">
+        <h2>box4</h2>
+        <p>
+          道理說了效果更新銀行市場詢問交通漢化銀行關鍵對著，可能條款打印都說溫度心裡矛盾推廣點點漂亮，發言比例漸漸誠信檢測感興趣認定全面快速優惠，引進死亡臨時離開，大力理由來自皮膚體系採購留在登記我覺得同事提出了傳播有時，只不過用於他們怎樣我也郵件精選，鼓勵女兒特。
+        </p>
+      </div>
+    </div>
+
+    <div class="container2">
+      <h1>絕對定位與float</h1>
+      <ul>
+        <li>兩者都會脫離父元素的正常流獨立出來，絕對定位會在定位層，浮動在浮動層</li>
+        <li>兩者都是BFC成員，都會讓元素變成區塊級(block)</li>
+        <li>另外，position: fixed 也會是區塊級元素，也是BFC一員</li>
+      </ul>
+      <span>X</span>
+    </div>
+  </body>
+</html>

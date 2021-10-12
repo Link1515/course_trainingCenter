@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 800px;
+        margin: 0 auto;
+        background-color: #000;
+        color: #fff;
+        position: relative;
+      }
+
+      .red {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        z-index: 1;
+      }
+
+      .green {
+        width: 300px;
+        height: 300px;
+        background-color: green;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+      }
+
+      .blue {
+        width: 300px;
+        height: 300px;
+        background-color: blue;
+        position: absolute;
+        left: 150px;
+        top: 150px;
+      }
+
+      .float {
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        float: left;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="background-color: #fff; color: black">
+      <h1>z-index</h1>
+      <ul>
+        <li>進入定位層後面出現的元素會蓋掉前面的元素</li>
+        <li>z-index 值愈大會在上面</li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="red">absolute 脫離文檔流，進入定位層</div>
+      <div class="green">absolute 脫離文檔流，進入定位層</div>
+      <div class="blue">absolute 脫離文檔流，進入定位層</div>
+      <div class="float">float 脫離文檔流，進入浮動層</div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, illo sequi labore suscipit unde ullam veniam
+        nisi quaerat optio sit qui cum voluptatem veritatis ea voluptas nesciunt. Commodi labore aliquid cumque possimus
+        laboriosam natus dolorum officia autem repellat nostrum, fugiat, ipsam soluta, corporis beatae at ad harum?
+        Nulla, esse dolor ea porro animi eius, placeat consequuntur totam voluptatibus dolores alias unde magni. Error
+        assumenda veritatis fuga quam eius excepturi impedit eos obcaecati. Modi similique laborum sunt vel nostrum est
+        alias doloremque magnam. Sunt pariatur nihil inventore suscipit! Culpa necessitatibus, velit alias quos iste
+        accusantium odio ipsum, pariatur natus omnis ipsam voluptatem provident suscipit reiciendis eveniet eum
+        perferendis? Reiciendis animi nostrum obcaecati autem placeat eveniet libero rerum dolorum et necessitatibus,
+        commodi deleniti aliquam voluptate labore vel at tenetur molestias quos. Accusantium earum impedit fugiat ullam
+        harum consectetur doloremque cumque vero culpa hic. Doloremque modi nemo, delectus odit ipsum nostrum a porro!
+        Incidunt repellat ratione dolor? Corporis, aspernatur? Obcaecati minus quae animi suscipit eligendi facilis
+        eaque iure non nulla facere repudiandae, possimus nihil iste error, dolore in beatae quas sint? Delectus,
+        molestias! Pariatur quia qui explicabo unde aliquam ullam tempora! Neque accusantium ratione totam possimus
+        atque? Dolor voluptatum vel, vero repudiandae sit veritatis sint quis commodi atque! Reiciendis sapiente soluta
+        deserunt placeat, odit nisi voluptate impedit doloremque quibusdam officiis ipsam, nostrum, possimus vero. Nihil
+        excepturi voluptas, explicabo harum nam beatae tempore esse rem iste! Error sapiente asperiores cumque! Aperiam,
+        itaque. Nulla vel dolore repudiandae fugiat vero deleniti eos sapiente. Aliquam harum assumenda, quam
+        temporibus, natus maxime officia perferendis, in dicta commodi impedit excepturi dolor. Quasi esse odit aperiam
+        rem eius maxime neque praesentium ex nesciunt blanditiis facilis sapiente, nisi hic omnis ipsum minus quia
+        consequatur reprehenderit corrupti eum nemo obcaecati incidunt consectetur. Quasi ut magni ipsam delectus libero
+        in eius impedit
+        nemo.文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!文件流最底部!!!
+      </p>
+    </div>
+  </body>
+</html>

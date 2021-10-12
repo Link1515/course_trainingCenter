@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding-bottom: 100px;
+      }
+
+      hr {
+        margin: 20px 0;
+      }
+
+      .block {
+        background-color: #ffa;
+        margin: 100px;
+        padding: 10px;
+        border: 5px solid #999;
+      }
+
+      .inline {
+        background-color: cyan;
+        /* 寬度高度無效 */
+        width: 1000px;
+        height: 1000px;
+        /* margin、padding 上下無效，左右有效 */
+        margin: 20px 30px;
+        padding: 10px 20px;
+        border: 5px solid #333;
+      }
+
+      ul.menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0;
+      }
+
+      ul.menu li {
+        display: inline-block;
+        font-size: 1rem;
+      }
+
+      ul.menu li a {
+        background-color: yellow;
+        padding: 1rem 2rem;
+        text-decoration: none;
+      }
+
+      ul.menu li a:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>請說出以下兩行的差異</h1>
+    <div style="background-color: #ffa">Lorem ipsum dolor sit amet.</div>
+    <div style="background-color: #ffa">Lorem ipsum dolor sit amet.</div>
+    <div style="background-color: #ffa">Lorem ipsum dolor sit amet.</div>
+    <div style="background-color: #ffa">Lorem ipsum dolor sit amet.</div>
+    <div style="background-color: #ffa">Lorem ipsum dolor sit amet.</div>
+
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+
+    <h1>區塊盒與行內盒</h1>
+    <p>CSS 是盒子的世界，盒子區分為區塊盒(block box)、行內盒(inline box)兩種基本類型 (還有其他種)</p>
+
+    <h3>區塊盒</h3>
+    <p>div、h1~h6、p、ul...</p>
+    <div style="background-color: gold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ipsa!</div>
+    <div style="background-color: gold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ipsa!</div>
+    <div style="background-color: gold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ipsa!</div>
+
+    <h3>行內盒</h3>
+    <p>span、a、em、b、i...</p>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+    <span style="background-color: lightblue">Lorem ipsum dolor sit amet.</span>
+
+    <hr />
+
+    <h3>兩種盒子與margin、paddin 的關係</h3>
+    <p class="block">
+      Lorem ipsum dolor sit amet consectetur <span class="inline">hello hello</span> elit. Beatae nemo sit numquam
+      itaque, quod, quae eveniet adipisci nulla doloribus, aliquid dolor. Voluptatem veniam expedita quo rerum animi
+      voluptates iste officia!
+    </p>
+
+    <hr />
+
+    <h3>display: inline-block 製作橫向選單</h3>
+    <p>使用 display 設定其他類型的盒子，稱為轉型</p>
+    <ul class="menu">
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+    </ul>
+  </body>
+</html>

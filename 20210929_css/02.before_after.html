@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        color: white;
+        background-color: black;
+        margin: 2rem 0 0 0;
+        padding: 1rem;
+      }
+
+      hr {
+        margin: 2% 0;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        color: white;
+        background-color: #333;
+        margin: 20px auto;
+        position: relative;
+      }
+
+      .box::before {
+        content: '';
+        width: 100px;
+        height: 100px;
+        border: 5px solid yellow;
+        position: absolute;
+        top: 0;
+        left: -100px;
+      }
+
+      .box::after {
+        content: '';
+        width: 100px;
+        height: 100px;
+        border: 5px solid blue;
+        position: absolute;
+        top: 0;
+        left: 100px;
+      }
+
+      .bg-color {
+        background-color: aqua;
+      }
+
+      .col {
+        width: 45%;
+        margin: 2.5%;
+        float: left;
+      }
+
+      .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      .bg {
+        color: white;
+        height: 300px;
+        background: url('https://picsum.photos/400/3000/?random=1') center / cover;
+        position: relative;
+      }
+
+      .bg::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: rgba(150, 0, 100, 0.2);
+      }
+
+      .box1 {
+        width: 150px;
+        height: 150px;
+        background: url('https://picsum.photos/150/150/?random=1') no-repeat center / cover;
+        margin: 0 auto;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .box1::before {
+        content: '';
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: -110%;
+        background: url('https://picsum.photos/150/150/?random=2') no-repeat center / cover;
+        transition: 0.5s;
+      }
+
+      .box1::after {
+        content: '';
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        right: -110%;
+        background: url('https://picsum.photos/150/150/?random=3') no-repeat center / cover;
+        transition: 0.5s;
+      }
+
+      .box1:hover::before {
+        background: url('https://picsum.photos/150/150/?random=4') no-repeat center / cover;
+        left: 110%;
+      }
+
+      .box1:hover::after {
+        background: url('https://picsum.photos/150/150/?random=5') no-repeat center / cover;
+        right: 110%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>偽元素 ::before、::after</h1>
+      <div class="box">
+        <div class="content">Lorem.</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>啟動條件</h1>
+      <ul style="list-style: 24px">
+        <li>1. 要有content: ''，才有作用，content可以放文字</li>
+        <li>2. 建立時為inline類型</li>
+        <li>3. before 建立時，在內容區的前方，after在內容區的後方</li>
+        <li>4. 對其絕對定位時，父元素一般都有 position: relative</li>
+        <li>5. 偽元素不能再建立偽元素</li>
+        <li>6. 替代元素不用用偽元素</li>
+      </ul>
+    </div>
+
+    <h1>1. 當作清除浮動</h1>
+    <div class="container bg-color clearfix">
+      <div class="col">
+        <img src="https://picsum.photos/200/200/?random=1" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae assumenda, nihil incidunt optio eos
+          architecto sunt sapiente quisquam necessitatibus officiis. Explicabo doloremque dolor saepe, sit odit nemo
+          dicta eligendi.
+        </p>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/200/200/?random=1" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae assumenda, nihil incidunt optio eos
+          architecto sunt sapiente quisquam necessitatibus officiis. Explicabo doloremque dolor saepe, sit odit nemo
+          dicta eligendi.
+        </p>
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>2. 當作背景容器使用</h1>
+    <div class="container">
+      <div class="bg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad a sed tempore officiis quod officia, similique
+        voluptate voluptates quae perspiciatis autem et laboriosam ipsa illum iste doloribus iusto explicabo deserunt.
+      </div>
+    </div>
+
+    <hr />
+
+    <h1>3.摸到主體，讓分身做事情</h1>
+    <div class="container">
+      <div class="box1"></div>
+    </div>
+  </body>
+</html>
