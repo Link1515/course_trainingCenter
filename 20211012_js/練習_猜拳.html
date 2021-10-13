@@ -33,9 +33,9 @@
       let loseCounter = 0;
       let drawCounter = 0;
 
-      for (const dis of playerDicisions) {
-        dis.onclick = () => {
-          playerChoose = dis.value;
+      for (const dic of playerDicisions) {
+        dic.onclick = () => {
+          playerChoose = dic.value;
           compChoose = compDicisions[Math.round(Math.random() * 2)];
 
           if (playerChoose == compChoose) {
