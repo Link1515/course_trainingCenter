@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 外部樣式表 -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- 內嵌樣式 -->
+    <style>
+      section {
+        color: red;
+      }
+
+      /* 第一組 */
+
+      h1 {
+        color: red;
+      }
+
+      #main-title {
+        color: blue;
+      }
+
+      .title {
+        color: green;
+      }
+
+      /* 第二組 */
+      div span {
+        font-size: 10rem;
+        color: cyan;
+      }
+
+      span {
+        font-size: 5rem;
+        color: magenta;
+      }
+
+      .a {
+        font-size: 10rem;
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <section style="color: green">Hello World</section>
+
+    <h1 id="main-title" class="title">你好世界</h1>
+
+    <div>
+      <span class="a">Hello World</span>
+    </div>
+
+    <p>
+      如果選擇器規則沒有按照自己設定的產生作用，可能與另外一組規則發生衝突，這是選擇器優先權的問題，也就是說每組選擇器都有自己的分數，會以分數高的為結果。
+    </p>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        border: 1rem solid #ffee90;
+      }
+
+      .bg {
+        background-image: url('https://images.unsplash.com/photo-1595429035839-c99c298ffdde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .object-fit {
+        width: 100%;
+        height: 100%;
+        /* 設置 object-fit */
+        object-fit: cover;
+        /* 設置 object-position 調整圖片位置，跟 background-position 一樣，第一數值水平，第二數值垂直 */
+        object-position: -140px center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>背景圖</h1>
+    <p>調整背景與容器大小時，可以設定 background-size: cover</p>
+    <div class="box bg"></div>
+
+    <h1>圖片 object-fit</h1>
+    <p>圖片放入一個容器時，圖片太大又不想用影像處理軟體調整比例</p>
+    <div class="box">
+      <img
+        class="object-fit"
+        src="https://images.unsplash.com/photo-1615465502839-71d5974f5087?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+      />
+    </div>
+  </body>
+</html>

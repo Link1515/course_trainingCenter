@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        color: purple;
+        line-height: 2;
+      }
+
+      div {
+        color: red;
+        line-height: 1;
+      }
+
+      span {
+        color: blue;
+      }
+
+      div span {
+        /* 繼承父元素的值 */
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>階層屬性繼承</h1>
+    <ul>
+      <li>例如 color 屬性，內層元素如果沒有 color，會根據外層元素繼承 color，會根據外層元素繼承 color</li>
+      <li>文字、顏色相關會繼承，font-系列、color、line-height... 會被繼承</li>
+      <li>背景、定位、浮動、盒模型(padding、border、margin) 等等屬性不會被繼承</li>
+    </ul>
+
+    <div>
+      <h1>標題</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adi <span>哈囉</span> <a href="">你好</a> pisicing elit. Placeat, sequi.
+      </p>
+    </div>
+
+    <hr />
+
+    <h1>inherit 值</h1>
+    <span>Lorem</span>
+    <div class="example">
+      <span>lorem</span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: '微軟正黑體';
+        box-sizing: border-box;
+      }
+
+      /* 
+        css 選擇器權重
+        大老二遊戲
+        1. inline style (黑桃): 1, 0, 0, 0 
+        2. ID 選擇器 (愛心): 0,1,0,0
+        3. class選擇器、屬性選擇器、偽類 (方塊): 0, 0, 1, 0
+        4. 元素標籤、偽元素 (梅花): 0, 0, 0, 1
+
+        連接符號，例如: 空白(後代)、>(子代)、+(相鄰)、~(全體)、//、^、$、*、:not() 對權重沒有影響
+        但:not() 括號內部的參數會算分數
+      */
+
+      /* 第一組 */
+      /* 0, 1, 0, 1 */
+      #box1 p {
+        color: green;
+      }
+
+      /* 0, 0, 1, 1 */
+      .box p {
+        color: red;
+      }
+
+      /* 第二組 */
+      /* 0, 1, 1, 2 */
+      #box2 .box h1 + p {
+        color: yellow;
+      }
+
+      /* 
+        例子
+        * => 0000
+        h1 => 0001
+        ul > li => 0002
+        li > ol + ol => 0003
+        .foo => 0010
+        a:not(div) => 0002
+        ol li.foo => 0012
+        li.foo.bar => 0021
+        #foo .bar p => 0111
+      */
+
+      /* 
+      第一
+      #section01 .conatiner .row .col .card align-self: hover
+
+      第二
+      #section01 .card align-self: hover
+      
+      第三
+      .card a:hover
+
+      */
+    </style>
+  </head>
+
+  <body>
+    <h1>階層權重 - 為選擇器打分數</h1>
+    <div id="box1">
+      <div class="box">
+        <h1>標題</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#"><em>哈囉</em></a> Provident culpa dolorem
+          laudantium sunt odio officia adipisci reiciendis quo, iure, modi eaque ratione alias ipsam minus harum atque
+          ducimus cum repudiandae.
+        </p>
+      </div>
+    </div>
+
+    <div id="box2">
+      <div class="box">
+        <h1>標題</h1>
+        <p style="color: purple">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#"><em>哈囉</em></a> Provident culpa dolorem
+          laudantium sunt odio officia adipisci reiciendis quo, iure, modi eaque ratione alias ipsam minus harum atque
+          ducimus cum repudiandae.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
