@@ -13,6 +13,9 @@
         font-family: '微軟正黑體';
         box-sizing: border-box;
       }
+      hr {
+        margin: 30px 0;
+      }
 
       /* 
         css 選擇器權重
@@ -24,6 +27,8 @@
 
         連接符號，例如: 空白(後代)、>(子代)、+(相鄰)、~(全體)、//、^、$、*、:not() 對權重沒有影響
         但:not() 括號內部的參數會算分數
+
+        !important
       */
 
       /* 第一組 */
@@ -41,6 +46,14 @@
       /* 0, 1, 1, 2 */
       #box2 .box h1 + p {
         color: yellow;
+      }
+
+      #abc {
+        color: red;
+      }
+
+      .abc {
+        color: blue !important;
       }
 
       /* 
@@ -92,6 +105,17 @@
           ducimus cum repudiandae.
         </p>
       </div>
+    </div>
+
+    <hr />
+
+    <div id="abc" class="abc" style="color: purple">
+      <h1>標題</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti voluptatem, ea rerum corrupti consectetur
+        velit asperiores atque modi libero aliquid eius commodi ducimus, tempora esse. Architecto perferendis ut labore
+        dolorem.
+      </p>
     </div>
   </body>
 </html>
