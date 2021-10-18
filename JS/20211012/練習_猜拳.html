@@ -7,57 +7,55 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="button" value="剪刀" id="scissor" />
-    <input type="button" value="石頭" id="stone" />
-    <input type="button" value="布" id="paper" />
+    <input type="button" value="剪刀" />
+    <input type="button" value="石頭" />
+    <input type="button" value="布" />
     <p class="score">
       你贏了 <span id="win">0</span> 次，輸了 <span id="lose">0</span> 次，平手 <span id="draw">0</span> 次
     </p>
     <ul id="his"></ul>
 
     <script>
-      const scissor = document.getElementById('scissor');
-      const stone = document.getElementById('stone');
-      const paper = document.getElementById('paper');
       const his = document.getElementById('his');
       const win = document.getElementById('win');
       const lose = document.getElementById('lose');
       const draw = document.getElementById('draw');
-      const playerDicisions = [scissor, stone, paper];
+      const playerDicisions = document.querySelectorAll('input[type="button"]');
       const compDicisions = ['剪刀', '石頭', '布'];
 
-      let playerChoose = '';
-      let compChoose = '';
-      let result = '';
       let winCounter = 0;
       let loseCounter = 0;
       let drawCounter = 0;
 
       for (const dic of playerDicisions) {
         dic.onclick = () => {
-          playerChoose = dic.value;
-          compChoose = compDicisions[Math.round(Math.random() * 2)];
+          const playerChoose = dic.value;
+          const compChoose = compDicisions[Math.round(Math.random() * 2)];
+          let result = '';
 
           if (playerChoose == compChoose) {
-            result = '平手';
+            result = '<span style="background:#fa0; font-size:2rem;">平手</span>';
             drawCounter++;
           } else if (
             (playerChoose == '剪刀' && compChoose == '布') ||
             (playerChoose == '石頭' && compChoose == '剪刀') ||
             (playerChoose == '布' && compChoose == '石頭')
           ) {
-            result = '你贏了';
+            result = '<span style="background:#0fa; font-size:2rem;">你贏了</span>';
             winCounter++;
           } else {
-            result = '你輸了';
+            result = '<span style="background:#f66; font-size:2rem;">你輸了</span>';
             loseCounter++;
           }
 
           // alert(result);
 
-          let li = document.createElement('li');
-          li.innerHTML = `你選了 ${playerChoose}，電腦選了 ${compChoose}，${result}`;
-          his.appendChild(li);
+          // let li = document.createElement('li');
+          // li.innerHTML = `你選了 ${playerChoose}，電腦選了 ${compChoose}，${result}`;
+          // his.appendChild(li);
+
+          his.insertAdjacentHTML('beforeend', `<li>你選了 ${playerChoose}，電腦選了 ${compChoose}，${result}</li>`);
+
           win.innerText = winCounter;
           lose.innerText = loseCounter;
           draw.innerText = drawCounter;
