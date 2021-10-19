@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AAA</h1>
+    <h1>BBB</h1>
+    <a href="https://fb.com" id="link-fb">
+      <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="fb" />
+    </a>
+    <p id="text1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, voluptatibus.</p>
+    <p id="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <ul id="ul1">
+      <li class="center">a</li>
+      <li class="red">b</li>
+      <li>c</li>
+    </ul>
+    <ul id="ul2">
+      <li id="first">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <div>
+      <table border="1px">
+        <tr>
+          <td>
+            <p id="text3">text3</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="ul3">
+      <li>123</li>
+    </div>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      // .text() 抓文字
+      console.log($('h1').text());
+      // .eq 第幾個
+      console.log($('h1').eq(0).text());
+      // .text() 放動機就是改字
+      $('h1').eq(0).text('123');
+      // .html() 抓html
+      console.log($('#link-fb').html());
+      // .html() 改html
+      $('#link-fb').html(
+        `<img width=300 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/1200px-YouTube_social_white_circle_%282017%29.svg.png" alt="" />`
+      );
+      // .attr(屬姓名) 抓屬性值
+      console.log($('#link-fb').attr('href'));
+      $('#link-fb').attr('href', 'https://youtube.com');
+      $('#link-fb').attr('target', '_blank');
+
+      // .css 改單個
+      $('#text1').css('color', 'red');
+      // .css 改多個
+      $('#text1').css({ backgroundColor: 'black', 'font-weight': 'bold' });
+      // .css 取值
+      console.log($('#text1').css('color'));
+
+      // .addClass() 新增 class 以空格分隔
+      $('#text2').addClass('center red');
+      // .removeClass() 移除 class 以空格分隔
+      $('#text2').removeClass('center');
+      console.log($('#text2').hasClass('center'));
+
+      // .find() 用選擇器尋找後代
+      $('#ul1').find('.center').removeClass().addClass('red');
+
+      const li = $('#ul2').find('li').eq(2);
+      // .prevAll() 同一層的前面所有東西，()可以放選擇器塞選
+      li.prevAll().addClass('center');
+      // .prev() 同一層的前一個，()可以放選擇器塞選
+      li.prev().addClass('red');
+      // .nextAll() 同一層的後面所有東西，()可以放選擇器塞選
+      li.nextAll().addClass('center');
+      // .next() 同一層的後一個，()可以放選擇器塞選
+      li.next().addClass('red');
+      // .siblings() 同一層的其他東西，()可以放選擇器塞選
+      li.siblings().css('font-style', 'italic');
+
+      // .parents() 所有上層，()可以放選擇器
+      $('#text3').parents().css('background', 'gray');
+      // .parent() 上一層，()可以放選擇器
+      $('#text3').parent().css('background', 'blue');
+      // .closest() 往上找到最近的一個符合選擇器的元素，()可以放選擇器
+      $('#text3').closest('div').css('margin', '100px');
+
+      // 裡面的前面
+      $('#ul3').prepend(`<li>前面新的</li>`);
+      // 裡面的後面
+      $('#ul3').append(`<li>後面新的</li>`);
+      // 外面的前面
+      $('<p>前面</p>').insertBefore(`#ul3`);
+      // 外面的後面
+      $('<p>後面</p>').insertAfter(`#ul3`);
+    </script>
+  </body>
+</html>

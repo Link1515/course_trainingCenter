@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="addplace">
+      <input type="text" id="inputText" />
+      <button type="input" id="addBtn">新增</button>
+    </div>
+    <ul id="addlist"></ul>
+
+    <!-- js -->
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      $('#addBtn').on('click', function () {
+        if ($('#inputText').val()) {
+          let newText = $('#inputText').val();
+          $('#addlist').append(`<li>${newText}<button class="removeBtn">X</button></li>`);
+          // 移除鈕
+          $('.removeBtn').on('click', function () {
+            $(this).parent().remove();
+          });
+          $('#inputText').val('');
+        }
+      });
+    </script>
+  </body>
+</html>

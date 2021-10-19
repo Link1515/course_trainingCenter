@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #pic {
+      width: 300px;
+      height: 455px;
+      object-fit: fill;
+    }
+
+    #picContainer {
+      width: 400px;
+      height: 200px;
+      margin-top: 3rem;
+    }
+  </style>
+  <body>
+    <div>
+      <!-- 派大星 -->
+      <img id="pic" src="https://live.staticflickr.com/4063/4706331404_f9e4a2217b.jpg" alt="patrick" />
+    </div>
+    <button type="button" id="btn1">換圖</button>
+
+    <br />
+
+    <!-- 手機品牌 -->
+    <div id="picContainer">
+      <img src="https://cdn2.ettoday.net/images/976/d976608.jpg" alt="" class="pic" style="display: none" />
+      <img src="http://img1.how01.com/thumb_400x208/f5/1d/e/22c8000560454bdaef03.jpg" alt="" class="pic" />
+    </div>
+    <button type="button" id="btn2">換圖</button>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      // 法1: 改src屬性
+      $('#btn1').on('click', function () {
+        if ($('#pic').attr('src') == 'https://live.staticflickr.com/4063/4706331404_f9e4a2217b.jpg') {
+          $('#pic').attr('src', 'https://pic.pimg.tw/dai681006/4b724bd3be960.jpg');
+        } else {
+          $('#pic').attr('src', 'https://live.staticflickr.com/4063/4706331404_f9e4a2217b.jpg');
+        }
+      });
+
+      // 法二: toggle()
+      $('#btn2').click(function () {
+        $('.pic').toggle('slow');
+      });
+    </script>
+  </body>
+</html>
