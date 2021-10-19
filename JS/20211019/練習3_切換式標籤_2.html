@@ -70,6 +70,10 @@
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos alias iusto, inventore dolor voluptates
             eligendi asperiores corporis odit ex in.
           </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas officiis dolorum voluptas doloribus vitae
+            quod?
+          </p>
         </div>
         <div class="text" style="display: none">
           <h2>投資人專區</h2>
@@ -97,21 +101,15 @@
 
     <script src="./jquery-3.6.0.min.js"></script>
     <script>
-      for (let i = 0; i < $('#tags li').length; i++) {
-        $('#tags li')
-          .eq(i)
-          .on('click', function () {
-            for (let j = 0; j < $('.text').length; j++) {
-              if (j === i) {
-                $('.text').eq(j).show();
-                $('#tags li').eq(j).addClass('active');
-              } else {
-                $('.text').eq(j).hide();
-                $('#tags li').eq(j).removeClass('active');
-              }
-            }
-          });
-      }
+      $('#tags li').click(function () {
+        let index = $(this).index();
+        // 標籤class替換
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        // 顯示 / 隱藏內文
+        $('.text').hide();
+        $('.text').eq(index).show();
+      });
     </script>
   </body>
 </html>
