@@ -1,0 +1,204 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+  margin: auto;
+}
+
+#main {
+  border: 1px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+#top {
+  height: 65px;
+}
+
+#top .logo-wda {
+  width: 80%;
+}
+
+#top .logo {
+  width: 100%;
+  display: none;
+}
+
+.hamburger {
+  width: 35px;
+  height: 35px;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 0.3rem;
+  margin: 0.2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger span {
+  display: inline-block;
+  width: 80%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.hamburger span::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: inherit;
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+.hamburger span::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: inherit;
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox']:checked + #sidebar {
+  left: 0;
+  opacity: 1;
+}
+
+#sidebar {
+  text-align: center;
+  height: 683px;
+  background-color: white;
+  position: absolute;
+  top: 80px;
+  left: -100%;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#sidebar h1 {
+  font-size: 24px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-align: center;
+  color: #ff00ff;
+  margin: 1rem 0;
+}
+
+#sidebar .menu {
+  width: 200px;
+  margin: auto;
+  height: 658px;
+}
+
+#sidebar .menu li {
+  height: 35px;
+  margin-bottom: 0.5rem;
+  background: url('../images/menu1.png') no-repeat center / cover;
+  line-height: 35px;
+}
+
+#sidebar .menu li:hover {
+  background: url('../images/menu2.png') no-repeat center / cover;
+}
+
+#sidebar .menu li a {
+  display: block;
+}
+
+#sidebar .update {
+  height: 25px;
+}
+
+#content marquee {
+  font-size: 20px;
+  color: blue;
+  height: 29px;
+}
+
+#content iframe {
+  width: 100%;
+  height: 654px;
+}
+
+#footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  height: 20px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  #top .logo-wda {
+    display: none;
+  }
+
+  #top .logo {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  #sidebar {
+    width: 25%;
+    float: left;
+    position: static;
+    opacity: 1;
+  }
+
+  #content {
+    float: right;
+    width: 75%;
+  }
+
+  #footer {
+    clear: both;
+  }
+}

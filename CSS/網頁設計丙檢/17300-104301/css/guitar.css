@@ -1,0 +1,29 @@
+body {
+  background-image: url('../images/0101.jpg');
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.a {
+  font-size: 18px;
+  color: red;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: red;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.menu li {
+  margin: 0 0.5rem;
+}

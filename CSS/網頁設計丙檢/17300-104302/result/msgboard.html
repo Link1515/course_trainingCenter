@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+        padding: 2px;
+        margin: 0 auto;
+      }
+
+      table td {
+        border: 1px solid #ddd;
+      }
+
+      table tr td:first-child {
+        width: 120px;
+        text-align: center;
+      }
+
+      table tr td:last-child {
+        width: 580px;
+      }
+    </style>
+  </head>
+  <body>
+    <marquee>謝謝蒞臨本網站，請給予我們支持、鼓勵與建言。</marquee>
+    <p><span style="color: #f00; font-weight: bold">現在位置：首頁＞訪客留言</span></p>
+    <form>
+      <table>
+        <tr>
+          <td>姓名</td>
+          <td><input type="text" size="20" /></td>
+        </tr>
+        <tr>
+          <td>電子郵件</td>
+          <td><input type="text" size="60" /></td>
+        </tr>
+        <tr>
+          <td>性別</td>
+          <td>
+            <input type="radio" name="gender" value="male" />男 <input type="radio" name="gender" value="female" />女
+          </td>
+        </tr>
+        <tr>
+          <td>職業類別</td>
+          <td>
+            <select>
+              <option disabled selected>-----------請選擇職業類別-----------</option>
+              <option>1.現役軍人</option>
+              <option>2.專業人員</option>
+              <option>3.技術員及助理專業人員</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>留言內容</td>
+          <td><textarea cols="78" rows="10" style="resize: none"></textarea></td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="submit"
+              value="送出"
+              onclick="alert('歡迎蒞臨本網站，您的寶貴意見我們會儘速處理與回覆，謝謝！')"
+            />
+            <input type="reset" value="重寫" />
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

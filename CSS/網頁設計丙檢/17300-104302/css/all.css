@@ -1,0 +1,80 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #42413c;
+}
+
+.container {
+  margin: auto;
+  width: 1024px;
+}
+
+#top {
+  display: flex;
+}
+
+#top .top-logo {
+  width: 180px;
+  height: 90px;
+}
+
+#top .top-title {
+  width: calc(100% - 180px);
+  background-color: #00b0f0;
+  text-align: center;
+  line-height: 90px;
+  font-size: 52px;
+  color: #fff;
+  text-shadow: 10px 10px 15px #333;
+}
+
+#menu .menu-list {
+  display: flex;
+}
+
+#menu .menu-list li {
+  flex: 1;
+  text-align: center;
+  /* height: 25px; */
+}
+
+#menu .menu-list a {
+  color: #000;
+  background-color: #eee;
+  line-height: 25px;
+  text-decoration: none;
+  display: block;
+}
+
+#menu .menu-list a:hover {
+  color: red;
+  background-color: #ff0;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#content {
+  height: 608px;
+  width: 1024px;
+  color: #000;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 20px;
+}
+
+#footer {
+  height: 45px;
+  width: 1024px;
+  color: #fff;
+  background: #ccc;
+  font-size: 14px;
+  text-align: center;
+  line-height: 22px;
+}
