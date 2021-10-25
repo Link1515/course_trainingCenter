@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #imgs {
+        height: 100px;
+        overflow: hidden;
+      }
+
+      #imgs img {
+        height: 100px;
+        margin-top: 50px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="imgs">
+      <img src="https://i.ytimg.com/vi/Ha-WKoyu6yg/maxresdefault.jpg" alt="" />
+      <img src="https://i.ytimg.com/vi/NN9LaU2NlLM/maxresdefault.jpg" alt="" />
+      <img
+        src="https://lh3.googleusercontent.com/proxy/PjpipNeAFOAGI5PvI2cq9IxQZUwR2rFsVYZbsSYoVFgrLhlFl9XTMI7XUl3vQ9mQ103UJjFd2pb5tKAA58lmgZ7YijONn_wRjJyGCHx0OAkRd5hUTck5EA"
+        alt=""
+      />
+      <img src="http://p3.pstatp.com/large/c5d00071fe33ee42212" alt="" />
+      <img
+        src="https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2018-01/d197af03-5883-4f92-aab1-d9bcef987665_m.jpg"
+        alt=""
+      />
+    </div>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      // .hover(mouseIn, mouseOut)
+      $('#imgs img').hover(
+        function () {
+          $(this).stop().animate({
+            marginTop: 0,
+          });
+          $(this).prev().stop().animate({
+            marginTop: 25,
+          });
+          $(this).next().stop().animate({
+            marginTop: 25,
+          });
+        },
+        function () {
+          $(this).stop().animate({
+            marginTop: 50,
+          });
+          $(this).prev().stop().animate({
+            marginTop: 50,
+          });
+          $(this).next().stop().animate({
+            marginTop: 50,
+          });
+        }
+      );
+    </script>
+  </body>
+</html>

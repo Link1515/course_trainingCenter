@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #game {
+        width: 400px;
+        height: 400px;
+        background: #000;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #game img {
+        height: 150px;
+        position: absolute;
+      }
+
+      .zombie {
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="開始遊戲" id="btn-start" />
+    <br />
+    <p>分數: <span id="score">0</span> 分</p>
+    <p>剩餘: <span id="time">0</span> 秒</p>
+    <hr />
+    <div id="game"></div>
+
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      let score = 0;
+      let countdown = 30;
+      let timer = 0;
+
+      const move = (zb) => {
+        const top = `${Math.round(Math.random() * 70)}%`;
+        const left = `${Math.round(Math.random() * 70)}%`;
+        zb.stop().animate(
+          {
+            top,
+            left,
+          },
+          2000,
+          function () {
+            move(zb);
+          }
+        );
+      };
+
+      $('#btn-start').click(function () {
+        // 停用開始按鈕
+        $(this).attr('disabled', true);
+        // 重設
+        scroe = 0;
+        $('#score').text(score);
+        countdown = 30;
+        $('#time').text(countdown);
+
+        // 開始遊戲
+        timer = setInterval(function () {
+          countdown--;
+          $('#time').text(countdown);
+
+          // 隨機產生殭屍
+          let random = Math.round(Math.random() * 10);
+          if (random > 5 && $('#game .zombie').length < 10) {
+            const top = `${Math.round(Math.random() * 70)}%`;
+            const left = `${Math.round(Math.random() * 70)}%`;
+            const zombie = $(`<img class="zombie" src="./1.gif" style="top:${top}; left:${left}">`);
+            $('#game').append(zombie);
+            move(zombie);
+          }
+
+          if (countdown <= 0) {
+            clearInterval(timer);
+            $('#game img').remove();
+            $(this).attr('disabled', false);
+            Swal.fire({
+              icon: 'info',
+              title: '時間到',
+              text: `你得到了 ${score} 分`,
+            });
+          }
+        }, 1000);
+      });
+
+      $('#game').on('click', 'img', function () {
+        $(this).attr('src', './blood.png');
+        $(this).stop();
+        $(this).css({
+          // 無法選取
+          'user-select': 'none',
+          // 無法點住拖曳
+          '-webkit-user-drag': 'none',
+          // 忽略點擊事件
+          'pointer-events': 'none',
+        });
+        $(this).removeClass('zombie').addClass('blood');
+        score++;
+        $('#score').text(score);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type='button'] {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        outline: none;
+        border: none;
+        background-color: #fa0;
+        cursor: pointer;
+        margin: 0 20px;
+        transition: 0.3s;
+      }
+
+      input[type='button']:hover {
+        background-color: rgb(187, 125, 2);
+      }
+
+      .btns {
+        text-align: center;
+        font-size: 0;
+      }
+
+      #carousel {
+        width: 400px;
+        height: 300px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 5px;
+      }
+
+      #imgs {
+        width: 2000px;
+        position: absolute;
+      }
+
+      #imgs img {
+        float: left;
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="carousel">
+      <div id="imgs">
+        <img src="https://i.ytimg.com/vi/Ha-WKoyu6yg/maxresdefault.jpg" alt="" />
+        <img src="https://i.ytimg.com/vi/NN9LaU2NlLM/maxresdefault.jpg" alt="" />
+        <img
+          src="https://lh3.googleusercontent.com/proxy/PjpipNeAFOAGI5PvI2cq9IxQZUwR2rFsVYZbsSYoVFgrLhlFl9XTMI7XUl3vQ9mQ103UJjFd2pb5tKAA58lmgZ7YijONn_wRjJyGCHx0OAkRd5hUTck5EA"
+          alt=""
+        />
+        <img src="http://p3.pstatp.com/large/c5d00071fe33ee42212" alt="" />
+        <img
+          src="https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2018-01/d197af03-5883-4f92-aab1-d9bcef987665_m.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="btns">
+      <input type="button" value="&lt;" id="left" />
+      <input type="button" value="&gt;" id="right" />
+    </div>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      // 紀錄目前是第幾張圖
+      let now = 0;
+
+      const total = $('#imgs img').length;
+
+      $('#imgs').css('width', total * 400);
+
+      $('#right').click(function () {
+        if (now < total - 1) {
+          now++;
+          const move = now * 400;
+          $('#imgs')
+            .stop(true, true)
+            .animate({
+              left: `-${move + 25}px`,
+            })
+            .animate({
+              left: `-${move}px`,
+            });
+        }
+      });
+
+      $('#left').click(function () {
+        if (now > 0) {
+          now--;
+          const move = now * 400;
+
+          if (now === 0) {
+            $('#imgs')
+              .stop(true, true)
+
+              .animate({
+                left: `${move + 25}px`,
+              })
+              .animate({
+                left: `-${move}px`,
+              });
+          } else
+            [
+              $('#imgs')
+                .stop(true, true)
+
+                .animate({
+                  left: `-${move - 25}px`,
+                })
+                .animate({
+                  left: `-${move}px`,
+                }),
+            ];
+        }
+      });
+    </script>
+  </body>
+</html>

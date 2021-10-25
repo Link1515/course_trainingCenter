@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="動" id="btn1" />
+    <input type="button" value="停" id="btn2" />
+    <input type="button" value="動動" id="btn3" />
+
+    <input type="button" value="淡入" id="btn4" />
+    <input type="button" value="淡出" id="btn5" />
+    <input type="button" value="半透明" id="btn6" />
+
+    <input type="button" value="滑出" id="btn7" />
+    <input type="button" value="滑入" id="btn8" />
+    <hr />
+    <img src="https://pbs.twimg.com/profile_images/1071551256236314624/6HSKqSKk_400x400.jpg" alt="patrick" />
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+      $('#btn1').click(function () {
+        // .animate(CSS, 時間, 結束後的function)
+        // 原生jquery無法使用顏色改變動畫，要加裝jquery UI
+        $('img').animate(
+          {
+            width: '+=100px',
+            height: '+=100px',
+          },
+          1000,
+          function () {
+            alert('動畫結束');
+          }
+        );
+      });
+
+      $('#btn2').click(function () {
+        // .stop(是否停止之後的動畫, 是否跳到動畫結束)
+        // 如果第二個是 true 的話，第一個一定要是true
+        $('img').stop(true, true);
+      });
+
+      $('#btn3').click(function () {
+        // animate 可以串聯作好幾部動畫，時間可以放slow和fast
+        // 如果不想要加減速的話，可以在時間後加上 'linear'
+        $('img')
+          .animate(
+            {
+              left: '+=100px',
+            },
+            'slow',
+            'linear',
+            function () {
+              console.log('往右了');
+            }
+          )
+          .animate(
+            {
+              top: '+=200px',
+            },
+            'fast',
+            'linear',
+            function () {
+              console.log('往下了');
+            }
+          );
+      });
+
+      $('#btn4').click(function () {
+        // .fadeIn(時間, function)
+        $('img').fadeIn(1000);
+      });
+      $('#btn5').click(function () {
+        // .fadeOut(時間, function)
+        // 淡出後會display:none
+        $('img').fadeOut(1000);
+      });
+      $('#btn6').click(function () {
+        // .fadeTo(時間, 不透明度, function)
+        // 不會有display: none問題
+        $('img').fadeTo(1000, 0.5);
+      });
+
+      $('#btn7').click(function () {
+        // 遞減高度至 0 後 display: none
+        $('img').slideUp(1000);
+      });
+      $('#btn8').click(function () {
+        // 遞增至原本高度
+        $('img').slideDown(1000);
+      });
+    </script>
+  </body>
+</html>
