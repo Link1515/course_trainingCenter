@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+#top a {
+  display: block;
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  line-height: 120px;
+  text-shadow: 10px 10px 15px #333;
+  background-image: url('../image/0401.jpg');
+}
+
+#marquee {
+  height: 30px;
+  line-height: 30px;
+  background-image: url('../image/0402.jpg');
+  font-size: 19px;
+  color: #00f;
+}
+
+#content {
+  background-image: url('../image/0402.jpg');
+}
+
+#content iframe {
+  height: 540px;
+  width: 100%;
+}
+
+#footer {
+  height: 78px;
+  line-height: 2;
+  background-color: #660;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer a:visited {
+  color: #f99;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  #top {
+    height: 120px;
+  }
+
+  #top a {
+    font-size: 52px;
+  }
+}
