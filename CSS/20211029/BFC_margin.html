@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .box {
+        background-color: #ffa;
+        overflow: hidden;
+        /* display: flow-root; */
+        /* display: table-cell; */
+        /* position: absolute; */
+        /* display: inline-block; */
+        /* float: left; */
+        /* contain: layout; */
+      }
+
+      .box p {
+        color: #fff;
+        background-color: #000;
+        margin: 100px 0;
+      }
+
+      .top-box {
+        background-color: #faa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-box">Top Box</div>
+    <div class="box">
+      <p>頂端元素</p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis tempora dolores, incidunt eum magnam dolorum
+        sequi beatae ut quaerat? Vel tenetur suscipit a earum unde beatae accusantium voluptatum dicta sint!
+      </p>
+      <p>尾端元素</p>
+    </div>
+  </body>
+</html>
