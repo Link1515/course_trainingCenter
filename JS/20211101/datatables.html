@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>名稱</th>
+          <th>地址</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+    <script>
+      $.get(
+        './data2.json',
+        function (response) {
+          console.log(response.attractions);
+          for (const attraction of response.attractions) {
+            $('#table tbody').append(
+              `<tr>
+                <td>${attraction.title}</td>
+                <td>${attraction.address}</td>
+              </tr>`
+            );
+          }
+
+          $('#table').DataTable({
+            language: {
+              url: './zh_Hant.json',
+            },
+            columnDefs: [
+              {
+                // 目標欄位，從0開始，可以放多個
+                targets: [1],
+                // 關閉排序
+                orderable: false,
+                // 關閉搜尋
+                searchable: false,
+              },
+            ],
+            // 一頁幾筆
+            lengthMenu: [
+              // 數值，-1是全部
+              [5, 10, 20, -1],
+              // 文字
+              [5, 10, 20, '全部'],
+            ],
+          });
+        },
+        'json'
+      );
+    </script>
+  </body>
+</html>

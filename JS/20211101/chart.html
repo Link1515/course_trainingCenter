@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="chart"> </canvas>
+    <canvas id="chart2"> </canvas>
+    <canvas id="chart3"> </canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script>
+      const canvas = document.getElementById('chart');
+
+      const chart = new Chart(canvas, {
+        // 折線圖
+        type: 'line',
+        data: {
+          // X軸名稱
+          labels: ['一心', '二聖', '三多', '四維', '五福', '六合', '七賢', '八德', '九如', '十全'],
+          // 資料集
+          datasets: [
+            {
+              label: '高雄',
+              data: [4, 5, 99, 6, 3, 5, 66, 3, 0, 55],
+              borderWidth: 1,
+              borderColor: 'red',
+              backgroundColor: 'pink',
+              lineTension: 0,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+          plugins: {
+            title: {
+              text: '高雄路名',
+              display: true,
+            },
+          },
+        },
+      });
+
+      const canvas2 = document.getElementById('chart2');
+
+      const chart2 = new Chart(canvas2, {
+        type: 'bar',
+        data: {
+          labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+          datasets: [
+            {
+              label: 'ABC',
+              data: [12, 45, 77, 88, 99, 32],
+              borderWidth: 1,
+              borderColor: 'red',
+              backgroundColor: 'pink',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              text: '測試紀錄',
+              display: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

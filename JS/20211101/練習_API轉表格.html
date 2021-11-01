@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      tr:nth-child(even) {
+        background-color: #aaa;
+      }
+
+      td {
+        padding: 0.25rem 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody id="API-table"></tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const APITable = document.getElementById('API-table');
+
+      axios.get('https://kktix.com/events.json').then((response) => {
+        for (let i = 0; i < response.data.entry.length; i++) {
+          APITable.insertAdjacentHTML(
+            'beforeend',
+            `<tr>
+              <td>${response.data.entry[i].title}</td>
+              <td>${response.data.entry[i].summary}</td>
+              <td>${response.data.entry[i].published}</td>
+            </tr>`
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
