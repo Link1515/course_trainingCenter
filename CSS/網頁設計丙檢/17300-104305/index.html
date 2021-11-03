@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset.css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- all.css -->
+    <link rel="stylesheet" href="./css/all.css" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <input type="checkbox" id="toggle_menu" />
+      <div id="left">
+        <label for="toggle_menu">&#8652; </label>
+        <ul class="menu">
+          <li><img src="./images/0508.gif" alt="書曼的旅遊相簿" title="書曼的旅遊相簿" /></li>
+          <li><img src="./images/0507.jpg" alt="書曼" title="書曼" /></li>
+          <li>
+            <a href="#"><img src="./images/0501b.gif" alt="金門逍遙遊" title="金門逍遙遊" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./images/0502b.gif" alt="卡蹓到馬祖" title="卡蹓到馬祖" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./images/0503b.gif" alt="踏浪澎湖行" title="踏浪澎湖行" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./images/0504b.gif" alt="綠島唱夜曲" title="綠島唱夜曲" /></a>
+          </li>
+          <li>
+            <a href="./album5/album5.html" target="iframe">
+              <img src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去" />
+            </a>
+          </li>
+          <li class="date">日期: 2021/11/03<br />維護: Link1515</li>
+          <li>
+            <a href="./index.html" target="iframe"><img src="./images/0506b.gif" alt="回首頁" title="回首頁" /></a>
+          </li>
+        </ul>
+      </div>
+      <div id="right">
+        <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
+        <div id="content">
+          <iframe src="main.html" frameborder="0" name="iframe" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('.menu li img').hover(overHandler, outHandler);
+
+      function overHandler(e) {
+        for (let i = 1; i <= 6; i++) {
+          if (e.target.src.slice(-9) === `050${i}b.gif`) {
+            e.target.src = `./images/050${i}r.gif`;
+          }
+        }
+      }
+
+      function outHandler(e) {
+        for (let i = 1; i <= 6; i++) {
+          if (e.target.src.slice(-9) === `050${i}r.gif`) {
+            e.target.src = `./images/050${i}b.gif`;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
