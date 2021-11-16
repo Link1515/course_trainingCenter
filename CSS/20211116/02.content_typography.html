@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02.content typography</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .mutiple-line-dot {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>測試測試測試測試測試測試</h2>
+    <p class="h2">我也用h2樣式</p>
+
+    <h2>自定義標題</h2>
+    <p>使用通用類別重現 Bootstrap 3.0 中的小標題文本。</p>
+    <h3>
+      Fancy display heading
+      <small class="text-muted">With faded secondary text</small>
+    </h3>
+
+    <hr />
+
+    <h2>顯示標題</h2>
+    <p>
+      一般的標題元素能在頁面內容繁多時發揮最佳作用。當你需要突出一個標題時，請考慮使用 display heading
+      以獲得更大、更細、稍具有風格化的標題樣式。
+    </p>
+    <h1 class="display-1">Display 1</h1>
+    <h1 class="display-2">Display 2</h1>
+    <h1 class="display-3">Display 3</h1>
+    <h1 class="display-4">Display 4</h1>
+    <h1 class="display-5">Display 5</h1>
+    <h1 class="display-6">Display 6</h1>
+
+    <hr />
+
+    <h2>前導文字</h2>
+    <p>使用 .lead 讓一個段落脫穎而出。</p>
+    <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+
+    <hr />
+
+    <h2>行內文本</h2>
+    <p>使用行內 HTML5 元素的格式。</p>
+    <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+    <p><del>This line of text is meant to be treated as deleted text.</del></p>
+    <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+    <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+    <p><u>This line of text will render as underlined.</u></p>
+    <p><small>This line of text is meant to be treated as fine print.</small></p>
+    <p><strong>This line rendered as bold text.</strong></p>
+    <p><em>This line rendered as italicized text.</em></p>
+
+    <hr />
+
+    <h2>對齊</h2>
+    <p>使用文字通用類別來更改 blockquote 的對齊方式。</p>
+    <!-- text-center -->
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>A well-known quote, contained in a blockquote element.</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Someone famous in <cite title="Source Title">Source Title</cite>
+      </figcaption>
+    </figure>
+    <!-- text-end -->
+    <!-- ltr => start: 左，end: 右 -->
+    <!-- rtl => start: 右，end: 左 -->
+    <figure class="text-end">
+      <blockquote class="blockquote">
+        <p>A well-known quote, contained in a blockquote element.</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Someone famous in <cite title="Source Title">Source Title</cite>
+      </figcaption>
+    </figure>
+
+    <hr />
+
+    <h2>描述型列表對齊</h2>
+    <p>
+      通過使用我們網格系統定義的類別（或是語意 mixins）將項目和說明水平對齊。對於較長的術語，你可選擇性加上
+      .text-truncate 來用 … 取代多餘內容。
+    </p>
+    <h3>單行...</h3>
+    <p class="bg-info text-truncate" style="width: 300px">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum recusandae, perspiciatis placeat vero aut
+      expedita eius reiciendis tenetur similique maiores adipisci fugit numquam aliquid ratione earum illum quisquam
+      nihil, incidunt harum voluptatem veritatis. Eos sapiente dolorum laboriosam quam cumque, optio cum rem? Vel nam
+      exercitationem explicabo suscipit! Alias, praesentium ex.
+    </p>
+    <h3>多行</h3>
+    <p class="bg-info mutiple-line-dot" style="width: 300px">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum recusandae, perspiciatis placeat vero aut
+      expedita eius reiciendis tenetur similique maiores adipisci fugit numquam aliquid ratione earum illum quisquam
+      nihil, incidunt harum voluptatem veritatis. Eos sapiente dolorum laboriosam quam cumque, optio cum rem? Vel nam
+      exercitationem explicabo suscipit! Alias, praesentium ex.
+    </p>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

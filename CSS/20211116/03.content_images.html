@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03.content images</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>圖片 (images)</h1>
+      <h2>響應式圖片</h2>
+      <p>
+        Bootstrap 中的圖片可利用 .img-fluid 設定為響應式圖片。運用 max-width: 100%; 和 height:
+        auto;，讓圖片可依父元素進行縮放。
+      </p>
+      <img class="img-fluid" src="https://picsum.photos/1920/600/?random=1" />
+
+      <hr />
+
+      <h2>圖片縮略圖</h2>
+      <p>除了我們的 邊框-圓角 通用類別 之外，你可以使用 .img-thumbnail 讓圖片呈現圓角 1px 的邊框。</p>
+      <img class="img-thumbnail" src="https://picsum.photos/200/200/?random=1" />
+
+      <hr />
+
+      <h2>對齊圖片</h2>
+      <p>
+        用 輔助方法 浮動類別 或是 文字 對齊類別 讓圖片對齊。屬性為 block 的圖片可以使用 .mx-auto margin 通用類別 置中。
+      </p>
+      <p>
+        BS5 開始使用 start、end 代表文件流方向，大多數國家來說網頁都是由左向右，也就是
+        ltr，阿語系國家，文件流向和我們相反，變成 rtl
+      </p>
+      <p>BS4 沒有這種限制，單純使用 float-left、float-right</p>
+      <div class="bg-light clearfix">
+        <img class="rounded float-start" src="https://picsum.photos/200/200/?random=1" />
+        <img class="rounded float-end" src="https://picsum.photos/200/200/?random=2" />
+      </div>
+
+      <hr />
+
+      <h2>圖片置中兩種方式</h2>
+      <h3>第一種， block 圖片，再使用 margin: auto</h3>
+      <img class="rounded d-block mx-auto" src="https://picsum.photos/200/200/?random=98" />
+      <h3>第二種， 利用 text-align:center</h3>
+      <div class="text-center">
+        <img class="rounded" src="https://picsum.photos/200/200/?random=77" />
+      </div>
+
+      <hr />
+
+      <h2>圖片標籤</h2>
+      <p>如果使用 picture 為特定的 img 詳細描述多個 source 元素，要確保 .img-* 類別添加在 img 而非 picture 標籤上。</p>
+      ​<picture>
+        <source
+          srcset="./image/photo-1526682847805-721837c3f83b.jfif"
+          media="(min-width: 1200px)"
+          type="image/svg+xml"
+        />
+        <source
+          srcset="./image/photo-1535139262971-c51845709a48.jfif"
+          media="(min-width: 576px)"
+          type="image/svg+xml"
+        />
+        <img src="./image/photo-1547211453-719b1bdec5f6.jfif" class="img-fluid img-thumbnail" alt="..." />
+      </picture>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
