@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <style>
+      .container {
+        margin: 5rem;
+      }
+
+      span {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+      }
+
+      .row > div {
+        height: 100px;
+        border: 1px dashed #aaa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .row > div:nth-child(2) ~ div {
+        border-left: none;
+      }
+
+      .rounded-rwd {
+        border-radius: 0.25rem;
+      }
+
+      @media (min-width: 576px) {
+        .rounded-rwd {
+          border-radius: calc(0.25rem + 1vw);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container bg-white">
+      <h2 class="mb-5">border</h2>
+      <h3>增加</h3>
+      <div class="row mb-4">
+        <div class="col"><span class="border"></span></div>
+        <div class="col"><span class="border-top"></span></div>
+        <div class="col"><span class="border-end"></span></div>
+        <div class="col"><span class="border-bottom"></span></div>
+        <div class="col"><span class="border-start"></span></div>
+      </div>
+
+      <h3>減少</h3>
+      <div class="row mb-4">
+        <div class="col"><span class="border border-0"></span></div>
+        <div class="col"><span class="border border-top-0"></span></div>
+        <div class="col"><span class="border border-end-0"></span></div>
+        <div class="col"><span class="border border-bottom-0"></span></div>
+        <div class="col"><span class="border border-start-0"></span></div>
+      </div>
+
+      <h3>邊框顏色</h3>
+      <div class="row mb-4">
+        <div class="col"><span class="border border-primary"></span></div>
+        <div class="col"><span class="border border-secondary"></span></div>
+        <div class="col"><span class="border border-success"></span></div>
+        <div class="col"><span class="border border-danger"></span></div>
+        <div class="col"><span class="border border-warning"></span></div>
+        <div class="col"><span class="border border-info"></span></div>
+        <div class="col"><span class="border border-light"></span></div>
+        <div class="col"><span class="border border-dark"></span></div>
+        <div class="col"><span class="border border-white"></span></div>
+      </div>
+
+      <h3>邊框寬度</h3>
+      <div class="row mb-4">
+        <div class="col"><span class="border border-1"></span></div>
+        <div class="col"><span class="border border-2"></span></div>
+        <div class="col"><span class="border border-3"></span></div>
+        <div class="col"><span class="border border-4"></span></div>
+        <div class="col"><span class="border border-5"></span></div>
+      </div>
+
+      <h3>border-radius</h3>
+      <div class="row mb-4">
+        <div class="col"><img class="rounded" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-top" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-end" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-bottom" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-start" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-circle" src="https://picsum.photos/100/100/?random=1" /></div>
+        <div class="col"><img class="rounded-pill" src="https://picsum.photos/150/100/?random=1" /></div>
+        <div class="col"><img class="rounded-0" src="https://picsum.photos/100/100/?random=1" /></div>
+      </div>
+
+      <h3>自訂 rounded-rwd</h3>
+      <div class="row">
+        <div class="col">
+          <img class="rounded-rwd" src="https://picsum.photos/100/100/?random=1" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>display</h1>
+      <h2>display: inline</h2>
+      <div class="d-inline textwhite p-2 bg-primary">ITEM</div>
+      <div class="d-inline textwhite p-2 bg-info">ITEM</div>
+      <div class="d-inline textwhite p-2 bg-success">ITEM</div>
+      <div class="d-inline textwhite p-2 bg-warning">ITEM</div>
+      <div class="d-inline textwhite p-2 bg-danger">ITEM</div>
+
+      <hr />
+
+      <h2>display: flex</h2>
+      <div class="d-flex">
+        <div class="textwhite p-2 bg-primary">ITEM</div>
+        <div class="textwhite p-2 bg-info">ITEM</div>
+        <div class="textwhite p-2 bg-success">ITEM</div>
+        <div class="textwhite p-2 bg-warning">ITEM</div>
+        <div class="textwhite p-2 bg-danger">ITEM</div>
+      </div>
+
+      <hr />
+
+      <h2>隱藏元素</h2>
+      <div class="d-lg-none bg-primary text-white">lg 尺寸以上消失</div>
+      <div class="d-none d-lg-block bg-success text-white">lg尺寸以上會出現</div>
+
+      <hr />
+
+      <h2>運用在列印的 Display</h2>
+      <div class="d-print-none bg-danger text-white">Screen Only (Hide on print only)</div>
+      <div class="d-none d-print-block bg-success text-white">Print Only (Hide on screen only)</div>
+      <div class="d-none d-lg-block d-print-block bg-primary text-white">
+        Hide up to large on screen, but always show on print
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
