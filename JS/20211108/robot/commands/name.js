@@ -1,6 +1,7 @@
-import { data } from '../data.js'
+import { data, test } from '../data.js'
 
 export default async (event) => {
+  test()
   const name = event.message.text.replace('!name ', '')
   try {
     for (const info of data) {

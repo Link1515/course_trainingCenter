@@ -3,6 +3,13 @@ import schedule from 'node-schedule'
 
 export let data = []
 
+export let count = 0
+
+export const test = () => {
+  count++
+  console.log(count)
+}
+
 // 更新資料的 function
 const getData = () => {
   axios.get('https://gis.taiwan.net.tw/XMLReleaseALL_public/scenic_spot_C_f.json').then((response) => {
