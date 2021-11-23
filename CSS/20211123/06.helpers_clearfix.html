@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <style>
+      h2,
+      h3 {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>clearfix 清除浮動</h2>
+      <div class="bg-info clearfix">
+        <button type="button" class="btn btn-secondary float-start">Example Button floated left</button>
+        <button type="button" class="btn btn-secondary float-end">Example Button floated right</button>
+      </div>
+
+      <h2>overflow-hidden</h2>
+      <div class="bg-info overflow-hidden">
+        <button type="button" class="btn btn-secondary float-start">Example Button floated left</button>
+        <button type="button" class="btn btn-secondary float-end">Example Button floated right</button>
+      </div>
+
+      <h2>flow-root</h2>
+      <div class="bg-info" style="display: flow-root">
+        <button type="button" class="btn btn-secondary float-start">Example Button floated left</button>
+        <button type="button" class="btn btn-secondary float-end">Example Button floated right</button>
+      </div>
+
+      <h2>inline-block</h2>
+      <div class="bg-info d-inline-block w-100">
+        <button type="button" class="btn btn-secondary float-start">Example Button floated left</button>
+        <button type="button" class="btn btn-secondary float-end">Example Button floated right</button>
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

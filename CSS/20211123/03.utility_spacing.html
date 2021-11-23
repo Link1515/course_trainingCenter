@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <style>
+      .box {
+        width: 200px;
+        background-color: #aaa;
+      }
+
+      .mb-n5 {
+        margin-bottom: -48px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>間隔 spacing</h1>
+      <div class="d-inline-block border border-5 border-dark">
+        <div class="box mt-5 mb-3 ms-1 me-2 p-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+      </div>
+
+      <h2>響應式</h2>
+      <div class="box p-3 p-lg-4 px-xl-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ex.</div>
+
+      <h2>水平置中</h2>
+      <div class="mx-auto bg-primary text-white" style="width: 200px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aspernatur non nihil quis sequi veniam architecto
+        veritatis quos ullam omnis.
+      </div>
+
+      <h1>負的 margin</h1>
+      <p>BS4 預設是開啟，BS5 要改 Sass 開啟</p>
+      <div class="d-inline-block border border-5 border-dark">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore necessitatibus amet deserunt dicta delectus
+        tempora vel vero quas animi enim.
+      </div>
+
+      <h1>Gap</h1>
+      <div class="d-grid gap-3 gap-lg-5">
+        <div class="p-2 bg-light border">Grid item 1</div>
+        <div class="p-2 bg-light border">Grid item 2</div>
+        <div class="p-2 bg-light border">Grid item 3</div>
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

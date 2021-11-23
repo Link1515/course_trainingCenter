@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <style>
+      section {
+        background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+          url('https://i0.wp.com/1.bp.blogspot.com/-fHRXR3Xa8y8/XgL--rf0FHI/AAAAAAAAEfI/oa9fhTkZoFgdL9dVCpHkh03mICQFv7U2QCLcBGAsYHQ/s1600/%25E6%259D%25B1%25E4%25BA%25AC%25E5%25BF%2585%25E7%259C%258B%25E5%25A4%259C%25E6%2599%25AF.jpg?ssl=1')
+            no-repeat center / cover;
+      }
+
+      .item {
+        transition: 0.5s;
+      }
+
+      .item:hover {
+        margin-top: -5px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+      }
+
+      .item .item_pic {
+        overflow: hidden;
+      }
+
+      .item .item_pic img {
+        transform: scale(1);
+        transition: 0.5s;
+      }
+
+      .item:hover .item_pic img {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="container py-3 py-md-5">
+        <div class="header text-center">
+          <h1 class="fw-bold">活動專區</h1>
+          <a href="#" class="btn btn-primary d-inline-block fw-bold mb-4">查看所有熱門活動列表 ></a>
+        </div>
+        <div class="row gy-3 gx-md-4">
+          <div class="col-md-4">
+            <div class="item">
+              <div class="item_pic">
+                <img class="w-100 h-100" style="object-fit: cover" src="https://picsum.photos/400/300/?random=1" />
+              </div>
+              <div class="item_txt bg-white p-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor aut molestias corrupti, itaque
+                excepturi?
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item">
+              <div class="item_pic">
+                <img class="w-100 h-100" style="object-fit: cover" src="https://picsum.photos/400/300/?random=2" />
+              </div>
+              <div class="item_txt bg-white p-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor aut molestias corrupti, itaque
+                excepturi?
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item">
+              <div class="item_pic">
+                <img class="w-100 h-100" style="object-fit: cover" src="https://picsum.photos/400/300/?random=3" />
+              </div>
+              <div class="item_txt bg-white p-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor aut molestias corrupti, itaque
+                excepturi?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
