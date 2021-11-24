@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <style>
+      h2 {
+        margin: 20px 0;
+      }
+
+      nav {
+        margin-bottom: 5rem;
+      }
+
+      .breadcrumb-sign-gl {
+        --bs-breadcrumb-divider: '>';
+      }
+
+      .breadcrumb-unicode {
+        --bs-breadcrumb-divider: '\261E';
+      }
+
+      /* 
+        base64 圖片編碼字串
+        優點: 可減少下載時間，更快看到圖片
+        缺點: 檔案較大
+      */
+
+      .breadcrumb-base64 {
+        --bs-breadcrumb-divider: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAG7SURBVDiNnZK/a1NRHMU/32vaxCZi+osGobiUVtDBblpdHMTopoO00V38CxRRXJT2HxChg5NSQQQpikVRMWjTgohTIQ61YE21bZKavNSEvJevU67mPavUM557z/me77lXmNARDGsYirgM6iVm2QZEVbdzPwBjnZ5uZmS6+lXShX7LZcr75H1uXeZWn/3VQGYq0xQ7DuFE+sjvWrAmHaV3RGvddFaOy/zay60TiPfFMj/aYtbENY7l484xmf/2wm9gO5AZZ4pCbNSe1L0qe8qH6d58TrTWA4AqJu9+8I4MDgc60GRsjC7nPgBlwPUi7C3epq7DVMLrqBLayKOl3QdlisuBBJZ4WH3ChjnF0eZW+oqVrjMmvLys33uiWkg0r17QFJOhQCsHco9BTgJiuaV4tdEefwOc+HOJzenZxYsgt34Tv2Vl51naedQiVq5oikmA0NZimWU1cppc4m6LWLiqKcZbEkj203nf5AzUknxO3PHFvqZj3AyuoPRZsTDHDi+pQ0NlwDaGcF1T3PB38OsfZBcnENmP8c7pwEAJQB7QS517CK/9kwMG/4vgM/4Dben0iNtofAwb0+lB709Q5630WAo93AAAAABJRU5ErkJggg==');
+        filter: invert(70%) sepia(97%) saturate(2129%) hue-rotate(358deg) brightness(100%) contrast(102%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>麵包屑</h1>
+
+      <h2>直接修改文字</h2>
+      <nav>
+        <ol class="breadcrumb breadcrumb-sign-gl">
+          <li class="breadcrumb-item"><a href="#">首頁</a></li>
+          <li class="breadcrumb-item"><a href="#">運動用品</a></li>
+          <li class="breadcrumb-item active"><a href="#">慢跑鞋</a></li>
+        </ol>
+      </nav>
+
+      <h2>使用unicode</h2>
+      <nav>
+        <ol class="breadcrumb breadcrumb-unicode">
+          <li class="breadcrumb-item"><a href="#">首頁</a></li>
+          <li class="breadcrumb-item"><a href="#">運動用品</a></li>
+          <li class="breadcrumb-item active"><a href="#">慢跑鞋</a></li>
+        </ol>
+      </nav>
+
+      <h2>使用base64</h2>
+      <a href="https://www.base64-image.de/">base64</a>
+      <p>png to base64</p>
+      <p>svg to base64</p>
+      <nav>
+        <ol class="breadcrumb breadcrumb-base64">
+          <li class="breadcrumb-item"><a href="#">首頁</a></li>
+          <li class="breadcrumb-item"><a href="#">運動用品</a></li>
+          <li class="breadcrumb-item active"><a href="#">慢跑鞋</a></li>
+        </ol>
+      </nav>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

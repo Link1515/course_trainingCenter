@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>按鈕 button</h1>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+
+      <button type="button" class="btn btn-link">Link</button>
+
+      <hr />
+
+      <h1>按鈕標籤</h1>
+      <a class="btn btn-primary" href="#" role="button">Link</a>
+      <button class="btn btn-primary" type="submit">Button</button>
+      <input class="btn btn-primary" type="button" value="Input" />
+      <input class="btn btn-primary" type="submit" value="Submit" />
+      <input class="btn btn-primary" type="reset" value="Reset" />
+
+      <hr />
+
+      <h1>Outline 按鈕樣式</h1>
+      <button type="button" class="btn btn-outline-primary">Primary</button>
+      <button type="button" class="btn btn-outline-secondary">Secondary</button>
+      <button type="button" class="btn btn-outline-success">Success</button>
+      <button type="button" class="btn btn-outline-danger">Danger</button>
+      <button type="button" class="btn btn-outline-warning">Warning</button>
+      <button type="button" class="btn btn-outline-info">Info</button>
+      <button type="button" class="btn btn-outline-light">Light</button>
+      <button type="button" class="btn btn-outline-dark">Dark</button>
+
+      <hr />
+
+      <h1>尺寸</h1>
+      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+      <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+      <button type="button" class="btn btn-primary btn-sm">Small button</button>
+      <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+      <hr />
+
+      <h1>禁用狀態</h1>
+      <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+      <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
+      <br />
+      <br />
+      <p>a 不支援 disabled 屬性，所以你必須添加 .disabled 使它在視覺上看起來被禁用。</p>
+      <a class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+      <a class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Link</a>
+
+      <h1>連結功能警告</h1>
+      <p>無 tabindex="-1"，用tab還是會 focus 到 .disable 的 a tag</p>
+      <a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+      <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Link</a>
+      <p>有 tabindex="-1"</p>
+      <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"
+        >Primary link</a
+      >
+      <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+
+      <hr />
+
+      <h1>區塊級別按鈕</h1>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+      <h2>d-flex 作法</h2>
+      <div class="d-flex flex-column">
+        <button class="btn btn-primary">button</button>
+      </div>
+
+      <hr />
+      <h1>切換狀態</h1>
+      <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
+      <button type="button" class="btn btn-primary active" data-bs-toggle="button">Active toggle button</button>
+      <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">Disabled toggle button</button>
+      <h2>將 a 作為按鈕，須手動添加 .active</h2>
+      <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Toggle link</a>
+      <a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true"
+        >Active toggle link</a
+      >
+      <a class="btn btn-primary disabled" aria-disabled="true" role="button" data-bs-toggle="button"
+        >Disabled toggle link</a
+      >
+
+      <hr />
+
+      <h1>用 bootstrap 的建構式來制定按鈕</h1>
+      <button id="myButton" class="btn btn-primary">Bootstrap</button>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+      const button = document.querySelector('#myButton')
+      const bsButton = new bootstrap.Button(button)
+      button.addEventListener('click', function () {
+        bsButton.toggle()
+      })
+      // button.
+    </script>
+  </body>
+</html>
