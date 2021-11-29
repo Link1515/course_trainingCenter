@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding-bottom: 5rem;
+      }
+
+      hr {
+        margin: 2rem 0;
+      }
+
+      .border-red {
+        border: 5px solid #f00;
+      }
+
+      .text-blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 顯示文字 -->
+      <h1>{{text}}</h1>
+      <h1 v-text="text"></h1>
+      <!-- 顯示 html -->
+      <p v-html="html"></p>
+      <!-- 判斷 -->
+      <p v-if="num === 1">aaa</p>
+      <p v-else-if="num === 2">bbb</p>
+      <p v-else="num === 3">ccc</p>
+      <!-- 判斷式，符合才會出現，不符合就 display: none -->
+      <p v-show="num === 1">v show</p>
+      <!-- 迴圈 -->
+      <ul>
+        <li v-for="fruit in fruits">{{ fruit }}</li>
+      </ul>
+      <ul>
+        <li v-for="(fruit, i) in fruits">{{ i + ' - ' + fruit }}</li>
+      </ul>
+
+      <hr />
+
+      <!-- 綁定 -->
+      <a v-bind:href="link">Google</a>
+      <br />
+      <a :href="link">Google</a>
+      <br />
+      <img :src="plane" width="200" />
+      <!-- :style="{ 樣式名稱: 值 }" -->
+      <p :style="{ color: 'red', backgroundColor: 'black'}">dfdfjalfldf</p>
+      <p :style="textStyle">dfdfjalfldf</p>
+      <!-- :class="{ class名: boolean }" -->
+      <p :class="textClass">1213123</p>
+
+      <hr />
+
+      <!-- 表單 -->
+      <input type="text" v-model="form.text" />
+      <p>{{ form.text }}</p>
+      <select v-model="form.select">
+        <option v-for="fruit in fruits" :value="fruit">{{ fruit }}</option>
+      </select>
+      <br />
+      <span v-for="fruit in fruits">
+        <input type="radio" v-model="form.radio" :value="fruit" :id="fruit" />
+        <label :for="fruit">{{ fruit }}</label>
+      </span>
+
+      <hr />
+
+      <!-- 事件 -->
+      <input type="button" value="點" v-on:click="clickBtn" />
+      <input type="button" value="點2" v-on:click="clickBtn2" />
+      <input type="button" value="點3" v-on:click="clickBtn3('hi')" />
+      <input type="button" value="點4" v-on:click="clickBtn4('hi', $event)" />
+      <br />
+      <br />
+      <a href="https://google.com" @click.prevent="clickLink">google</a>
+      <br />
+      <br />
+      <input type="text" @keydown.enter="inputEnter" v-model="form.text" />
+
+      <hr />
+
+      <input type="text" v-model="form.lastName" placeholder="請輸入姓" />
+      <input type="text" v-model="form.firstName" placeholder="請輸入名" />
+      <p>
+        姓: {{ form.lastName }} <br />
+        名: {{ form.firstName }} <br />
+        全名: {{ fullName }}
+      </p>
+
+      <hr />
+
+      <input type="text" v-model="text" />
+      <p>{{text}}</p>
+
+      <hr />
+
+      <h2 ref="myTitle" id="myTitle">12132132</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        // vue 對應到的div
+        el: '#app',
+        // vue 元件有什麼資料
+        data() {
+          return {
+            text: 'abccc',
+            html: '<a href="https://google.com">google</a>',
+            num: 1,
+            fruits: ['西洋梨', '蘋果', '哈密瓜'],
+            link: 'https://google.com',
+            plane: 'https://live.staticflickr.com/1513/25439111142_b9d3b306d2_b.jpg',
+            textStyle: {
+              color: 'red',
+              backgroundColor: 'black'
+            },
+            textClass: {
+              'border-red': true,
+              'text-blue': true
+            },
+            form: {
+              text: '',
+              select: '',
+              radio: '',
+              firstName: '',
+              lastName: ''
+            }
+          }
+        },
+        // vue 元件有什麼 function
+        methods: {
+          clickBtn() {
+            alert('點')
+          },
+          clickBtn2(event) {
+            console.log(event)
+            alert('點')
+          },
+          clickBtn3(txt) {
+            alert(txt)
+          },
+          clickBtn4(txt, event) {
+            console.log(event)
+            alert(txt)
+          },
+          clickLink() {
+            alert('有prevent，不會跳頁')
+          },
+          inputEnter() {
+            // 在 methods 抓 data 時要加 this
+            // 在 methods 呼叫另一個 method 也要加 this
+            alert(this.form.text)
+          }
+        },
+        // 經過 function 計算的 data
+        computed: {
+          fullName() {
+            return this.form.lastName + ' ' + this.form.firstName
+          }
+        },
+        // 偵測 data 變更，以 data名 當作 function 名
+        watch: {
+          text(newValue, oldValue) {
+            console.log(newValue, oldValue)
+          },
+          // 陣列或者物件
+          form: {
+            // 深層監聽
+            deep: true,
+            handler(newValue, oldValue) {
+              console.log(newValue, oldValue)
+            }
+          }
+        },
+        // 當元件放到DOM時
+        mounted() {
+          console.log(this.$refs.myTitle.innerText)
+          // 用 querySelector 或 querySelectorAll
+          // 無法用 getElementById
+          console.log(this.$el.querySelector('#myTitle').innerText)
+        }
+      })
+    </script>
+  </body>
+</html>

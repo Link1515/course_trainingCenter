@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="newItem" @keydown.enter="add" :style="{ border: '10px solid ' + borderColor }" />
+      <input type="button" value="新增" @click="add" />
+      <hr />
+      <ul>
+        <li v-for="(item, i) in items">
+          <input type="checkbox" v-model="item.ok" />
+          <del v-if="item.ok">{{ item.name }}</del>
+          <span v-else>{{ item.name }}</span>
+          <input type="button" value="x" @click="del(i)" />
+        </li>
+      </ul>
+
+      <input type="button" value="全部刪除" @click="delAll" />
+      <input type="button" value="全部完成" @click="okAll(true)" />
+      <input type="button" value="全部未完成" @click="okAll(false)" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            newItem: '',
+            items: []
+          }
+        },
+        methods: {
+          add() {
+            if (this.newItem.length >= 2) {
+              this.items.push({
+                name: this.newItem,
+                ok: false
+              })
+              this.newItem = ''
+            }
+          },
+          del(i) {
+            this.items.splice(i, 1)
+          },
+          delAll() {
+            this.items = []
+          },
+          okAll(value) {
+            this.items = this.items.map((item) => {
+              item.ok = value
+              return item
+            })
+          }
+        },
+        computed: {
+          borderColor() {
+            return this.newItem.length === 0 ? 'black' : this.newItem.length < 2 ? 'red' : 'blue'
+          }
+        },
+        watch: {
+          items: {
+            // 內部的屬性改變時才會被偵測
+            deep: true,
+            handler(value) {
+              localStorage.setItem('list', JSON.stringify(this.items))
+            }
+          }
+        },
+        mounted() {
+          this.items = JSON.parse(localStorage.getItem('list')) || []
+        }
+      })
+    </script>
+  </body>
+</html>

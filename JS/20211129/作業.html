@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input
+        type="text"
+        v-model="newItem"
+        placeholder="新增事項"
+        @keydown.enter="add"
+        :style="{border: `5px solid ${borderColor}`}"
+      />
+      <input type="button" value="新增" @click="add" />
+
+      <hr />
+
+      <input type="button" value="全部標記成已完成" />
+      <input type="button" value="全部標記成未完成" />
+      <br />
+      <input type="button" value="顯示全部" />
+      <input type="button" value="顯示已完成" />
+      <input type="button" value="顯示未完成" />
+      <br />
+      <input type="button" value="清除全部" />
+      <input type="button" value="清除已完成" />
+      <input type="button" value="清除未完稱" />
+
+      <hr />
+      <p>目前顯示: ，共 個</p>
+      <ul>
+        <li v-for="(item, i) in items">
+          <del v-if="item.ok"
+            ><input type="checkbox" :value="item.ok" v-model="item.ok" />{{ item.name }}<input
+              type="button"
+              value="x"
+              @click="del(i)"
+          /></del>
+          <span v-else>
+            <input type="checkbox" :value="item.ok" v-model="item.ok" />
+            <span>{{ item.name }}</span>
+            <!-- <input type="text"> -->
+            <input type="button" value="x" @click="del(i)" />
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            newItem: '',
+            items: []
+          }
+        },
+        methods: {
+          add() {
+            if (this.newItem.length >= 2) {
+              this.items.push({
+                name: this.newItem,
+                ok: false,
+                editing: false
+              })
+
+              this.newItem = ''
+            } else {
+              alert('文字長度必須大於等於 2')
+            }
+          },
+          del(i) {
+            this.items.splice(i, 1)
+          }
+        },
+        computed: {
+          borderColor() {
+            return this.newItem.length === 0 ? 'black' : this.newItem.length > 2 ? 'blue' : 'red'
+          }
+        },
+        watch: {
+          items: {
+            deep: true,
+            handler(value) {
+              localStorage.setItem('HW_list', JSON.stringify(value))
+            }
+          }
+        },
+        mounted() {
+          this.items = JSON.parse(localStorage.getItem('HW_list')) || []
+        }
+      })
+    </script>
+  </body>
+</html>
