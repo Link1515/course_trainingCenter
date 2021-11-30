@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="py-5">
+    <div id="app">
+      <counter></counter>
+      <counter></counter>
+      <counter></counter>
+      <counter></counter>
+
+      <hr />
+
+      <div class="row">
+        <!-- 用標籤屬性將資料傳入元件 -->
+        <card title="標題" text="123456"></card>
+        <card v-for="card in cards" :title="card.title" :text="card.text"></card>
+      </div>
+
+      <hr />
+
+      <text-size :size="textSize" @change-size="handleChangeSize"></text-size>
+      <text-size :size="textSize" @change-size="handleChangeSize"></text-size>
+
+      <hr />
+
+      <text-size-sync :size.sync="textSize2"></text-size-sync>
+      <text-size-sync :size.sync="textSize2"></text-size-sync>
+
+      <hr />
+
+      <com1></com1>
+      <com2></com2>
+    </div>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 不能透過 src -->
+    <script type="text/x-template" id="counter">
+      <input type="button" :value="count" @click="count++">
+    </script>
+
+    <script type="text/x-template" id="card">
+      <div class="card col-3">
+        <div class="card-body">
+          <h5 class="card-title"> {{ title }}</h5>
+          <p class="card-text">{{ text }}</p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="text-size">
+      <div>
+        <p :style="{ fontSize: size + 'px'}">dfjkalfjlkdajfljf</p>
+        <input type="button" value="+" @click="changeSize(2)">
+        <input type="button" value="-" @click="changeSize(-2)">
+      </div>
+    </script>
+
+    <script type="text/x-template" id="text-size-sync">
+      <div>
+        <p :style="{ fontSize: size + 'px'}">ABCDEFG</p>
+        <input type="button" value="+" @click="syncSize += 2">
+        <input type="button" value="-" @click="syncSize -= 2">
+      </div>
+    </script>
+
+    <script type="text/x-template" id="com1">
+      <input type="button" @click=sayHi value="hi">
+    </script>
+
+    <script type="text/x-template" id="com2">
+      <p>{{ text }}</p>
+    </script>
+
+    <script>
+      // 事件傳遞的 Vue
+      const eventBus = new Vue()
+
+      // 定義元件
+      // Vue.component(元件名稱, {})
+      Vue.component('counter', {
+        // template 也可以直接寫 html
+        template: '#counter',
+        data() {
+          return {
+            count: 0
+          }
+        }
+      })
+
+      Vue.component('card', {
+        // template 也可以直接寫 html
+        template: '#card',
+        // 外層傳入的資料，只有在component會用到
+        // 只能寫入不能修改(修改要用其他方法)
+        props: {
+          // 資料名、預設值
+          title: {
+            type: String,
+            default: ''
+          },
+          text: {
+            type: String,
+            default: ''
+          }
+        }
+      })
+
+      Vue.component('text-size', {
+        template: '#text-size',
+        props: {
+          size: {
+            type: Number,
+            default: 16
+          }
+        },
+        methods: {
+          changeSize(value) {
+            // 這個元件觸發一個叫做 changeSize 的事件，並把 value 傳出去
+            this.$emit('change-size', value)
+          }
+        }
+      })
+
+      Vue.component('text-size-sync', {
+        template: '#text-size-sync',
+        props: {
+          size: {
+            type: Number,
+            default: 16
+          }
+        },
+        computed: {
+          syncSize: {
+            // 語法糖
+            // 產生 computed 值的 function
+            get() {
+              return this.size
+            },
+            // 當修改 computed 值時執行的 function
+            set(value) {
+              // 如果傳入的資料有 .sync，觸發的事件名稱固定是 update:props名
+              this.$emit('update:size', value)
+            }
+          }
+        }
+      })
+
+      Vue.component('com1', {
+        template: '#com1',
+        methods: {
+          sayHi() {
+            eventBus.$emit('hi', 'hi')
+          }
+        }
+      })
+
+      Vue.component('com2', {
+        template: '#com2',
+        data() {
+          return {
+            text: 0
+          }
+        },
+        mounted() {
+          eventBus.$on('hi', (value) => {
+            this.text = value
+          })
+        }
+      })
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            cards: [
+              { title: 'AAA', text: 'aaaaaaa' },
+              { title: 'BBB', text: 'bbbbbbb' }
+            ],
+            textSize: 20,
+            textSize2: 20
+          }
+        },
+        methods: {
+          handleChangeSize(value) {
+            this.textSize += value
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

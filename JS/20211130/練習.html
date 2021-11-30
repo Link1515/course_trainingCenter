@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>財哥檳榔攤</h1>
+      <p>你按了 {{ likeAmount }} 個讚</p>
+
+      <div style="display: flex; gap: 10px; text-align: center">
+        <card @like="recountLikeAmount" url="https://picsum.photos/300/300/?random=1" title="title1"></card>
+        <card @like="recountLikeAmount" url="https://picsum.photos/300/300/?random=2" title="title1"></card>
+        <card @like="recountLikeAmount" url="https://picsum.photos/300/300/?random=3" title="title1"></card>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script type="text/x-template" id="card">
+      <div style="border: 1px solid #000">
+        <img :src="url" width="200">
+        <h2>{{ title }}</h2>
+        <button @click="clickLike"> {{ btnText }}</button>
+      </div>
+    </script>
+
+    <script>
+      Vue.component('card', {
+        template: '#card',
+        props: {
+          title: {
+            type: String,
+            default: '標題'
+          },
+          url: {
+            type: String,
+            default: 'https://picsum.photos/300/300/?random=1'
+          }
+        },
+        data() {
+          return {
+            isLike: false,
+            btnText: '讚'
+          }
+        },
+        methods: {
+          clickLike() {
+            this.isLike = !this.isLike
+            this.$emit('like', this.isLike)
+          }
+        },
+        watch: {
+          isLike() {
+            this.isLike ? (this.btnText = '收回讚') : (this.btnText = '讚')
+          }
+        }
+      })
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            likeAmount: 0
+          }
+        },
+        methods: {
+          recountLikeAmount(value) {
+            value ? this.likeAmount++ : this.likeAmount--
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

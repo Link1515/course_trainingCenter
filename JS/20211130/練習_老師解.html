@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="text-center">一天不看難受，看難受一天</h1>
+      <p class="text-center">{{ totalLike }} 個讚</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-4" v-for="card in cards">
+            <card :img="card.img" :title="card.title" :like.sync="card.like"></card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script type="text/x-template" id="card">
+      <div class="card">
+        <img class="card-img-top" :src="img" >
+        <div class="card-body">
+          <h5 class="card-title">{{ title }}</h5>
+        </div>
+        <div class="card-footer">
+          <input type="button" :value="syncLike ? '收回讚' : '讚'" @click="syncLike = !syncLike" class="btn btn-primary">
+        </div>
+      </div>
+    </script>
+
+    <script>
+      Vue.component('card', {
+        template: '#card',
+        props: {
+          img: {
+            type: String,
+            default: ''
+          },
+          title: {
+            type: String,
+            default: ''
+          },
+          like: {
+            type: Boolean,
+            default: false
+          }
+        },
+        computed: {
+          syncLike: {
+            get() {
+              return this.like
+            },
+            set(value) {
+              this.$emit('update:like', value)
+            }
+          }
+        }
+      })
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            cards: [
+              {
+                img: 'https://picsum.photos/300/300/?random=1',
+                title: '標題1',
+                like: false
+              },
+              {
+                img: 'https://picsum.photos/300/300/?random=2',
+                title: '標題2',
+                like: false
+              },
+              {
+                img: 'https://picsum.photos/300/300/?random=3',
+                title: '標題3',
+                like: false
+              }
+            ]
+          }
+        },
+        computed: {
+          totalLike() {
+            return this.cards.filter((card) => {
+              return card.like
+            }).length
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
