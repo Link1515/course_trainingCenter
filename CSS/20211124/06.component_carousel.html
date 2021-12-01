@@ -8,41 +8,67 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <style>
       .box {
-        height: 600px;
+        width: 60%;
+        height: 500px;
+        margin: 0 auto;
+      }
+
+      .carousel-item {
+        transition: all 500ms cubic-bezier(0.505, -0.445, 0.365, 1.445); /* custom */
+      }
+
+      .carousel-control-prev {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent);
+      }
+
+      .carousel-control-next {
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.75), transparent);
+      }
+
+      .carousel-inner {
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+      }
+
+      .carousel-indicators [data-bs-target] {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-indent: 0;
+        margin: 0 6px;
       }
     </style>
   </head>
   <body>
-    <h2>carousel</h2>
+    <h2 class="text-center my-3">carousel</h2>
 
     <!-- .carousel-dark 暗色控制器 -->
     <!-- .carousel-fade 淡入淡出 -->
     <!--  data-bs-interval="" 調整輪播間隔時間 -->
 
     <div class="box">
-      <div id="coustomCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
+      <div id="coustomCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="0" class="active">壹</button>
+          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="1">貳</button>
+          <button type="button" data-bs-target="#coustomCarousel" data-bs-slide-to="2">參</button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner h-100">
           <!-- 可以個別指定 data-bs-interval="" -->
-          <div class="carousel-item active">
+          <div class="carousel-item active h-100">
             <img class="d-block w-100" src="https://picsum.photos/800/600/?random=1" />
             <div class="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item h-100">
             <img class="d-block w-100" src="https://picsum.photos/800/600/?random=2" />
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item h-100">
             <img class="d-block w-100" src="https://picsum.photos/800/600/?random=3" />
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>

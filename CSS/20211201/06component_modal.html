@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+      crossorigin="anonymous"
+    />
+    <style>
+      .animation__duration {
+        animation-duration: 0.5s;
+      }
+
+      .fade {
+        transition-duration: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>互動視窗</h1>
+      <h2>觸發按鈕</h2>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+      <div class="row">
+        <div class="col">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linkModal">
+            made by button
+          </button>
+          <a href="#linkModal" class="btn btn-primary" data-bs-toggle="modal">made by a tag</a>
+        </div>
+      </div>
+
+      <hr />
+
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Launch static backdrop modal
+      </button>
+
+      <hr />
+
+      <h3>modal 垂直置中</h3>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#centeredModal">
+        Launch static backdrop modal
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="linkModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">im modal</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Static Modal -->
+    <div
+      class="modal fade animate__animated animation__duration"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- center Modal -->
+    <div class="modal fade" id="centeredModal" data-bs-keyboard="false" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias aliquid harum quo exercitationem
+              deserunt quaerat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quae. Minima laudantium
+              deleniti quam labore inventore consequatur rem ab incidunt eaque recusandae pariatur eos illum, commodi
+              quaerat ipsum qui? Blanditiis fugiat eum libero qui incidunt tenetur totam alias vel deleniti, eaque
+              delectus, voluptates ea, rem repellat accusantium cum minus sequi voluptas corrupti vitae rerum
+              reprehenderit! Explicabo modi aliquam nesciunt suscipit nemo expedita, voluptatem non in voluptate? Nam id
+              similique odit eveniet corrupti fugit sunt, sint aliquam, suscipit totam repellat quisquam itaque! Ipsum
+              illum repellendus, minus provident saepe unde tempore quae eligendi. Deserunt sunt labore quos nesciunt
+              mollitia est rerum illo. Nihil soluta quae quaerat. Explicabo mollitia pariatur voluptate. Est delectus,
+              quasi officia voluptatibus quaerat quia reiciendis natus libero voluptas odio veritatis molestias
+              architecto corporis aperiam nisi exercitationem dolorem assumenda. Molestiae delectus error optio
+              temporibus qui? Nobis, debitis perspiciatis est labore quos aut quaerat optio vitae quisquam suscipit
+              fugiat! Harum provident debitis, est amet repudiandae nemo esse, alias et quia impedit quidem sequi animi
+              veritatis cumque tempora, magni delectus ipsam. Nostrum unde quo, rem magnam mollitia aperiam suscipit et
+              molestiae fugiat quae, exercitationem autem adipisci error quibusdam dolor delectus, amet ullam minus
+              deleniti. Distinctio, perspiciatis fuga numquam quo tenetur at, facilis magnam esse blanditiis iste
+              eveniet ea obcaecati. Pariatur nobis, accusamus a, debitis deserunt repellat velit laborum numquam odit
+              alias est sapiente tempore. Impedit ipsa debitis, rerum nobis aut dolor odio voluptates, quae omnis
+              pariatur asperiores quos. Mollitia ex velit quibusdam assumenda, voluptatibus impedit. Dicta officiis quia
+              repellat dolorum expedita quas in iure ad. Dolore, necessitatibus dolores impedit voluptatibus alias
+              voluptas eos perferendis quis magnam atque accusantium iusto exercitationem, quia rem consequuntur hic
+              iure quasi magni neque cum natus! Porro officiis officia sint ducimus. Ratione cupiditate corrupti aliquam
+              dolorem aspernatur eligendi commodi veniam quis hic perferendis aliquid animi amet adipisci nesciunt,
+              tenetur omnis explicabo error, a magnam modi quaerat. Sint, architecto dignissimos iusto hic velit
+              deleniti eius nobis distinctio. Soluta fugit facilis id numquam! Dolorum repellat doloribus modi rem
+              soluta quia alias tempora officia velit, molestias quae beatae labore pariatur natus odit incidunt
+              voluptas, quibusdam temporibus, consectetur libero quis reprehenderit. Sequi, voluptatem distinctio.
+              Nesciunt, maiores laborum suscipit consectetur minima libero. Reiciendis recusandae perferendis quo
+              officiis labore optio corporis soluta voluptate molestias excepturi deserunt nobis minima corrupti, illo,
+              sapiente reprehenderit, dolor delectus molestiae odit tempore eos? Quae quos amet sequi. Sapiente nostrum
+              ipsum dolore perferendis necessitatibus vitae, totam soluta dolor corporis possimus debitis, accusantium,
+              repellat laborum ea quas dolorem inventore cum iste asperiores eligendi voluptatibus sit tenetur odio. Eos
+              provident obcaecati iusto commodi eaque perferendis veritatis tenetur explicabo. Ipsam, saepe! Perferendis
+              quaerat delectus tempore mollitia dolore est iste libero, asperiores pariatur repellat voluptatem dolor ex
+              nam suscipit ut incidunt accusamus esse vel quam modi fugiat quibusdam quidem quisquam? Deleniti dolorum
+              eveniet minima earum iure magnam unde autem aliquid maiores, aspernatur culpa neque pariatur tempore vero,
+              quidem labore atque dignissimos illum voluptatibus nulla amet ipsum tempora voluptatem? Voluptatum vel
+              perspiciatis fuga nam placeat rem. Alias eius dolor doloribus sunt, cumque rerum laudantium harum.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ************ javascript ************** -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const staticBackdrop = document.querySelector('#staticBackdrop')
+
+      staticBackdrop.addEventListener('show.bs.modal', () => {
+        changeAnimate('animate__bounceIn', 'animate__bounceOut')
+      })
+      staticBackdrop.addEventListener('hide.bs.modal', () => {
+        changeAnimate('animate__bounceOut', 'animate__bounceIn')
+      })
+
+      function changeAnimate(addAmi, removeAni) {
+        staticBackdrop.classList.remove(removeAni)
+        staticBackdrop.classList.add(addAmi)
+      }
+    </script>
+  </body>
+</html>
