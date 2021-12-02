@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        padding-bottom: 200px;
+      }
+
+      .container,
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>導覽與頁籤</h1>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <nav class="nav">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled">Disabled</a>
+      </nav>
+
+      <hr />
+
+      <h2>分頁標籤</h2>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>膠囊狀</h2>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>填充和對齊</h2>
+      <h3>.nav-fill</h3>
+      <p>
+        .nav 內容有兩種寬度擴展用的 Class，使用 .nav-fill 會將 .nav-item
+        內容按照比例分配空間。注意，這會佔用所有的水平空間，但並不是每個導覽項目都具有相同寬度。
+      </p>
+      <p>.nav-fill 是 flex: 1 1 auto => flex: auto => flex-grow: 1</p>
+      <div class="row gy-3">
+        <div class="col-12">
+          <h4>.nav-fill 在 .nav-tabs</h4>
+          <ul class="nav nav-tabs nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Lorem, ipsum.1111</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem, ipsum dolor.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Lorem, ipsum.</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12">
+          <h4>.nav-fill 在 .nav-pill</h4>
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Lorem, ipsum.1111</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem, ipsum dolor.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Lorem, ipsum.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <h3>.nav-justified</h3>
+      <p>
+        創建等寬元素請使用 .nav-justified。 所有的水平空間將被導覽連結佔據，但與上面的 .nav-fill
+        不同，每個導覽項都將是相同的寬度。
+      </p>
+      <p>flex-basis: 0</p>
+      <div class="row gy-3">
+        <div class="col-12">
+          <h4>.nav-justified 在 .nav-tabs</h4>
+          <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Lorem, ipsum.1111</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem, ipsum dolor.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Lorem, ipsum.</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12">
+          <h4>.nav-justified 在 .nav-pill</h4>
+          <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Lorem, ipsum.1111</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Lorem, ipsum dolor.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Lorem, ipsum.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>下拉選單</h2>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
+            >Dropdown</a
+          >
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>JS行為</h2>
+      <ul class="nav nav-pills" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#html" type="button">html</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#css" type="button">css</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#javascript" type="button">javascript</button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane p-3 fade show active" id="html" role="tabpanel">
+          超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。
+        </div>
+        <div class="tab-pane p-3 fade" id="css" role="tabpanel">
+          階層式樣式表（英語：Cascading Style
+          Sheets，縮寫：CSS；又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表）是一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。
+        </div>
+        <div class="tab-pane p-3 fade" id="javascript" role="tabpanel">
+          JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、頭等函式的語言
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>垂直膠囊</h2>
+      <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button
+            class="nav-link active"
+            id="v-pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-home"
+            type="button"
+            role="tab"
+          >
+            Home
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-profile-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-profile"
+            type="button"
+            role="tab"
+          >
+            Profile
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-messages-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-messages"
+            type="button"
+          >
+            Messages
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-settings-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-settings"
+            type="button"
+          >
+            Settings
+          </button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-home">
+            1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel et, totam esse incidunt cumque debitis ad
+            eius harum voluptas quasi consequuntur sunt ab. Error ab delectus vel numquam nulla veritatis!
+          </div>
+          <div class="tab-pane fade" id="v-pills-profile">
+            2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel et, totam esse incidunt cumque debitis ad
+            eius harum voluptas quasi consequuntur sunt ab. Error ab delectus vel numquam nulla veritatis!
+          </div>
+          <div class="tab-pane fade" id="v-pills-messages">
+            3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel et, totam esse incidunt cumque debitis ad
+            eius harum voluptas quasi consequuntur sunt ab. Error ab delectus vel numquam nulla veritatis!
+          </div>
+          <div class="tab-pane fade" id="v-pills-settings">
+            4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel et, totam esse incidunt cumque debitis ad
+            eius harum voluptas quasi consequuntur sunt ab. Error ab delectus vel numquam nulla veritatis!
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <h2 id="jsSetting">使用JS</h2>
+      <ul class="nav nav-pills" id="JStab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a href="#a1" class="nav-link active">HTML</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a href="#a2" class="nav-link">CSS</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a href="#a3" class="nav-link">JS</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane p-3 fade show active" id="a1">
+          超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。
+        </div>
+        <div class="tab-pane p-3 fade" id="a2">
+          階層式樣式表（英語：Cascading Style
+          Sheets，縮寫：CSS；又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表）是一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。
+        </div>
+        <div class="tab-pane p-3 fade" id="a3">
+          JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、頭等函式的語言
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.js"
+      integrity="sha512-GQk/YTeRwD0dTnM//plfcWnGTGqGt0FB33mRTcbcuVneAi5ZrdOA28EpJltqF9lwr/0jRUEcE6yYV7duc1MEVw=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const tabs = document.querySelectorAll('#JStab a')
+      const header = document.querySelector('#jsSetting')
+
+      tabs.forEach((tab) => {
+        const tabBS = new bootstrap.Tab(tab)
+        tab.addEventListener('click', function (e) {
+          e.preventDefault()
+          tabBS.show()
+        })
+
+        tab.addEventListener('show.bs.tab', (e) => {
+          header.style.color = '#f00'
+        })
+
+        tab.addEventListener('shown.bs.tab', (e) => {
+          setTimeout((e) => {
+            header.style.color = ''
+          }, 1000)
+        })
+      })
+
+      tabs
+    </script>
+  </body>
+</html>
