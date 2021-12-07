@@ -2,7 +2,7 @@
 <div id="app">
   <b-navbar toggleable="lg" type="dark" variant="info">
     <b-container>
-      <b-navbar-brand to="/">購物商城</b-navbar-brand>
+      <b-navbar-brand to="/" class="mr-auto mr-lg-0">購物商城</b-navbar-brand>
       <b-btn to="/cart" class="order-lg-12">
         <font-awesome-icon :icon="['fas', 'shopping-cart']" class="mr-1" /><b-badge class="ml-1" variant="danger">{{ cartAmount }}</b-badge>
       </b-btn>
