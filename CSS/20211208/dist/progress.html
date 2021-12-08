@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous">
+    <style>
+      #step .progress-bar{
+        background-color: purple;
+      }
+      
+      #step .progress-bar.active ~ .progress-bar{
+        background-color: #999;
+      }
+      
+    </style>
+  </head>
+  <body> 
+    <div class="container my-3"> 
+      <h1>進度條</h1>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"></div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 25%">25%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 50%">50%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%">75%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%">100%</div>
+      </div>
+      <hr>
+      <h1>條紋式進度條</h1>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped"></div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-success progress-bar-striped" style="width: 25%">25%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-info progress-bar-striped" style="width: 50%">50%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-warning progress-bar-striped" style="width: 75%">75%</div>
+      </div>
+      <div class="progress mt-3">
+        <div class="progress-bar bg-danger progress-bar-striped" style="width: 100%">100%</div>
+      </div>
+      <hr>
+      <h1>動畫</h1>
+      <div class="progress"> 
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%;"></div>
+      </div>
+      <hr>
+      <h1>多個進度條</h1>
+      <div class="progress">
+        <div class="progress-bar" style="width: 15%"></div>
+        <div class="progress-bar bg-success" style="width: 30%"></div>
+        <div class="progress-bar bg-info" style="width: 20%"></div>
+      </div>
+      <div class="progress mt-5" id="step" style="height: 30px">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟一</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated active" style="width: 20%">步驟二</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟三</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">步驟四</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 20%">完成</div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.js" integrity="sha512-GQk/YTeRwD0dTnM//plfcWnGTGqGt0FB33mRTcbcuVneAi5ZrdOA28EpJltqF9lwr/0jRUEcE6yYV7duc1MEVw==" crossorigin="anonymous"></script>
+  </body>
+</html>

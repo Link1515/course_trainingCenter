@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous">
+  </head>
+  <body> 
+    <div class="container"> 
+      <h1>toasts</h1>
+      <button class="btn btn-primary" id="liveToastBtn" type="button">Show live toast</button>
+      <hr>
+      <button class="btn_mult btn btn-primary" type="button">Show live toast 1</button>
+      <button class="btn_mult btn btn-primary" type="button">Show live toast 2</button>
+      <button class="btn_mult btn btn-primary" type="button">Show live toast 3</button>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div class="toast" id="liveToast" data-bs-delay="2000">
+        <div class="toast-header"><img class="rounded me-2" src="https://picsum.photos/20/20"><strong class="me-auto">Bootstrap</strong><small>11 mins ago</small>
+          <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div class="toast" id="toast1">
+        <div class="toast-header"><img class="rounded me-2" src="..." alt="..."><strong class="me-auto">Bootstrap</strong><small class="text-muted">just now</small>
+          <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">See? Just like this.</div>
+      </div>
+      <div class="toast" id="toast2">
+        <div class="toast-header"><img class="rounded me-2" src="..." alt="..."><strong class="me-auto">Bootstrap</strong><small class="text-muted">2 seconds ago</small>
+          <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">Heads up, toasts will stack automatically</div>
+      </div>
+      <div class="toast" id="toast3">
+        <div class="toast-header"><img class="rounded me-2" src="..." alt="..."><strong class="me-auto">Bootstrap</strong><small class="text-muted">2 seconds ago</small>
+          <button class="btn-close" type="button" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">Heads up, toasts will stack automatically</div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.js" integrity="sha512-GQk/YTeRwD0dTnM//plfcWnGTGqGt0FB33mRTcbcuVneAi5ZrdOA28EpJltqF9lwr/0jRUEcE6yYV7duc1MEVw==" crossorigin="anonymous"></script>
+    <script>
+      const toastTrigger = document.getElementById('liveToastBtn')
+      const toastLiveExample = document.getElementById('liveToast')
+      if (toastTrigger) {
+        toastTrigger.addEventListener('click', function () {
+          const toast = new bootstrap.Toast(toastLiveExample)
+      
+          toast.show()
+        })
+      }
+      //- 
+      const btnMult = document.querySelectorAll('.btn_mult')
+      for(let i = 0; i < btnMult.length; i++){
+        btnMult[i].addEventListener('click', () => {
+          const toast = new bootstrap.Toast(document.querySelector(`#toast${i+1}`), {
+            delay: 1000
+          })
+          
+          console.log(toast)
+          toast.show()
+        })
+      }
+    </script>
+  </body>
+</html>
