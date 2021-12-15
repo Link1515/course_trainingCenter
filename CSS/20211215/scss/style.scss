@@ -1,0 +1,641 @@
+*,
+*::before,
+*::after {
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0d6efd;
+  --secondary: #6c757d;
+  --success: #198754;
+  --info: #0dcaf0;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}
+
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$white: #ffffff;
+
+$defaultColor: blue;
+$defaultColor: red !default;
+$defaultColor: green;
+
+// 全域變數
+$width: 200px;
+
+.foo {
+  // 區域變數
+  $width: 100px;
+}
+
+$gradient: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255));
+$border: 5p solid #fff;
+$border-radius: 0.5rem;
+$padding: 0.5rem 0.5rem;
+$margin-bottom: 1rem;
+$shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+
+h1 {
+  background: $gradient;
+  color: $white;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $padding;
+  box-shadow: $shadow;
+  margin-bottom: $margin-bottom;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+// 流程控制
+
+$number: 2;
+.mybox {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @if ($number == 1) {
+    background-color: red;
+  } @else if $number == 2 {
+    background-color: blue;
+  } @else {
+    background-color: green;
+  }
+
+  // 判斷會通過
+  @if (10 == 10px) {
+    font-style: italic;
+  }
+
+  @if (hello == 'hello') {
+    box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @if (10 == 10px and hello == 'hello') {
+    border-radius: 1rem;
+  }
+
+  // 沒有 || 必須使用 or 關鍵字
+
+  @if (10 == 10px or hello == 'helloll') {
+    border: 5px dotted #fa0;
+  }
+
+  $var1: true;
+  outline: if($var1 == true, 10px solid green, 10px solid #aaa);
+}
+
+// @for ... through
+// 包含 end
+@for $i from 1 through 3 {
+  .through-#{$i} {
+    width: 50px * $i;
+    height: 50px * $i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+}
+
+@for $i from 1 to 3 {
+  .to-#{$i} {
+    width: 50px * $i;
+    height: 50px * $i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+}
+
+#section05 {
+  p {
+    border-bottom: 1px solid #000;
+  }
+
+  .menu {
+    margin-top: 2rem;
+    font-size: 0;
+    li {
+      display: inline-block;
+      font-size: 1rem;
+      width: 100px;
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      background: black;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+
+      &:hover {
+        color: yellow;
+        background: darkmagenta;
+      }
+    }
+  }
+}
+
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+// BEM 巢狀寫法，使用 &
+.sidebar {
+  display: flex;
+  &__item {
+    color: red;
+    padding: 1rem;
+    border: 1px solid #333;
+    text-decoration: none;
+
+    &--active {
+      color: yellow;
+      background-color: black;
+    }
+  }
+}
+
+#exercise {
+  img {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .col {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+
+    &:hover {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+// extend
+
+.extend {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+%extend {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.box1 {
+  @extend %extend;
+  background-color: green;
+}
+
+.box2 {
+  @extend %extend;
+  background-color: red;
+}
+
+.box3 {
+  @extend %extend;
+  background-color: blue;
+}
+
+// 計算
+.box4 {
+  background-color: #000;
+  // 加法
+  width: 50px + 50px;
+  width: 50px + 50; // 可以有單位 +- 無單位
+  // 減法
+  width: 100px - 50px;
+  width: 100 - 50px;
+  // 乘法
+  width: 50px * 2;
+  // 除法 數字要用()，變數不用
+  // 分子分母都有相同單位會消去
+  width: (100px / 2px);
+  $a: 100px;
+  $b: 2;
+  width: $a / $b;
+  $c: 10px;
+  $d: 10px;
+  line-height: $c / $d;
+  // 餘數
+  margin-top: 20px % 100;
+
+  // calc 函式使用變數時，要用插值語法
+  $var2: 20px;
+  $var3: 1vw;
+  margin-bottom: calc(#{$var2} + #{$var3});
+}
+
+// 函數
+@function randomFont() {
+  $result: random(3);
+  @if ($result == 1) {
+    @return 20px;
+  } @else if($result == 2) {
+    @return 40px;
+  } @else {
+    @return 60px;
+  }
+}
+
+@function boxLength1($length, $base) {
+  @return $length * $base * 1px;
+}
+
+@function boxLength2($length: 100, $base: 1) {
+  @return $length * $base * 1px;
+}
+
+@function rem($px) {
+  @if (unit($px) == 'px') {
+    @return ($px / 16px) * 1rem;
+  } @else {
+    @return ($px / 16) * 1rem;
+  }
+}
+
+.ranFZ {
+  font-size: randomFont();
+  width: 100px;
+  height: 100px;
+  color: white;
+  width: boxLength1(100, 2);
+  height: boxLength2();
+}
+
+.rem {
+  font-size: rem(16px);
+  font-size: rem(48);
+}
+
+// 計算字體大小
+$baseFontSize: 14px;
+$size: 2px;
+
+@function fontSize($level: 1) {
+  @if ($level < 0) {
+    $level: 1;
+  }
+
+  @return round($baseFontSize + $size * $level);
+}
+
+// 計算行高
+$lineHeightLevel: 1.5;
+
+@function lineHeight($fontSize) {
+  @return ceil($fontSize * $lineHeightLevel);
+}
+
+@function col-width($col-count) {
+  @return (100% / $col-count);
+}
+
+@function gray($level: 0%) {
+  @return darken(#fff, $level);
+}
+
+.ppp {
+  font-size: fontSize(3);
+  line-height: lineHeight(fontSize(2));
+  background-color: gray(10%);
+  // 只有純白或純黑可以在0~100%之間條調整
+  color: lighten(black, 10%);
+  color: mix(#fa0, #0fa, 55%);
+}
+
+// mixin
+@mixin mixinTry() {
+  width: 100px;
+  height: 100px;
+  background-color: #333;
+}
+
+.mixinTry {
+  @include mixinTry();
+}
+
+@mixin box($width, $height, $bg, $border, $outline: 10px dashed pink) {
+  width: $width;
+  height: $height;
+  background: $bg;
+  border: $border;
+  outline: $outline;
+}
+
+@mixin flex($main, $cross) {
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+// @include 時，參數沒有使用不能省略，要使用null
+.boxflex {
+  @include box(100px, 100px, null, 5px solid #333);
+  @include flex(center, center);
+}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  padding: 0.5rem;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.3rem -0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 0.25rem;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+@mixin btn-set($bg-color) {
+  & {
+    @include box-shadow;
+    background-color: $bg-color;
+  }
+
+  &:hover {
+    @if ($bg-color == #000) {
+      background-color: lighten($bg-color, 10%);
+    } @else {
+      background-color: darken($bg-color, 10%);
+    }
+  }
+}
+
+.btn-primary {
+  @include btn-set($primary);
+}
+
+.btn-dark {
+  @include btn-set(#000);
+}
+
+.btn-success {
+  @include btn-set($success);
+}
+
+.btn-danger {
+  @include btn-set($danger);
+}
+
+@mixin box-shadow($width, $height, $shadows...) {
+  width: $width;
+  height: $shadow;
+  box-shadow: $shadows;
+  text-shadow: nth($shadows, 2);
+}
+
+.box-shadow {
+  @include box-shadow(100px, 100px, 0 0 10px blue, 0 0 20px red);
+}
+
+%box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+@mixin build-step($selectors...) {
+  @for $i from 1 through length($selectors) {
+    .#{nth($selectors, $i)} {
+      @extend %box;
+      background: rgb(random(255), random(255), random(255));
+    }
+  }
+}
+
+@include build-step('b1', 'b2', 'b3', 'b4', 'b5');
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+#section10 {
+  .container {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+  }
+
+  .col + .col {
+    margin-top: 20px;
+  }
+
+  @include sm {
+    .container {
+      width: 75%;
+    }
+
+    .col {
+      width: 50%;
+    }
+
+    .col + .col {
+      margin-top: 0;
+    }
+  }
+  @include md {
+    .col {
+      width: 33.333%;
+    }
+  }
+  @include lg {
+    .col {
+      width: 25%;
+    }
+  }
+  @include xl {
+    .col {
+      width: 20%;
+    }
+  }
+  @include xxl {
+    .col {
+      width: 10%;
+    }
+  }
+}
+
+$width_list: 100px, 200px, 300px;
+$margin_list: 10px 20px 30px 40px;
+$bgColor_list: red, green, blue;
+$zindex_list: 1 2 3 4;
+$border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
+
+.list {
+  width: nth($width_list, 1);
+  width: nth($width_list, 2);
+  width: nth($width_list, 3);
+}
+
+.index {
+  line-height: index($width_list, 100px);
+  line-height: index($width_list, 200px);
+  line-height: index($width_list, 300px);
+}
+
+.length {
+  z-index: length($bgColor_list);
+}
+
+@for $i from 1 through length($bgColor_list) {
+  .bg-#{nth($bgColor_list, $i)} {
+    background-color: nth($bgColor_list, $i);
+  }
+}
+@each $value in $bgColor_list {
+  .each-bg-#{$value} {
+    background-color: $value;
+  }
+}
+
+// Map
+$map1: (
+  primary: red,
+  secondary: green,
+  warning: blue
+);
+
+@each $key, $value in $map1 {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+$map2: (
+  size1: 100px,
+  size2: 200px,
+  size3: 300px
+);
+
+.map-keys {
+  color: map-keys($map2);
+}
+
+$map3: (
+  shadow1: 0 0 10 black,
+  shadow2: 0 0 20 black,
+  shadow3: 0 0 30 black
+);
+
+.map-value {
+  color: map-values($map3);
+}
+
+$i: 0;
+
+@each $value in map-values($map3) {
+  $i: $i + 1;
+  .w#{$i} {
+    box-shadow: $value;
+  }
+}
+
+$map4: (
+  default: (
+    width: 100px,
+    height: 100px
+  ),
+  box1: (
+    width: 200px,
+    height: 200px
+  ),
+  box2: (
+    width: 300px,
+    height: 300px
+  )
+);
+
+@each $key, $value in $map4 {
+  $width: map-get($value, width);
+  $height: map-get($value, height);
+  .btn-#{$key} {
+    width: $width;
+    height: $height;
+  }
+}

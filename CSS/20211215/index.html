@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/style.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="section01">
+      <div class="container">
+        <h1>01 Sass 介紹</h1>
+        <p>Sass 是 CSS 的預處理器，目的在減少CSS的重工，以及更有效率維護樣式結構，他須進行編譯</p>
+        <p>Sass 可以使用變數、函數、流程控制、嵌套、繼承、混入等功能</p>
+      </div>
+    </section>
+
+    <section id="section02">
+      <div class="container">
+        <h1>02. Sass 的資料型態</h1>
+        <ol>
+          <li>1. number: 數字有分有單位與無單位</li>
+          <li>2. String: 字串分有無引號</li>
+          <li>3. color: blue, #04a3f9</li>
+          <li>4. boolean: ture / false</li>
+          <li>5. null</li>
+          <li>6. list(像陣列): 用半形空格或逗號做為區隔</li>
+          <li>7. map(像物件): 類似 JS 物件</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="section03">
+      <div class="container">
+        <h1>03. 變數</h1>
+        <p>宣告使用 $ ，在大括號裡面的為區域變數，寫在最外面為全域變數</p>
+        <p>變數的 _ 與 - 可以互換使用，如 $bg-dark 與 $bg_dark 是一樣的變數</p>
+        <p>!default 是預設，若變數前後已經被賦值，會引用套用的值，!default 就不會被套用</p>
+        <p>使用變數可以維持網站一致性，節省修改成本</p>
+      </div>
+    </section>
+
+    <section id="section04">
+      <div class="container">
+        <h1>04. 流程控制</h1>
+        <h3>@if / @else if / @else</h3>
+        <p>可以省略小括號</p>
+        <div class="mybox">123456</div>
+        <h3>@for 迴圈有兩種 through 與 to</h3>
+        <div class="through-1"></div>
+        <div class="through-2"></div>
+        <div class="through-3"></div>
+
+        <div class="to-1"></div>
+        <div class="to-2"></div>
+      </div>
+    </section>
+
+    <section id="section05">
+      <div class="container">
+        <h1>05. 嵌套巢狀</h1>
+        <p>& 表示父層選擇器</p>
+        <ul class="menu">
+          <li><a href="#">LINK</a></li>
+          <li><a href="#">LINK</a></li>
+          <li><a href="#">LINK</a></li>
+          <li><a href="#">LINK</a></li>
+          <li><a href="#">LINK</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="exercise">
+      <div class="container">
+        <h2>練習: 使用巢狀建立三欄結構</h2>
+        <div class="row">
+          <div class="col">
+            <img src="https://picsum.photos/400/300/?random=1" />
+            <h2><a href="#">Title Link</a></h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium assumenda officia tempore facilis
+              deserunt a tempora! Dicta reiciendis accusamus, corrupti ex aspernatur fugiat, eos pariatur eum dolores
+              dolorum temporibus eaque.
+            </p>
+          </div>
+          <div class="col">
+            <img src="https://picsum.photos/400/300/?random=1" />
+            <h2><a href="#">Title Link</a></h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium assumenda officia tempore facilis
+              deserunt a tempora! Dicta reiciendis accusamus, corrupti ex aspernatur fugiat, eos pariatur eum dolores
+              dolorum temporibus eaque.
+            </p>
+          </div>
+          <div class="col">
+            <img src="https://picsum.photos/400/300/?random=1" />
+            <h2><a href="#">Title Link</a></h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium assumenda officia tempore facilis
+              deserunt a tempora! Dicta reiciendis accusamus, corrupti ex aspernatur fugiat, eos pariatur eum dolores
+              dolorum temporibus eaque.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section06">
+      <div class="container">
+        <h1>06. Extend(繼承)</h1>
+        <p>可以使用CSS選擇器，或用 % 佔位選擇器</p>
+        <p>extend 無參數，mixin 有參數</p>
+        <div id="extend" class="clearfix">
+          <div class="box1"></div>
+          <div class="box2"></div>
+          <div class="box3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section07">
+      <div class="container">
+        <h1>計算</h1>
+        <div class="box4"></div>
+      </div>
+    </section>
+
+    <section id="section08">
+      <div class="container">
+        <h1>函式</h1>
+        <p class="ranFZ">123</p>
+        <p class="ppp">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id dolorum tempora dolore similique! Tempora aliquam
+          nostrum neque id alias! Explicabo, blanditiis voluptatibus magni amet facere voluptas sit ex esse quaerat.
+        </p>
+        <div class="box4"></div>
+      </div>
+    </section>
+
+    <section id="section09">
+      <div class="container">
+        <h1>09. Mixin(混入)</h1>
+        <h2>flexbox</h2>
+        <div class="boxflex">Hello</div>
+        <h2>使用 mixin 建立按鈕</h2>
+        <a class="btn btn-dark" href="#">按鈕</a>
+        <a class="btn btn-primary" href="#">按鈕</a>
+        <a class="btn btn-success" href="#">按鈕</a>
+        <a class="btn btn-danger" href="#">按鈕</a>
+
+        <h2>mixins 多參數 + for: 建立不同顏色的盒子</h2>
+        <p>多參數(...)時，參數會以 list 資料型態帶入</p>
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+        <div class="b5"></div>
+      </div>
+    </section>
+
+    <section id="section10">
+      <div class="container">
+        <h1>10. 使用 mixin + @content 來設計 RWD</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet veniam, natus, repudiandae molestias
+          corrupti perspiciatis qui excepturi provident rem voluptatibus minima explicabo accusamus laudantium ullam
+          incidunt voluptates. Optio, dicta consequuntur?
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
