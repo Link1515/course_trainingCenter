@@ -1,0 +1,24 @@
+// Partials 概念為拆分 SCSS 檔案組合成自己的 SCSS 結構
+// 1. 在 SCSS 中會以 _ 方式來為 particals 檔案命名
+
+// 函數
+@import 'functions';
+
+// 變數
+@import 'variables';
+
+// 混入
+@import 'mixins';
+
+// 重置
+@import 'reset';
+
+// 元件
+@import 'components';
+
+// 布局
+@import 'layout';
+
+.color {
+  color: $primary;
+}

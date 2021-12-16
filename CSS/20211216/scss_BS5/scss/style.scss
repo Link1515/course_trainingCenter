@@ -1,0 +1,122 @@
+@import './functions';
+@import './variables';
+@import './mixins';
+@import './vendor/rfs';
+
+.container{
+  margin-bottom: 2rem;
+}
+
+h1 {
+  border-bottom: 2px solid #333;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.box1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 100px;
+}
+
+.custom-color-1 {
+  color: $gray-300;
+  color: map-get($grays, '300');
+  color: $blue-100;
+}
+
+// 內建函數 mix()
+.mix-ligth-color {
+  background: mix(white, red, 10%);
+}
+
+.mix-dark-color {
+  background: mix(black, green, 10%);
+}
+
+// bs5 自訂函數
+.tint-color {
+  background: $primary;
+  background: tint-color($primary, 50%);
+}
+
+.shade-color {
+  background: $primary;
+  background: shade-color($primary, 50%);
+}
+
+#section01{
+  .myClass-1{
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  @include media-breakpoint-up(sm){
+    .myClass-1{
+      background: yellow;
+    }
+  }
+  @include media-breakpoint-up(md){
+    .myClass-1{
+      background: orange;
+    }
+  }
+  @include media-breakpoint-up(lg){
+    .myClass-1{
+      background: blue;
+    }
+  }
+  @include media-breakpoint-up(xl){
+    .myClass-1{
+      background: green;
+    }
+  }
+}
+
+#section01{
+  .myClass-2{
+    width: 100px;
+    height: 100px;
+    background: black;
+  }
+  @include media-breakpoint-down(sm){
+    .myClass-2{
+      background: cyan;
+    }
+  }
+}
+
+#section01{
+  .myClass-3{
+    width: 100px;
+    height: 100px;
+    background: #fa0;
+  }
+  @include media-breakpoint-between(md, xl){
+    .myClass-3{
+      background: #0fa;
+    }
+  }
+}
+
+
+.rwd-font-1 {
+  @include rfs(1.5rem !important);
+}
+
+.rwd-font-2 {
+  @include font-size(1.5rem !important);
+}
+
+.rwd-font-3 {
+  font-size: rfs-fluid-value(1.5rem !important);
+}
+
+.selector {
+  @include rfs(4rem, border-radius);
+}
+
