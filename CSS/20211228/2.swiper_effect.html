@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <style>
+      :root {
+        --swiper-theme-color: white;
+      }
+
+      body {
+        padding-bottom: 100px;
+      }
+
+      .container {
+        margin-bottom: 20px;
+      }
+
+      #fadeSwiper.swiper {
+        width: 100%;
+        height: 400px;
+      }
+
+      #cubeSwiper.swiper {
+        width: 400px;
+        height: 400px;
+      }
+
+      #coverflowSwiper.swiper {
+        width: 100%;
+        height: 400px;
+      }
+
+      #coverflowSwiper .swiper-slide {
+        width: 300px;
+        height: 300px;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Effect</h1>
+      <h2>fade</h2>
+      <div id="fadeSwiper" class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <hr />
+
+      <h2>cube</h2>
+      <div id="cubeSwiper" class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <hr />
+
+      <h2>coverflow</h2>
+      <div id="coverflowSwiper" class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper('#fadeSwiper', {
+        effect: 'fade',
+        loop: true,
+        speed: 3000,
+        autoplay: {
+          delay: 5000
+        },
+
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      });
+
+      new Swiper('#cubeSwiper', {
+        effect: 'cube',
+        grabCursor: true,
+        loop: true,
+        cubeEffect: {
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      });
+
+      new Swiper('#coverflowSwiper', {
+        loop: true,
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      });
+    </script>
+  </body>
+</html>
