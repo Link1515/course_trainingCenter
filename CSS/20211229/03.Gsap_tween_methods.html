@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
+
+      .wrap {
+        width: 600px;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px;
+        background: #000;
+      }
+
+      button {
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        margin-top: 24px;
+      }
+
+      .box1 {
+        width: 50px;
+        height: 50px;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>13. tween 的方法</h3>
+      <div style="background-color: #eee">
+        <div class="box1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4>控制動畫的方法</h4>
+          <button id="play" class="btn btn-outline-primary">play</button>
+          <button id="reverse" class="btn btn-outline-primary">reverse</button>
+          <button id="pause" class="btn btn-outline-primary">pause</button>
+          <button id="resume" class="btn btn-outline-primary">resume</button>
+          <button id="restart" class="btn btn-outline-primary">restart</button>
+          <label for="seek">seek</label>
+          <input id="seek" type="range" value="0" />
+
+          <h4>延遲、重複方法</h4>
+          <button id="delay" class="btn btn-outline-warning">delay</button>
+          <button id="repeat" class="btn btn-outline-warning">repeat</button>
+          <button id="repeatDelay" class="btn btn-outline-warning">repeatDelay</button>
+
+          <h4>進度相關方法</h4>
+          <button id="progress" class="btn btn-outline-success">progress</button>
+          <button id="time" class="btn btn-outline-success">time</button>
+          <button id="duration" class="btn btn-outline-success">duration</button>
+          <button id="timeScale" class="btn btn-outline-success">timeScale</button>
+
+          <h4>其他方法</h4>
+          <button id="targets" class="btn btn-outline-secondary">targets</button>
+          <button id="iteration" class="btn btn-outline-secondary">iteration</button>
+        </div>
+        <div class="col">
+          <h4>狀態</h4>
+          <p id="paused-text">puased 狀態(動畫目前是否暫停)</p>
+          <p id="reversed-text">reversed 狀態(是否反向進行中)</p>
+          <p id="isActive-text">isActive 狀態(動畫是否進行中)</p>
+
+          <hr />
+
+          <h4>進度</h4>
+          <p id="progress-text">progress:</p>
+          <p id="totalProgress-text">total progress:</p>
+          <p id="time-text">time:</p>
+          <p id="totalTime-text">total time:</p>
+          <p id="duration-text">duration:</p>
+          <p id="totalDuration-text">total duration:</p>
+
+          <hr />
+
+          <h4>其他</h4>
+          <div id="iteration-text">iteration:</div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/gsap.js"></script>
+    <script>
+      const tweenText = {
+        paused: 'paused 狀態(動畫目前是否暫停)',
+        reversed: 'reversed 狀態(是否反向進行中)',
+        isActive: 'isActive 狀態(動畫是否進行中)'
+      };
+
+      function resultStr(text, condition) {
+        return `${text}: &nbsp;<span class="badge ${condition ? 'bg-primary' : 'bg-danger'}">${condition}</span>`;
+      }
+
+      function refreshState(obj) {
+        $('#paused-text').html(resultStr(tweenText.paused, obj.paused()));
+        $('#reversed-text').html(resultStr(tweenText.reversed, obj.reversed()));
+        $('#isActive-text').html(resultStr(tweenText.isActive, obj.isActive()));
+      }
+
+      const tween = gsap.to('.box1', {
+        x: $('.container').width() - $('.box1').width(),
+        duration: 5,
+        paused: true,
+        reversed: false,
+        ease: 'none',
+        onUpdate() {
+          refreshState(tween);
+          $('#seek')[0].value = this.time();
+
+          $('#progress-text').text('progress: ' + this.progress().toFixed(2));
+          $('#totalProgress-text').text('total progress: ' + this.totalProgress().toFixed(2));
+
+          $('#time-text').text('time: ' + this.time().toFixed(2));
+          $('#totalTime-text').text('total time: ' + this.totalTime().toFixed(2));
+
+          $('#duration-text').text('duration: ' + this.duration().toFixed(2));
+          $('#totalDuration-text').text('total duration: ' + this.totalDuration().toFixed(2));
+        },
+        onStart() {
+          $('#iteration-text').text(`interation: 播放第${this.iteration()}次`);
+        },
+        onRepeat() {
+          $('#iteration-text').text(`interation: 播放第${this.iteration()}次`);
+        }
+      });
+
+      console.log(tween);
+      refreshState(tween);
+
+      $('#play').on('click', function () {
+        tween.play();
+        // tween.play(2); // 指定從哪個時間開始撥放
+      });
+
+      $('#reverse').on('click', function () {
+        // tween.reverse();
+        // tween.reverse(2); // 指定從哪個時間開始反向撥放
+        tween.reversed(!tween.reversed());
+        refreshState(tween);
+      });
+
+      $('#pause').on('click', function () {
+        tween.pause();
+        refreshState(tween);
+      });
+
+      $('#resume').on('click', function () {
+        tween.resume();
+        refreshState(tween);
+      });
+
+      $('#restart').on('click', function () {
+        tween.restart(); // 可以傳參數， true代表考慮 delay
+        refreshState(tween);
+      });
+
+      $('#seek').attr('min', 0);
+      $('#seek').attr('max', tween.duration());
+      $('#seek').attr('step', 0.1);
+      $('#seek').on('input', function () {
+        tween.seek(+$('#seek').val()); // 可以傳參數， true代表考慮 delay
+        refreshState(tween);
+      });
+
+      $('#delay').on('click', function () {
+        tween.play().delay(3);
+        refreshState(tween);
+      });
+
+      $('#repeat').on('click', function () {
+        tween.play().repeat(1);
+        refreshState(tween);
+      });
+
+      $('#repeatDelay').on('click', function () {
+        tween.repeatDelay(3);
+        tween.play().repeat(1);
+        refreshState(tween);
+      });
+
+      $('#progress').on('click', function () {});
+      $('#time').on('click', function () {});
+      $('#duration').on('click', function () {});
+      $('#timeScale').on('click', function () {
+        tween.timeScale(5);
+      });
+    </script>
+  </body>
+</html>
