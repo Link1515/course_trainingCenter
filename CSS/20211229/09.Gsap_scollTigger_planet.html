@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- js extension -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/gsap.js"></script>
+    <script src="./js/ScrollTrigger.js"></script>
+
+    <style>
+      body {
+        height: 100vh;
+        /* background-color: #000; */
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="bg" class="position-fixed" style="z-index: -1">
+      <div style="width: 130%; height: 130%">
+        <div class="position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5)"></div>
+        <img class="w-100" src="./images/nebula.jpg" />
+      </div>
+    </section>
+
+    <section id="section01" class="vh-100"></section>
+
+    <section id="section02" class="py-5">
+      <div class="container text-white">
+        <h1 class="main_title text-center">Main Title</h1>
+        <div class="row my-5">
+          <div class="col-2">
+            <img class="img01" src="https://picsum.photos/200/200/?random=1" />
+          </div>
+          <div class="col-10">
+            <div class="txt01">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae voluptatibus esse, expedita quisquam
+              ducimus doloribus unde ea beatae iusto, praesentium, libero similique natus in animi! Facilis praesentium
+              beatae nostrum adipisci alias tempora culpa distinctio, aliquid temporibus vel error magnam, voluptatibus,
+              nulla consequatur nihil aspernatur dignissimos eligendi eius eos. Iusto voluptatum qui eius earum porro
+              tempore molestias doloremque, quidem blanditiis ea reprehenderit ab harum beatae ratione sed! Perferendis
+              id iusto unde ab vero deleniti incidunt voluptates. Maiores vero culpa optio inventore. Dolore libero
+              neque qui maxime, apsa. Autem deserunt animi vitae, voluptatem temporibus maxime quibusdam necessitatibus
+              labore dolore quae cum sit? Quaerat accusantium nostrum quasi? Consectetur alias ut aliquid voluptate nam
+              nulla at fugiat, non labore similique, amet explicabo debitis odit sit saepe molestiae. Quae,
+              necessitatibus ab blanditiis, ea eveniet dicta et minima facilis soluta debitis tenetur eligendi beatae!
+              Repellendus nihil placeat commodi optio impedit, nesciunt vitae eum quae voluptate quia accusamus et
+              tempore dicta ipsum, dolor consectetur. Ullam ipsum, at aspernatur minima, expedita aliquid sunt error
+              odit atque, dolore au
+            </div>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-10">
+            <div class="txt02">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae voluptatibus esse, expedita quisquam
+              ducimus doloribus unde ea beatae iusto, praesentium, libero similique natus in animi! Facilis praesentium
+              beatae nostrum adipisci alias tempora culpa distinctio, aliquid temporibus vel error magnam, voluptatibus,
+              nulla consequatur nihil aspernatur dignissimos eligendi eius eos. Iusto voluptatum qui eius earum porro
+              tempore molestias doloremque, quidem blanditiis ea reprehenderit ab harum beatae ratione sed! Perferendis
+              id iusto unde ab vero deleniti incidunt voluptates. Maiores vero culpa optio inventore. Dolore libero
+              neque qui maxime, assumenda alias fuga optio voluptates repellat delectus deleniti et, sit explicabo totam
+              vero exercitationem ipsa. Autem deserunt animi vitae, voluptatem temporibus maxime quibusdam
+            </div>
+          </div>
+          <div class="col-2">
+            <img class="img02" src="https://picsum.photos/200/200/?random=2" />
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-2">
+            <img class="img03" src="https://picsum.photos/200/200/?random=3" />
+          </div>
+          <div class="col-10">
+            <div class="txt03">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae voluptatibus esse, expedita quisquam
+              ducimus doloribus unde ea beatae iusto, praesentium, libero similique natus in animi! Facilis praesentium
+              beatae nostrum adipisci alias tempora culpa distinctio, aliquid temporibus vel error magnam, voluptatibus,
+              nulla consequatur nihil aspernatur dignissimos eligendi eius eos. Iusto voluptatum qui eius earulis soluta
+              debitis tenetur eligendi beatae! Repellendus nihil placeat commodi optio impedit, nesciunt vitae eum quae
+              voluptate quia accusamus et tempore dicta ipsum, dolor consectetur. Ullam ipsum, at aspernatur minima,
+              expedita aliquid sunt error odit atque, dolore autem natus sit id! Id a laborum consequuntur facere!
+              Deserunt odit atque hic tempore corporis laboriosam sint iusto velit voluptates nemo ex ratione, error
+              reprehenderit nesciunt culpa officiis harum soluta aliquid? Asperiores ex dolorem sapiente aut facere quo
+              vero. Blanditiis, aliquam. Quidem autem repudiandae nisi! Rem culpa odio debitis doloribus eum officiis
+              labore, qui neque, nulla est repellendus excepturi dolorum quos quis? Totam quas libero, unde eum odio
+              minus sit impedit corrupti fuga quasi labore mollitia minima inventore praesentium ducimus velit,
+              quibusdam nam quo ad fugit Corporis consequatur illo
+            </div>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-10">
+            <div class="txt04">
+              Quidem autem repudiandae nisi! Rem culpa odio debitis doloribus eum officiis labore, qui neque, nulla est
+              repellendus excepturi dolorum quos quis? Totam quas libero, unde eum odio minus sit impedit corrupti fuga
+              quasi labore mollitia minima inventore praesentium ducimus velit, quibusdam nam quo ad fugit rem at id
+              assumenda. Tempora blanditiis aliquam dolorem iusto eaque similique, dolor debitis dignissimos nesciunt
+              magni! Asperiores magni optio necessitatibus, illum recusandae fugiat tempora cupiditate veritatis,
+              obcaecati qui commodi nam ullam vitae sit sint ratione enim laudantium maiores maxime repellat cumque. Id
+              corrupti autem placeat obcaecati maiores architecto incidunt voluptatem repellat porro ipsum ex, commodi,
+              rem nisi vel nobis praesentium, neque facere optio voluptatibus nulla. Corporis consequatur illo
+              repudiandae magni minus aliquid in ad officiis. Labore, deserunt provident ipsa fuga amet ratione deleniti
+              corporis fugiat porro suscipit. Odio iure omnis iste aliquam, sapiente quos possimus error in.
+            </div>
+          </div>
+          <div class="col-2">
+            <img class="img04" src="https://picsum.photos/200/200/?random=4" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section03" class="vh-100 position-relative">
+      <img class="parallax01" src="./images/planet-01.png" />
+      <img class="parallax02" src="./images/planet-02.png" />
+      <img class="parallax03" src="./images/planet-03.png" />
+    </section>
+
+    <script>
+      const sections = gsap.utils.toArray('section');
+      const tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#section02',
+          start: 'top 70%',
+          end: 'bottom 70%',
+          toggleActions: 'play none reverse none',
+          scrub: 1
+          // markers: true
+        },
+        defaults: {
+          duration: 1,
+          ease: 'power1'
+        }
+      });
+
+      tl1
+        .from('.main_title', {
+          y: -100,
+          opacity: 0
+        })
+        .from('.img01', {
+          x: -1000
+        })
+        .from(
+          '.txt01',
+          {
+            opacity: 0
+          },
+          '-=0.5'
+        )
+        .from(
+          '.img02',
+          {
+            x: '+=1000'
+          },
+          '-=0.5'
+        )
+        .from(
+          '.txt02',
+          {
+            opacity: 0
+          },
+          '-=0.5'
+        )
+        .from('.img03', {
+          x: -1000
+        })
+        .from(
+          '.txt03',
+          {
+            opacity: 0
+          },
+          '-=0.5'
+        )
+        .from(
+          '.img04',
+          {
+            x: '+=1000'
+          },
+          '-=0.5'
+        )
+        .from(
+          '.txt04',
+          {
+            opacity: 0
+          },
+          '-=0.5'
+        );
+
+      // 滾動視差 parallax
+      // 銀河背景
+      gsap.to('#bg', {
+        scrollTrigger: {
+          trigger: 'body',
+          start: '0% 0%',
+          end: () => $(document).height(),
+          scrub: 1
+          // markers: true
+        },
+        yPercent: -20,
+        ease: 'none'
+      });
+
+      // 中央大星球
+      gsap.set('.parallax01', {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        margin: 'auto',
+        width: '60%'
+      });
+      // 來回漂浮
+      gsap.to('.parallax01', {
+        yPercent: 10,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+
+      // 左邊星球
+      // 中央大星球
+      gsap.set('.parallax02', {
+        position: 'absolute',
+        left: '5%',
+        bottom: '10%',
+        margin: 'auto',
+        width: '30%'
+      });
+      // 來回漂浮
+      gsap.to('.parallax02', {
+        yPercent: -30,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+
+      gsap.to('.parallax02', {
+        scrollTrigger: {
+          trigger: '#section03',
+          start: 'top 50%',
+          end: 'bottom 50%',
+          scrub: 3,
+          markers: true
+        },
+        bottom: '20%'
+      });
+
+      // 右邊星球
+      // 中央大星球
+      gsap.set('.parallax03', {
+        position: 'absolute',
+        right: '5%',
+        bottom: '10%',
+        margin: 'auto',
+        width: '30%'
+      });
+      // 來回漂浮
+      gsap.to('.parallax03', {
+        yPercent: 50,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+
+      gsap.to('.parallax03', {
+        scrollTrigger: {
+          trigger: '#section03',
+          start: 'top 50%',
+          end: 'bottom 50%',
+          scrub: 3,
+          markers: true
+        },
+        bottom: '50%'
+      });
+    </script>
+  </body>
+</html>
