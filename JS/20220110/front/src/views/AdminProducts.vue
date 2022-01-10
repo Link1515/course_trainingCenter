@@ -1,6 +1,6 @@
 <template lang="pug">
 #adminproduct
-  b-btn.my-5(block variant='success' v-b-modal.model-product) 新增
+  b-btn.my-5(block variant='success' v-b-modal.modal-product) 新增
   b-table(:items="products" :fields="fields" ref="table")
     template(#cell(image)="data")
       img(v-if="data.item.image" :src="data.item.image" style="height: 50px;")
@@ -8,7 +8,7 @@
       | {{ data.item.sell ? 'v' : '' }}
     template(#cell(action)="data")
       b-btn(variant="success" @click="editProduct(data.index)") 編輯
-  b-modal#model-product(
+  b-modal#modal-product(
     :title="form._id.length > 0 ? '編輯商品' : '新增商品'"
     centered
     ok-varient="success"
@@ -207,7 +207,6 @@ export default {
   },
   async created () {
     try {
-      console.log(this.user)
       const { data } = await this.api.get('/products/all', {
         headers: {
           authorization: 'Bearer ' + this.user.token
