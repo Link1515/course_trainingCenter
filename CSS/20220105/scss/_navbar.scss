@@ -22,7 +22,7 @@
       background: rgba(50, 30, 0, 0.75);
     }
 
-    &:active {
+    &.active {
       font-weight: bolder;
       color: yellow;
       background: rgba(50, 30, 0, 0.75);
@@ -61,11 +61,11 @@
       position: relative;
     }
 
-    .nav-item + .nav-item {
+    .nav-item+.nav-item {
       margin-left: 5px;
     }
 
-    .nav-item + .nav-item::before {
+    .nav-item+.nav-item::before {
       content: '';
       width: 2px;
       height: 20px;
