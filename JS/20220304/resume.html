@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ count }}
+    <input type="button" value="+" @click='plus'>
+    <input type="button" value="-" @click='minus'>
+    <hr>
+    <input type="text" v-model='newitem' @keydown.enter='additem'>
+    <input type="button" value="+" @click="additem">
+    <br>
+    <input type="text" v-model='keyword'>
+    <ul>
+      <li v-for="item in filterList" :key="item.id">
+        <a :href="item.text">{{ item.text }}</a>
+        <input type="button" value="x" @click="del(item)">
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { ref, reactive, computed, watch, onMounted } = Vue
+    Vue.createApp({
+      setup () {
+        // 測試
+        const count = ref(0)
+        const plus = () => {
+          count.value++
+        }
+        const minus = () => {
+          count.value--
+        }
+        // 履歷表
+        const list = reactive([
+          {"id":"0","text":"http://220.128.133.15/s1080110/"},
+          {"id":"1","text":"http://220.128.133.15/s1080318/"},
+          {"id":"2","text":"http://220.128.133.15/s1080102/"},
+          {"id":"3","text":"https://samlaiw.github.io/"},
+          {"id":"4","text":"https://joannchang0000.github.io/portfolio/"},
+          {"id":"5","text":"https://meteor0329.github.io/portfolio/"},
+          {"id":"6","text":"http://220.128.133.15/s1080411/portfolio/"},
+          {"id":"7","text":"https://jeffreyyau93.github.io/"},
+          {"id":"9","text":"http://220.128.133.15/s1080121/"},
+          {"id":"10","text":"http://220.128.133.15/s1080218/mypage/"},
+          {"id":"11","text":"https://nai0309.github.io/portfolio/"},
+          {"id":"12","text":"https://belleshih.github.io/HS_PORTFOLIO/"},
+          {"id":"13","text":"https://june930725.github.io/"},
+          {"id":"14","text":"https://ellallu0903.github.io/ "},
+          {"id":"15","text":"https://bolaslien.github.io/"},
+          {"id":"16","text":"https://stevenjhu.com/about-4/"},
+          {"id":"17","text":"https://www.cakeresume.com/kaworu750108?locale=zh-TW"},
+          {"id":"18","text":"https://www.cakeresume.com/bolaslien?locale=zh-TW"},
+          {"id":"19","text":"https://www.cakeresume.com/yunnjen-wang"},
+          {"id":"20","text":"https://www.cakeresume.com/kira-yama"},
+          {"id":"21","text":"https://www.cakeresume.com/naikyding"},
+          {"id":"22","text":"https://www.cakeresume.com/ya95123?locale=zh-TW"},
+          {"id":"23","text":"https://www.cakeresume.com/keiko870821?locale=zh-TW"},
+          {"id":"24","text":"https://www.cakeresume.com/alice31122?locale=zh-TW"},
+          {"id":"25","text":"https://www.cakeresume.com/shiebt-1026?locale=zh-TW"},
+          {"id":"26","text":"https://www.cakeresume.com/me/ss85120ss?locale=en"},
+          {"id":"27","text":"https://www.cakeresume.com/danny-6381d8"},
+          {"id":"28","text":"https://www.cakeresume.com/hilight0725?locale=zh-TW"},
+          {"id":"29","text":"https://www.cakeresume.com/boyen-jiang?locale=zh-TW"},
+          {"id":"30","text":"https://www.cakeresume.com/chang180?locale=zh-TW"}
+        ])
+        const newitem = ref('')
+        const keyword = ref('')
+        let id = 1
+
+        const additem = () => {
+          list.push({
+            id,
+            text: newitem.value
+          })
+          newitem.value = ''
+          id++
+        }
+
+        const del = (item) => {
+          const idx = list.findIndex(listiem => {
+            return listiem.id === item.id
+          })
+          if (idx > -1) {
+            list.splice(idx, 1)
+          }
+        }
+
+        const filterList = computed(() => {
+          return list.filter(item => {
+            return item.text.includes(keyword.value)
+          })
+        })
+
+        watch(list, () => {
+          localStorage.setItem('resume', JSON.stringify({ id, list }))
+        })
+
+        onMounted(() => {
+          const store = JSON.parse(localStorage.getItem('resume'))
+          if (store) {
+            id = store.id
+            console.log(store)
+            for (const item of store.list) {
+              list.push(item)
+            }
+          }
+        })
+
+        return {
+          count,
+          plus,
+          minus,
+          list,
+          newitem,
+          additem,
+          del,
+          keyword,
+          filterList
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

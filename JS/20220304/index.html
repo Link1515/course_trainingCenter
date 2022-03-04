@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" style="font-size: 5rem; text-align: center">
+      {{ count }}
+      <br />
+      <input type="button" value="-" @click="minus" />
+      <input type="button" value="+" @click="plus" />
+
+      <hr />
+
+      <input type="text" v-model="newItem" @keydown.enter="addItem" />
+      <br />
+      <input type="button" value="+" @click="addItem" />
+      <br />
+      <h4 style="margin-bottom: 0">搜尋</h4>
+      <input type="text" v-model="keyword" />
+      <ul>
+        <li v-for="item in filterList" :key="item.id">
+          {{ item.text }}
+          <input type="button" value="x" @click="del(item)" />
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const { ref, reactive, computed, watch, onMounted } = Vue;
+
+      Vue.createApp({
+        setup() {
+          // 測試
+          const count = ref(0);
+
+          const plus = () => {
+            count.value++;
+          };
+          const minus = () => {
+            count.value--;
+          };
+
+          // 履歷表
+          const list = reactive([]);
+          const newItem = ref('');
+          const keyword = ref('');
+          let id = 1;
+
+          const addItem = () => {
+            list.push({
+              id,
+              text: newItem.value
+            });
+
+            newItem.value = '';
+            id++;
+          };
+
+          const del = (item) => {
+            const idx = list.indexOf(item);
+            if (idx > -1) {
+              list.splice(idx, 1);
+            }
+          };
+
+          const filterList = computed(() => {
+            return list.filter((item) => {
+              return item.text.includes(keyword.value);
+            });
+          });
+
+          watch(list, () => {
+            localStorage.setItem('resume', JSON.stringify({ id, list }));
+          });
+
+          onMounted(() => {
+            const store = JSON.parse(localStorage.getItem('resume'));
+            if (store) {
+              id = store.id;
+              for (const item of store.list) {
+                list.push(item);
+              }
+            }
+          });
+
+          return {
+            count,
+            plus,
+            minus,
+            list,
+            newItem,
+            keyword,
+            addItem,
+            del,
+            filterList
+          };
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>
